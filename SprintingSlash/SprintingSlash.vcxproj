@@ -18,6 +18,26 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\gf2d_draw.h" />
+    <ClInclude Include="include\gf2d_graphics.h" />
+    <ClInclude Include="include\gf2d_sprite.h" />
+    <ClInclude Include="include\gf2d_text.h" />
+    <ClInclude Include="include\gf2d_types.h" />
+    <ClInclude Include="include\gf2d_vector.h" />
+    <ClInclude Include="include\simple_logger.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\game.c" />
+    <ClCompile Include="src\gf2d_draw.c" />
+    <ClCompile Include="src\gf2d_graphics.c" />
+    <ClCompile Include="src\gf2d_sprite.c" />
+    <ClCompile Include="src\gf2d_vector.c" />
+    <ClCompile Include="src\simple_logger.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Makefile" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DBD81369-570E-4FC0-AE99-A7CBFA8B3C6D}</ProjectGuid>
@@ -72,6 +92,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Users\Sayyid\2DProjects\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Users\Sayyid\2DProjects\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -89,9 +111,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\src;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\include;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\images;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -138,8 +163,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
