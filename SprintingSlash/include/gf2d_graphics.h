@@ -79,4 +79,18 @@ void gf2d_graphics_blit_surface_to_screen(SDL_Surface *surface,const SDL_Rect * 
  */
 SDL_Surface *gf2d_graphics_screen_convert(SDL_Surface **surface);
 
+/**
+* @brief Key Press surface constants
+*/
+enum KeyPressSurfaces
+{
+	KEY_PRESS_SURFACE_DEFAULT,
+	KEY_PRESS_SURFACE_UP,
+	KEY_PRESS_SURFACE_DOWN,
+	KEY_PRESS_SURFACE_LEFT,
+	KEY_PRESS_SURFACE_RIGHT,
+	KEY_PRESS_SURFACE_TOTAL
+};
+
+
 #endif
