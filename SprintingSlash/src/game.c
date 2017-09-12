@@ -9,11 +9,14 @@ int main(int argc, char * argv[])
     int done = 0;
     const Uint8 * keys;
     Sprite *sprite;
+	Sprite *player;
     
     int mx,my;
-    float mf = 0;
+	double playerScale = 0.5;
+    float mf = 0, pf = 0;
     Sprite *mouse;
-    Vector4D mouseColor = {255,100,255,200};
+    Vector4D mouseColor = {100, 100,255,200};
+	Vector4D playerColor = { 255, 255, 255, 255 };
     
     /*program initializtion*/
     init_logger("gf2d.log");
@@ -32,7 +35,13 @@ int main(int argc, char * argv[])
     
     /*demo setup*/
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
+	player = gf2d_sprite_load_image("images/players/redSquare.png");
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16);
+
+	/*Player Position*/
+	Vector2D playerPosition = { 0, 0 };
+	
+
     /*main game loop*/
     while(!done)
     {
@@ -40,14 +49,26 @@ int main(int argc, char * argv[])
         keys = SDL_GetKeyboardState(NULL); // get the keyboard state for this frame
         /*update things here*/
         SDL_GetMouseState(&mx,&my);
-        mf+=0.1;
+        mf += 0.1;
+		pf += 0.1;
         if (mf >= 16.0)mf = 0;
-        
+		if (pf >= 1.0)pf = 0;
         
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
             //backgrounds drawn first
             gf2d_sprite_draw_image(sprite,vector2d(0,0));
+
+			//player entity drawn
+			gf2d_sprite_draw(
+				player,
+				playerPosition,
+				NULL,
+				NULL,
+				NULL,
+				NULL,
+				&playerColor,
+				(int)pf);
             
             //UI elements last
             gf2d_sprite_draw(
@@ -59,6 +80,34 @@ int main(int argc, char * argv[])
                 NULL,
                 &mouseColor,
                 (int)mf);
+
+			//Player movement
+			
+			if (keys[SDL_SCANCODE_LEFT]) {
+				playerPosition.x -= 2;
+			}
+			if (keys[SDL_SCANCODE_RIGHT]) {
+				playerPosition.x += 2;
+			}
+			if (keys[SDL_SCANCODE_UP]) {
+				playerPosition.y -= 2;
+			}
+			if (keys[SDL_SCANCODE_DOWN]) {
+				playerPosition.y += 2;
+			}
+			/* collide with edges of screen */
+			if (playerPosition.x < 0) {
+				playerPosition.x = 0;
+			}
+			else if (playerPosition.x > 1200 - 32) {
+				playerPosition.x = 1200 - 32;
+			}
+			if (playerPosition.y < 0) {
+				playerPosition.y = 0;
+			}
+			else if (playerPosition.y > 720 - 32) {
+				playerPosition.y = 720 - 32;
+			}
         gf2d_grahics_next_frame();// render current draw frame and skip to the next frame
         
         if (keys[SDL_SCANCODE_ESCAPE])done = 1; // exit condition
