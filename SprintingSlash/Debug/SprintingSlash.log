@@ -1,5 +1,5 @@
 ﻿  game.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(52): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(53): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(57): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(58): warning C4305: '+=': truncation from 'double' to 'float'
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

@@ -35,11 +35,16 @@ int main(int argc, char * argv[])
     
     /*demo setup*/
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
-	player = gf2d_sprite_load_image("images/players/redSquare.png");
+	player = gf2d_sprite_load_all("images/players/redSquare.png",32, 32,1);
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16);
 
-	/*Player Position*/
+	/*Player Properties*/
 	Vector2D playerPosition = { 0, 0 };
+	int moveSpeed = 4;
+	int jumpSpeed = 20;
+	int sprint = 1;
+	int gravity = 5;
+	int grounded = 0;
 	
 
     /*main game loop*/
@@ -53,6 +58,12 @@ int main(int argc, char * argv[])
 		pf += 0.1;
         if (mf >= 16.0)mf = 0;
 		if (pf >= 1.0)pf = 0;
+
+		if(keys[SDL_SCANCODE_LSHIFT])
+			sprint = 2;
+		else 
+			sprint = 1;
+		
         
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
@@ -83,17 +94,22 @@ int main(int argc, char * argv[])
 
 			//Player movement
 			
-			if (keys[SDL_SCANCODE_LEFT]) {
-				playerPosition.x -= 2;
+			//gravity
+			playerPosition.y += gravity;
+			
+			if (keys[SDL_SCANCODE_A]) {
+				playerPosition.x -= (moveSpeed * sprint);
 			}
-			if (keys[SDL_SCANCODE_RIGHT]) {
-				playerPosition.x += 2;
+			if (keys[SDL_SCANCODE_D]) {
+				playerPosition.x += (moveSpeed * sprint);
 			}
-			if (keys[SDL_SCANCODE_UP]) {
-				playerPosition.y -= 2;
+			if (keys[SDL_SCANCODE_W]) {
+				if (grounded == 1) {
+					playerPosition.y -= (jumpSpeed * sprint);
+				}
 			}
-			if (keys[SDL_SCANCODE_DOWN]) {
-				playerPosition.y += 2;
+			if (keys[SDL_SCANCODE_S]) {
+				playerPosition.y += (moveSpeed * sprint);
 			}
 			/* collide with edges of screen */
 			if (playerPosition.x < 0) {
@@ -107,7 +123,12 @@ int main(int argc, char * argv[])
 			}
 			else if (playerPosition.y > 720 - 32) {
 				playerPosition.y = 720 - 32;
+				grounded = 1;
 			}
+			else {
+				grounded = 0;
+			}
+
         gf2d_grahics_next_frame();// render current draw frame and skip to the next frame
         
         if (keys[SDL_SCANCODE_ESCAPE])done = 1; // exit condition

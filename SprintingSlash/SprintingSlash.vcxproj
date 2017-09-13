@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\gf2d_entity.h" />
     <ClInclude Include="include\gf2d_draw.h" />
     <ClInclude Include="include\gf2d_graphics.h" />
     <ClInclude Include="include\gf2d_sprite.h" />
