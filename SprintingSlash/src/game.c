@@ -43,7 +43,7 @@ int main(int argc, char * argv[])
 	int moveSpeed = 4;
 	int jumpSpeed = 20;
 	int sprint = 1;
-	int gravity = 5;
+	int gravity = 1;
 	int grounded = 0;
 	
 
