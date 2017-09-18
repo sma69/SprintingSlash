@@ -3,12 +3,15 @@
 
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
+#include "gf2d_vector.h"
 
 
 
 /**
 @brief Entity manager functions to handle multiple entities in the world space
 */
+
+#define MAX_ENTITIES = 1024
 
 
 /**
@@ -34,13 +37,14 @@ typedef struct Entity_S
 	Uint32 refID;
 	Sprite * sprite;
 	Vector2D position;
-	Vector2D * scale;
-	Vector2D * scaleCenter;
-	Vector2D * rotation;
-	Vector2D * flip;
-	Vector4D * color;
+	Vector2D scale;
+	Vector2D scaleCenter;
+	Vector2D rotation;
+	Vector2D flip;
+	Vector4D color;
 	int * frame;
 	
+
 	//transformation values
 	Vector2D velocity;
 	int speed;
@@ -52,8 +56,12 @@ typedef struct Entity_S
 	int health;
 	int cd;
 
+	//state values
+	int inuse;
 
-
+	void (*think)(struct Entity_S *self); /**< makes the entity do an action in the worldspace */
+	void (*update)(struct Entity_S *self); /**< updates the entity in every frame of the game loop */
+	void (*touch)(struct Entity_S *self, struct Entity_S *other); /**< handles what happens on collision with other entities */
 
 }Entity;
 
@@ -65,16 +73,26 @@ typedef struct Player_S
 
 }Player;
 
+typedef struct Enemy_S
+{
+	Entity * ent;
+
+
+}Enemy;
+
 	//actor functions in game loop
-	void entity_manager_close();  /**< Closes the entity manager and frees all of the entities out of the list*/
-	void *ntity_manager_init();   /**< Initializes the entity manager */
+	void entity_manager_close();  /**< Closes the entity manager */
+	void entity_manager_init(Uint32 maxEntities);   /**< Initializes the entity manager */
+
 
 	void entity_draw(struct Entity_S *self);  /**< draws the entity into the world */
-	void entity_think(struct Entity_S *self); /**< makes the entity do an action in the worldspace */
-	void entity_update(struct Entity_S *self); /**< updates the entity in every frame of the game loop */
-	void entity_touch(struct Entity_S *self, struct Entity_S *other); /**< handles what happens on collision with other entities */
+	void entity_free(Entity *self);			  /**< Undraws the sprite of the entity in the world */
+	Entity *entity_new();					  /**< instantiates a new entity on function call */
+
+	//global entity functions
+	void entity_draw_all();					  /**< draws all of the listed entities into the world */
 
 
-
+	
 
 #endif

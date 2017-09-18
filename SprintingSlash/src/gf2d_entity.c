@@ -18,22 +18,18 @@ static EntityManager entityManager = { 0 };
 
 void entity_manager_close()
 {
+	int i;
 
-}
-
-void entity_draw(struct Entity_S *self)
-{
-	gf2d_sprite_draw(
-		&self->sprite,
-		self->position,
-		&self->scale,
-		&self->scaleCenter,
-		&self->rotation,
-		&self->flip,
-		&self->color,
-		&self->frame
-	);
-	return;
+	if (entityManager.entityList != 0)
+	{
+		for (i = 0; i < entityManager.maxEntities; i++)
+		{
+			entity_free(&entityManager.entityList[i]);
+		}
+		free(entityManager.entityList);
+	}
+	memset(&entityManager, 0, sizeof(EntityManager));
+	slog("Closed Entity Manager");
 }
 
 void entity_manager_init(Uint32 maxEntities)
@@ -58,3 +54,68 @@ void entity_manager_init(Uint32 maxEntities)
 	slog("entity system initialized");
 
 }
+
+void entity_draw(struct Entity_S *self)
+{
+	gf2d_sprite_draw(
+		self->sprite,
+		self->position,
+		&self->scale,
+		&self->scaleCenter,
+		&self->rotation,
+		&self->flip,
+		&self->color,
+		&self->frame
+	);
+	return;
+}
+
+void entity_free(Entity *self)
+{
+	int i;
+	if (!self)
+		return;
+	gf2d_sprite_free(self->sprite);
+	memset(self, 0, sizeof(Entity));
+}
+
+Entity *entity_new()
+{
+	int i;
+	for (i = 0; i < entityManager.maxEntities; i++)
+	{
+		if (entityManager.entityList[i].inuse == 0)
+		{
+			memset(&entityManager.entityList[i], 0, sizeof(Entity));
+			entityManager.entityList[i].refID = entityManager.incr++;
+			entityManager.entityList[i].inuse = 1;
+			vector2d_set(entityManager.entityList[i].scale,1,1);
+			entityManager.entityList[i].color = vector4d(1, 1, 1, 1);
+			return &entityManager.entityList[i];
+
+		}
+	}
+	return NULL;
+}
+
+void entity_think(struct Entity_S *self)
+{
+
+
+}
+
+void entity_draw_all()
+{
+	int i;
+	for (int i = 0; i < entityManager.maxEntities; i++)
+	{
+		if (entityManager.entityList[i].inuse = 0)
+			continue;
+		else
+			entity_draw(&entityManager.entityList[i]);
+	}
+}
+
+
+
+
