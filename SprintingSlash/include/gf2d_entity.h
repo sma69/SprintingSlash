@@ -58,6 +58,7 @@ typedef struct Entity_S
 
 	//state values
 	int inuse;
+	int dead;
 
 	void (*think)(struct Entity_S *self); /**< makes the entity do an action in the worldspace */
 	void (*update)(struct Entity_S *self); /**< updates the entity in every frame of the game loop */
@@ -83,7 +84,7 @@ typedef struct Enemy_S
 	//actor functions in game loop
 	void entity_manager_close();  /**< Closes the entity manager */
 	void entity_manager_init(Uint32 maxEntities);   /**< Initializes the entity manager */
-
+	
 
 	void entity_draw(struct Entity_S *self);  /**< draws the entity into the world */
 	void entity_free(Entity *self);			  /**< Undraws the sprite of the entity in the world */
@@ -91,7 +92,8 @@ typedef struct Enemy_S
 
 	//global entity functions
 	void entity_draw_all();					  /**< draws all of the listed entities into the world */
-
+	void entity_update_all();
+	void entity_think_all();
 
 	
 
