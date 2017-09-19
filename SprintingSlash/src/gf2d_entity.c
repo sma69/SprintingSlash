@@ -70,6 +70,30 @@ void entity_draw(struct Entity_S *self)
 	return;
 }
 
+void entity_update(Entity *self)
+{
+	if (!self)
+	{
+		slog("Entity Update Failed: Wrong Entity");
+		return;
+	}
+	if (!self->inuse)
+	{
+		slog("Entity Update Failed: Entity not in use");
+		return;
+	}
+	if (self->dead = 1)
+	{
+		entity_free(self);
+		return;
+	}
+	
+	if (self->update != NULL)
+	{
+		self->update(self);
+	}
+}
+
 void entity_free(Entity *self)
 {
 	int i;
@@ -98,11 +122,7 @@ Entity *entity_new()
 	return NULL;
 }
 
-void entity_think(struct Entity_S *self)
-{
 
-
-}
 
 void entity_draw_all()
 {
@@ -115,6 +135,32 @@ void entity_draw_all()
 			entity_draw(&entityManager.entityList[i]);
 	}
 }
+
+void entity_update_all()
+{
+	int i;
+	for (int i = 0; i < entityManager.maxEntities; i++)
+	{
+		if (entityManager.entityList[i].inuse = 0)
+			continue;
+		else
+			entity_update(&entityManager.entityList[i]);
+	}
+}
+
+void entity_think_all()
+{
+	int i;
+	for (int i = 0; i < entityManager.maxEntities; i++)
+	{
+		if (entityManager.entityList[i].inuse = 0)
+			continue;
+		else
+			entityManager.entityList->think(&entityManager.entityList[i]);
+	}
+}
+
+
 
 
 
