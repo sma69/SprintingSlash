@@ -2,14 +2,34 @@
 #include "gf2d_graphics.h"
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
+#include "gf2d_entity.h"
+
+
+Entity *player_init(Entity * self)
+{
+	
+	self->sprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
+	vector2d_set(self->position, 0, 0);
+	vector4d_set(self->color, 255, 255, 255, 255);
+	self->frame = 0;
+	return self;
+}
+
+
+
 
 int main(int argc, char * argv[])
 {
     /*variable declarations*/
     int done = 0;
     const Uint8 * keys;
-    Sprite *sprite;
-	Sprite *player;
+	entity_manager_init(1024);
+	
+    Sprite * sprite;
+	Entity * player = entity_new();
+	
+	
+
     
     int mx,my;
 	double playerScale = 0.5;
@@ -34,8 +54,11 @@ int main(int argc, char * argv[])
     SDL_ShowCursor(SDL_DISABLE);
     
     /*demo setup*/
+
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
-	player = gf2d_sprite_load_all("images/players/redSquare.png",32, 32,1);
+	//player initialization
+	player_init(player);
+
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16);
 
 	/*Player Properties*/
@@ -55,23 +78,25 @@ int main(int argc, char * argv[])
         /*update things here*/
         SDL_GetMouseState(&mx,&my);
         mf += 0.1;
-		pf += 0.1;
+		player->frame += 0.1;
         if (mf >= 16.0)mf = 0;
-		if (pf >= 1.0)pf = 0;
+		if (player->frame >= 1.0)player->frame = 0;
 
 		if(keys[SDL_SCANCODE_LSHIFT])
 			sprint = 2;
 		else 
 			sprint = 1;
 		
-        
+		entity_think_all();
+		entity_update_all();
+
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
             //backgrounds drawn first
             gf2d_sprite_draw_image(sprite,vector2d(0,0));
 
 			//player entity drawn
-			gf2d_sprite_draw(
+			/*gf2d_sprite_draw(
 				player,
 				playerPosition,
 				NULL,
@@ -80,7 +105,10 @@ int main(int argc, char * argv[])
 				NULL,
 				&playerColor,
 				(int)pf);
-            
+				*/
+			entity_draw_all();
+
+
             //UI elements last
             gf2d_sprite_draw(
                 mouse,
@@ -92,42 +120,43 @@ int main(int argc, char * argv[])
                 &mouseColor,
                 (int)mf);
 
+		
 			//Player movement
 			
 			//gravity
-			playerPosition.y += gravity;
-			
-			if (keys[SDL_SCANCODE_A]) {
-				playerPosition.x -= (moveSpeed * sprint);
-			}
-			if (keys[SDL_SCANCODE_D]) {
-				playerPosition.x += (moveSpeed * sprint);
-			}
-			if (keys[SDL_SCANCODE_W]) {
-				if (grounded == 1) {
-					playerPosition.y -= (jumpSpeed * sprint);
-				}
-			}
-			if (keys[SDL_SCANCODE_S]) {
-				playerPosition.y += (moveSpeed * sprint);
-			}
-			/* collide with edges of screen */
-			if (playerPosition.x < 0) {
-				playerPosition.x = 0;
-			}
-			else if (playerPosition.x > 1200 - 32) {
-				playerPosition.x = 1200 - 32;
-			}
-			if (playerPosition.y < 0) {
-				playerPosition.y = 0;
-			}
-			else if (playerPosition.y > 720 - 32) {
-				playerPosition.y = 720 - 32;
-				grounded = 1;
-			}
-			else {
-				grounded = 0;
-			}
+			//player->ent->position.y += gravity;
+			//
+			//if (keys[SDL_SCANCODE_A]) {
+			//	player->ent->position.x -= (moveSpeed * sprint);
+			//}
+			//if (keys[SDL_SCANCODE_D]) {
+			//	player->ent->position.x += (moveSpeed * sprint);
+			//}
+			//if (keys[SDL_SCANCODE_W]) {
+			//	if (grounded == 1) {
+			//		player->ent->position.y -= (jumpSpeed * sprint);
+			//	}
+			//}
+			//if (keys[SDL_SCANCODE_S]) {
+			//	player->ent->position.y += (moveSpeed * sprint);
+			//}
+			///* collide with edges of screen */
+			//if (player->ent->position.x < 0) {
+			//	player->ent->position.x = 0;
+			//}
+			//else if (playerPosition.x > 1200 - 32) {
+			//	player->ent->position.x = 1200 - 32;
+			//}
+			//if (player->ent->position.y < 0) {
+			//	player->ent->position.y = 0;
+			//}
+			//else if (player->ent->position.y > 720 - 32) {
+			//	player->ent->position.y = 720 - 32;
+			//	grounded = 1;
+			//}
+			//else {
+			//	grounded = 0;
+			//}
 
         gf2d_grahics_next_frame();// render current draw frame and skip to the next frame
         
