@@ -42,11 +42,12 @@ typedef struct Entity_S
 	Vector2D rotation;
 	Vector2D flip;
 	Vector4D color;
-	int * frame;
+	float frame;
 	
 
 	//transformation values
 	Vector2D velocity;
+	Vector2D acceleration;
 	int speed;
 	int jumpSpeed;
 	int sprint;
@@ -66,20 +67,7 @@ typedef struct Entity_S
 
 }Entity;
 
-//Player entity construct
-typedef struct Player_S
-{
-	Entity * ent;
 
-
-}Player;
-
-typedef struct Enemy_S
-{
-	Entity * ent;
-
-
-}Enemy;
 
 	//actor functions in game loop
 	void entity_manager_close();  /**< Closes the entity manager */

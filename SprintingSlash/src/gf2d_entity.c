@@ -67,7 +67,7 @@ void entity_draw(struct Entity_S *self)
 		&self->color,
 		&self->frame
 	);
-	return;
+	
 }
 
 void entity_update(Entity *self)
@@ -87,6 +87,10 @@ void entity_update(Entity *self)
 		entity_free(self);
 		return;
 	}
+
+	/*collision handles position and velocity*/
+	vector2d_add(self->velocity, self->velocity, self->acceleration);
+
 	
 	if (self->update != NULL)
 	{
@@ -114,7 +118,7 @@ Entity *entity_new()
 			entityManager.entityList[i].refID = entityManager.incr++;
 			entityManager.entityList[i].inuse = 1;
 			vector2d_set(entityManager.entityList[i].scale,1,1);
-			entityManager.entityList[i].color = vector4d(1, 1, 1, 1);
+			entityManager.entityList[i].color = vector4d(255, 255, 255, 255);
 			return &entityManager.entityList[i];
 
 		}
@@ -143,7 +147,7 @@ void entity_update_all()
 	{
 		if (entityManager.entityList[i].inuse = 0)
 			continue;
-		else
+		if (entityManager.entityList[i].think != NULL)
 			entity_update(&entityManager.entityList[i]);
 	}
 }
@@ -155,10 +159,11 @@ void entity_think_all()
 	{
 		if (entityManager.entityList[i].inuse = 0)
 			continue;
-		else
+		if (entityManager.entityList[i].think!=NULL)
 			entityManager.entityList->think(&entityManager.entityList[i]);
 	}
 }
+
 
 
 
