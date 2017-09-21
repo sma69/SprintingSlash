@@ -74,7 +74,7 @@ typedef struct Entity_S
 	void entity_manager_init(Uint32 maxEntities);   /**< Initializes the entity manager */
 	
 
-	void entity_draw(struct Entity_S *self);  /**< draws the entity into the world */
+	void entity_draw(Entity *self);  /**< draws the entity into the world */
 	void entity_free(Entity *self);			  /**< Undraws the sprite of the entity in the world */
 	Entity *entity_new();					  /**< instantiates a new entity on function call */
 

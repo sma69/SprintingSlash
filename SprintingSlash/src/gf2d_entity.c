@@ -55,7 +55,7 @@ void entity_manager_init(Uint32 maxEntities)
 
 }
 
-void entity_draw(struct Entity_S *self)
+void entity_draw(Entity *self)
 {
 	gf2d_sprite_draw(
 		self->sprite,
