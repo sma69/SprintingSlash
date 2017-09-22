@@ -7,22 +7,9 @@
 
 
 
-Entity *player_init()
-{
-	Entity * self;
-	self = entity_new();
 
-	if (!self)
-		slog("player does not exist\n");
-		return NULL;
 	
-	self->sprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
-	vector2d_set(self->position, 0, 0);
-	vector4d_set(self->color, 255, 255, 255, 255);
-	self->frame = 1;
-	slog("player spawned");
-	return self;
-}
+
 
 
 
@@ -67,8 +54,23 @@ int main(int argc, char * argv[])
 
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
 	//player initialization
+	
+	player = entity_new();
+
+	if (!player)
+	{
+		slog("player does not exist\n");
+		system("PAUSE");
+		return NULL;
+	}
+	player->sprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
+	vector2d_set(player->position, 0, 0);
+	vector4d_set(player->color, 255, 255, 255, 255);
+	player->frame = 1;
+	slog("player spawned");
+	
 	//playerSprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
-	player = player_init();
+	
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16);
 
 	/*Player Properties*/
@@ -90,7 +92,7 @@ int main(int argc, char * argv[])
         mf += 0.1;
 		pf += 0.1;
         if (mf >= 16.0)mf = 0;
-		if (pf >= 1.0)pf = 0;
+		if (player->frame >= 1.0)player->frame = 0;
 
 		if(keys[SDL_SCANCODE_LSHIFT])
 			sprint = 2;
@@ -106,17 +108,17 @@ int main(int argc, char * argv[])
             gf2d_sprite_draw_image(sprite,vector2d(0,0));
 
 			//player entity drawn
-			/*gf2d_sprite_draw(
-				playerSprite,
-				playerPosition,
-				NULL,
-				NULL,
-				NULL,
-				NULL,
-				&playerColor,
-				(int)pf);*/
+			//gf2d_sprite_draw(
+			//	player->sprite,
+			//	player->position,
+			//	NULL,
+			//	NULL,
+			//	NULL,
+			//	NULL,
+			//	&player->color,
+			//	(int)player->frame);
 				
-			entity_draw(player);
+			entity_draw_all();
 
 
             //UI elements last
@@ -133,40 +135,40 @@ int main(int argc, char * argv[])
 		
 			//Player movement
 			
-			////gravity
-			//playerPosition.y += gravity;
-			//
-			//if (keys[SDL_SCANCODE_A]) {
-			//	playerPosition.x -= (moveSpeed * sprint);
-			//}
-			//if (keys[SDL_SCANCODE_D]) {
-			//	playerPosition.x += (moveSpeed * sprint);
-			//}
-			//if (keys[SDL_SCANCODE_W]) {
-			//	if (grounded == 1) {
-			//		playerPosition.y -= (jumpSpeed * sprint);
-			//	}
-			//}
-			//if (keys[SDL_SCANCODE_S]) {
-			//	playerPosition.y += (moveSpeed * sprint);
-			//}
-			///* collide with edges of screen */
-			//if (playerPosition.x < 0) {
-			//	playerPosition.x = 0;
-			//}
-			//else if (playerPosition.x > 1200 - 32) {
-			//	playerPosition.x = 1200 - 32;
-			//}
-			//if (playerPosition.y < 0) {
-			//	playerPosition.y = 0;
-			//}
-			//else if (playerPosition.y > 720 - 32) {
-			//	playerPosition.y = 720 - 32;
-			//	grounded = 1;
-			//}
-			//else {
-			//	grounded = 0;
-			//}
+			//gravity
+			player->position.y += gravity;
+			
+			if (keys[SDL_SCANCODE_A]) {
+				player->position.x -= (moveSpeed * sprint);
+			}
+			if (keys[SDL_SCANCODE_D]) {
+				player->position.x += (moveSpeed * sprint);
+			}
+			if (keys[SDL_SCANCODE_W]) {
+				if (grounded == 1) {
+					player->position.y -= (jumpSpeed * sprint);
+				}
+			}
+			if (keys[SDL_SCANCODE_S]) {
+				player->position.y += (moveSpeed * sprint);
+			}
+			/* collide with edges of screen */
+			if (player->position.x < 0) {
+				player->position.x = 0;
+			}
+			else if (player->position.x > 1200 - 32) {
+				player->position.x = 1200 - 32;
+			}
+			if (player->position.y < 0) {
+				player->position.y = 0;
+			}
+			else if (player->position.y > 720 - 32) {
+				player->position.y = 720 - 32;
+				grounded = 1;
+			}
+			else {
+				grounded = 0;
+			}
 
         gf2d_grahics_next_frame();// render current draw frame and skip to the next frame
         

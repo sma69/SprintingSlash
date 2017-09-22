@@ -65,7 +65,7 @@ void entity_draw(Entity *self)
 		&self->rotation,
 		&self->flip,
 		&self->color,
-		&self->frame
+		(int)self->frame
 	);
 	
 }
