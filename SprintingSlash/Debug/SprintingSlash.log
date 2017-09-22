@@ -1,17 +1,7 @@
-﻿  gf2d_entity.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(25): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(53): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(65): warning C4133: 'function': incompatible types - from 'Vector2D *' to 'Vector3D *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(69): warning C4047: 'function': 'Uint32' differs in levels of indirection from 'float *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(69): warning C4024: 'gf2d_sprite_draw': different types for formal and actual parameter 8
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(103): warning C4101: 'i': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(113): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(118): warning C4244: '=': conversion from 'Uint64' to 'Uint32', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(134): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(133): warning C4101: 'i': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(146): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(145): warning C4101: 'i': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(158): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(157): warning C4101: 'i': unreferenced local variable
+﻿  game.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(64): warning C4047: 'return': 'int' differs in levels of indirection from 'void *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(92): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(93): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(24): warning C4101: 'playerSprite': unreferenced local variable
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)
