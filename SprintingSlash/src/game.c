@@ -55,26 +55,16 @@ int main(int argc, char * argv[])
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
 	//player initialization
 	
-	player = entity_new();
+	Vector2D playerPosition = { 0, 0 };
+	player = player_new(playerPosition);
 
-	if (!player)
-	{
-		slog("player does not exist\n");
-		system("PAUSE");
-		return NULL;
-	}
-	player->sprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
-	vector2d_set(player->position, 0, 0);
-	vector4d_set(player->color, 255, 255, 255, 255);
-	player->frame = 1;
-	slog("player spawned");
+
 	
 	//playerSprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
 	
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16);
 
 	/*Player Properties*/
-	Vector2D playerPosition = { 0, 0 };
 	int moveSpeed = 4;
 	int jumpSpeed = 20;
 	int sprint = 1;
