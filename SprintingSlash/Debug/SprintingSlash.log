@@ -1,7 +1,10 @@
-﻿  game.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(64): warning C4047: 'return': 'int' differs in levels of indirection from 'void *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(92): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(93): warning C4305: '+=': truncation from 'double' to 'float'
+﻿  gf2d_player.c
+  game.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(59): warning C4013: 'player_new' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(59): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(82): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(83): warning C4305: '+=': truncation from 'double' to 'float'
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(24): warning C4101: 'playerSprite': unreferenced local variable
+  Generating Code...
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

@@ -22,6 +22,7 @@
     <ClInclude Include="include\gf2d_entity.h" />
     <ClInclude Include="include\gf2d_draw.h" />
     <ClInclude Include="include\gf2d_graphics.h" />
+    <ClInclude Include="include\gf2d_player.h" />
     <ClInclude Include="include\gf2d_sprite.h" />
     <ClInclude Include="include\gf2d_text.h" />
     <ClInclude Include="include\gf2d_types.h" />
