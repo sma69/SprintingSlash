@@ -33,6 +33,12 @@ int main(int argc, char * argv[])
     Sprite *mouse;
     Vector4D mouseColor = {100, 100,255,200};
 	Vector4D playerColor = { 255, 255, 255, 255 };
+
+	//player animation vars
+	SDL_Rect playerRect;
+	int frameWidth, frameheight;
+	int textureWidth, textureHeight;
+
     
     /*program initializtion*/
     init_logger("gf2d.log");
@@ -55,7 +61,7 @@ int main(int argc, char * argv[])
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
 	//player initialization
 	
-	Vector2D playerPosition = { 0, 0 };
+	Vector2D playerPosition = { 10, 10 };
 	player = player_new(playerPosition);
 
 
@@ -68,7 +74,7 @@ int main(int argc, char * argv[])
 	int moveSpeed = 4;
 	int jumpSpeed = 20;
 	int sprint = 1;
-	int gravity = 1;
+	int gravity = 0;
 	int grounded = 0;
 	
 
@@ -80,9 +86,9 @@ int main(int argc, char * argv[])
         /*update things here*/
         SDL_GetMouseState(&mx,&my);
         mf += 0.1;
-		pf += 0.1;
+		player->frame += 0.03;
         if (mf >= 16.0)mf = 0;
-		if (player->frame >= 1.0)player->frame = 0;
+		if (player->frame >= 6.0)player->frame = 0;
 
 		if(keys[SDL_SCANCODE_LSHIFT])
 			sprint = 2;

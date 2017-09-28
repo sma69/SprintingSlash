@@ -3,6 +3,10 @@
 
 #include "gf2d_entity.h"
 
+
+/**
+@brief  Initializes player entity
+*/
 Entity *player_new(Vector2D Position);
 
 
