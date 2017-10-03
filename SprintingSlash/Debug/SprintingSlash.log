@@ -1,13 +1,3 @@
-﻿  game.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(65): warning C4013: 'player_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(65): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(88): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(89): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(39): warning C4101: 'frameheight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(40): warning C4101: 'textureWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(39): warning C4101: 'frameWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(40): warning C4101: 'textureHeight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(24): warning C4101: 'playerSprite': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(38): warning C4101: 'playerRect': unreferenced local variable
+﻿  gf2d_player.c
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

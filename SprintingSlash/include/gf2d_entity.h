@@ -48,7 +48,12 @@ typedef struct Entity_S
 	//transformation values
 	Vector2D velocity;
 	Vector2D acceleration;
+	float gravity;
+
+	int width;
+	int height;
 	int speed;
+	int moveSpeed;
 	int jumpSpeed;
 	int sprint;
 	int state;
@@ -59,6 +64,7 @@ typedef struct Entity_S
 
 	//state values
 	int inuse;
+	int isGrounded;
 	int dead;
 
 	void (*think)(struct Entity_S *self); /**< makes the entity do an action in the worldspace */

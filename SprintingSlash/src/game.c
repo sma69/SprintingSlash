@@ -18,7 +18,7 @@ int main(int argc, char * argv[])
 {
     /*variable declarations*/
     int done = 0;
-    const Uint8 * keys;
+   
 	
     Sprite * sprite;
 	Sprite * playerSprite;
@@ -90,11 +90,7 @@ int main(int argc, char * argv[])
         if (mf >= 16.0)mf = 0;
 		if (player->frame >= 6.0)player->frame = 0;
 
-		if(keys[SDL_SCANCODE_LSHIFT])
-			sprint = 2;
-		else 
-			sprint = 1;
-		
+
 		entity_think_all();
 		entity_update_all();
 
@@ -129,42 +125,7 @@ int main(int argc, char * argv[])
                 (int)mf);
 
 		
-			//Player movement
-			
-			//gravity
-			player->position.y += gravity;
-			
-			if (keys[SDL_SCANCODE_A]) {
-				player->position.x -= (moveSpeed * sprint);
-			}
-			if (keys[SDL_SCANCODE_D]) {
-				player->position.x += (moveSpeed * sprint);
-			}
-			if (keys[SDL_SCANCODE_W]) {
-				if (grounded == 1) {
-					player->position.y -= (jumpSpeed * sprint);
-				}
-			}
-			if (keys[SDL_SCANCODE_S]) {
-				player->position.y += (moveSpeed * sprint);
-			}
-			/* collide with edges of screen */
-			if (player->position.x < 0) {
-				player->position.x = 0;
-			}
-			else if (player->position.x > 1200 - 32) {
-				player->position.x = 1200 - 32;
-			}
-			if (player->position.y < 0) {
-				player->position.y = 0;
-			}
-			else if (player->position.y > 720 - 32) {
-				player->position.y = 720 - 32;
-				grounded = 1;
-			}
-			else {
-				grounded = 0;
-			}
+
 
         gf2d_grahics_next_frame();// render current draw frame and skip to the next frame
         

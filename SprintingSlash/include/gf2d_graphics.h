@@ -6,6 +6,8 @@
 #include "gf2d_types.h"
 #include "gf2d_vector.h"
 
+const Uint8 * keys;
+
 /**
  * @brief initializes SDL and setups up basic window and rendering contexts
  * @param windowName the name that you would want displayed on the game window

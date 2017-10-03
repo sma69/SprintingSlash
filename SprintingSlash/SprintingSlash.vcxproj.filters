@@ -45,6 +45,9 @@
     <ClInclude Include="gf2d_actor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gf2d_function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game.c">
