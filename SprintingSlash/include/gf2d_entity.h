@@ -54,7 +54,7 @@ typedef struct Entity_S
 	int height;
 	int speed;
 	int moveSpeed;
-	int jumpSpeed;
+	int jumpTime;
 	int sprint;
 	int state;
 	int isKinematic;
@@ -64,6 +64,8 @@ typedef struct Entity_S
 
 	//state values
 	int inuse;
+	int isJumping;
+	int isFalling;
 	int isGrounded;
 	int dead;
 

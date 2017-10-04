@@ -20,10 +20,23 @@ void playerThink(Entity* self)
 		self->position.x += (self->moveSpeed * sprint);
 	}
 	if (keys[SDL_SCANCODE_W]) {
-		self->velocity.y += 0.5;
 		
-		if (self->isGrounded == 1) {
-			
+		self->velocity.y += 0.1;
+		self->jumpTime += 1;
+
+		if (self->jumpTime <= 100)
+		{
+			self->isJumping = 1;
+			self->isGrounded = 0;
+		}
+		if (self->jumpTime >= 100)
+		{
+			self->isFalling = 1;
+			self->isGrounded = 0;
+		}
+		if (self->isFalling == 0)
+		{		
+			self->isGrounded = 0;
 			self->position.y -= ((self->velocity.y) * sprint);
 		}
 	}
@@ -41,10 +54,18 @@ void playerThink(Entity* self)
 	}
 	else if (self->position.y > 720 - self->height) {
 		self->position.y = 720 - self->height;
+		self->isFalling = 0;
 		self->isGrounded = 1;
+	}
+	if (self->isGrounded = 1)
+	{
+		self->velocity.y;
+		self->jumpTime = 0;
+		
 	}
 	else {
 		self->isGrounded = 0;
+		self->isFalling = 0;
 	}
 
 }
@@ -100,8 +121,8 @@ Entity *player_new(Vector2D Position)
 	self->width = 43;
 	self->height = 46;
 	self->moveSpeed = 4;
-	self->jumpSpeed = 100;
-	self->gravity = 1;
+	self->jumpTime = 0;
+	self->gravity = 2;
 	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);
 	vector4d_set(self->color, 255, 255, 255, 255);
