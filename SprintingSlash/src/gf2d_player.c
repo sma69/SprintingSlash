@@ -2,6 +2,11 @@
 
 void playerThink(Entity* self)
 {
+	playerMove(self);
+}
+
+void playerMove(Entity * self) 
+{
 	//Player movement
 	keys = SDL_GetKeyboardState(NULL);
 	//gravity
@@ -20,7 +25,7 @@ void playerThink(Entity* self)
 		self->position.x += (self->moveSpeed * sprint);
 	}
 	if (keys[SDL_SCANCODE_W]) {
-		
+
 		self->velocity.y += 0.1;
 		self->jumpTime += 1;
 
@@ -35,7 +40,7 @@ void playerThink(Entity* self)
 			self->isGrounded = 0;
 		}
 		if (self->isFalling == 0)
-		{		
+		{
 			self->isGrounded = 0;
 			self->position.y -= ((self->velocity.y) * sprint);
 		}
@@ -61,7 +66,7 @@ void playerThink(Entity* self)
 	{
 		self->velocity.y;
 		self->jumpTime = 0;
-		
+
 	}
 	else {
 		self->isGrounded = 0;

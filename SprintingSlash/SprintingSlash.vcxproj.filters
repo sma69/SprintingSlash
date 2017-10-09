@@ -48,6 +48,9 @@
     <ClInclude Include="include\gf2d_function.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gf2d_collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game.c">
@@ -76,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="Source.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gf2d_collision.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

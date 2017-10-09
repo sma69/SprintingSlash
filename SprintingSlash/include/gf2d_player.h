@@ -21,6 +21,20 @@ int sprint;
 */
 Entity *player_new(Vector2D Position);
 
-void playerMove(Entity * self, Uint32 deltaTicks);
+/**
+@brief  Makes the player think/takes in input
+*/
+void playerThink(Entity* self);
+
+/**
+@brief updates the player entity
+*/
+void playerUpdate(Entity* self);
+
+
+/**
+@brief  Players the player move
+*/
+void playerMove(Entity * self);
 
 #endif
