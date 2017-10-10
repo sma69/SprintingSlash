@@ -10,5 +10,10 @@
 
 int check_collision(Entity * self, Entity * other);
 
+/**creates
+@brief creates a wall entity at a given position
+*/
+
+void wall_new(Vector2D position);
 
 #endif

@@ -45,3 +45,14 @@ int check_collision(Entity * self, Entity * other)
 	//If none of the sides from A are outside B
 	return 1;
 }
+
+void wall_new(Vector2D position)
+{
+	Entity * self = entity_new();
+	
+	self->body.x = position.x;
+	self->body.y = position.y;
+	self->body.w = 400;
+	self->body.h = 400;
+	return self;
+}

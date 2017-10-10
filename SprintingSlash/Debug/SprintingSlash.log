@@ -1,3 +1,20 @@
 ﻿  gf2d_collision.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(53): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(54): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(57): warning C4098: 'wall_new': 'void' function returning a value
+  game.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(69): warning C4013: 'player_new' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(69): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(72): warning C4013: 'wall_new' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(72): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(95): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(96): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(43): warning C4101: 'frameheight': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(44): warning C4101: 'textureWidth': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(43): warning C4101: 'frameWidth': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(44): warning C4101: 'textureHeight': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(24): warning C4101: 'playerSprite': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(42): warning C4101: 'playerRect': unreferenced local variable
+  Generating Code...
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

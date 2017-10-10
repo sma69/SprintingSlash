@@ -77,9 +77,6 @@
     <ClCompile Include="src\gf2d_player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\gf2d_collision.c">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -23,6 +23,10 @@ int main(int argc, char * argv[])
     Sprite * sprite;
 	Sprite * playerSprite;
 	Entity * player;
+	Entity * wall;
+	
+
+	
 	
 	
 
@@ -63,6 +67,9 @@ int main(int argc, char * argv[])
 	
 	Vector2D playerPosition = { 10, 10 };
 	player = player_new(playerPosition);
+
+	//wall init
+	wall = wall_new(400, 400);
 
 
 	
@@ -111,7 +118,8 @@ int main(int argc, char * argv[])
 			//	(int)player->frame);
 				
 			entity_draw_all();
-
+			//Show the wall
+			//SDL_FillRect(gf2d_graphics_get_screen_surface(), &wall->body, SDL_MapRGB(gf2d_graphics_get_screen_surface(), 0x77, 0x77, 0x77));
 
             //UI elements last
             gf2d_sprite_draw(

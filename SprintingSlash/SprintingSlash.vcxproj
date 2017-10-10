@@ -33,7 +33,6 @@
     <ClInclude Include="include\simple_logger.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="src\game.c" />
     <ClCompile Include="src\gf2d_collision.c" />
     <ClCompile Include="src\gf2d_draw.c" />
