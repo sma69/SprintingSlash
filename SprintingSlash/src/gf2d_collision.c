@@ -1,13 +1,13 @@
 #include "gf2d_collision.h"
 
-int check_collision(Entity * self, Entity * other)
+int checkBoxCollision(Entity * self, Entity * other)
 {
 	//The sides of the Entity Hitboxes
 	//The sides of the rectangles
-	int leftA, leftB;
-	int rightA, rightB;
-	int topA, topB;
-	int bottomA, bottomB;
+	double leftA, leftB;
+	double rightA, rightB;
+	double topA, topB;
+	double bottomA, bottomB;
 
 	//Calculate the sides of the main entity
 	leftA = self->body.x;
@@ -24,11 +24,17 @@ int check_collision(Entity * self, Entity * other)
 	//If any of the sides from A are outside of B
 	if (bottomA <= topB)
 	{
+		other->position.y = 720 - self->height;
+		other->velocity.y = 0;
+		other->isGrounded = 1;
 		return 0;
 	}
 
 	if (topA >= bottomB)
 	{
+
+
+
 		return 0;
 	}
 
@@ -46,13 +52,23 @@ int check_collision(Entity * self, Entity * other)
 	return 1;
 }
 
-void wall_new(Vector2D position)
+int checkCircleCollision(Entity *self, Entity * other)
+{
+	double positionA, positionB;
+
+	
+}
+
+int wall_new(Vector2D position)
 {
 	Entity * self = entity_new();
 	
+	vector2d_set(self->position, position.x, position.y);
 	self->body.x = position.x;
 	self->body.y = position.y;
-	self->body.w = 400;
-	self->body.h = 400;
+
+	self->body.w = position.x;
+	self->body.h = position.y;
+	self->sprite = gf2d_sprite_load_all("images/walls/greyStoneWall.jpg", self->body.w, self->body.h, 1);
 	return self;
 }

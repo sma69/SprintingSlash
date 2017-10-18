@@ -147,8 +147,8 @@ void entity_update_all()
 	{
 		if (entityManager.entityList[i].inuse = 0)
 			continue;
-		if (entityManager.entityList[i].think != NULL)
-			entity_update(&entityManager.entityList[i]);
+		if (entityManager.entityList[i].update != NULL)
+			entityManager.entityList->update(&entityManager.entityList[i]);
 	}
 }
 

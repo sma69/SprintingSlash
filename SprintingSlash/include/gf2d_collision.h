@@ -5,15 +5,25 @@
 #include "gf2d_entity.h"
 
 /**
-@brief check_collision returns true if two entities collide
+@brief checkBoxCollision returns true if two entities  with Box colliders collide
 */
 
-int check_collision(Entity * self, Entity * other);
+int checkBoxCollision(Entity * self, Entity * other);
+
+/**
+@brief checkSphereCollision returns true if two entities with circle colliders collide
+*/
+
+int checkCircleCollision(Entity * self, Entity * other);
+
+/**
+@brief check
+*/
 
 /**creates
 @brief creates a wall entity at a given position
 */
 
-void wall_new(Vector2D position);
+int wall_new(Vector2D position);
 
 #endif

@@ -3,6 +3,7 @@
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
 #include "gf2d_entity.h"
+#include "gf2d_collision.h"
 
 
 
@@ -69,7 +70,8 @@ int main(int argc, char * argv[])
 	player = player_new(playerPosition);
 
 	//wall init
-	wall = wall_new(400, 400);
+	Vector2D wallPosition = { 600, 600 };
+	wall = wall_new(wallPosition);
 
 
 	
@@ -100,6 +102,7 @@ int main(int argc, char * argv[])
 
 		entity_think_all();
 		entity_update_all();
+		checkBoxCollision(player, wall);
 
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
