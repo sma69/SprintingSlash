@@ -64,13 +64,13 @@ int main(int argc, char * argv[])
     /*demo setup*/
 
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
-	//player initialization
 	
+	//player initialization	
 	Vector2D playerPosition = { 10, 10 };
 	player = player_new(playerPosition);
 
 	//wall init
-	Vector2D wallPosition = { 600, 600 };
+	Vector2D wallPosition = { 600, 300 };
 	wall = wall_new(wallPosition);
 
 
@@ -102,6 +102,7 @@ int main(int argc, char * argv[])
 
 		entity_think_all();
 		entity_update_all();
+
 		checkBoxCollision(player, wall);
 
         gf2d_graphics_clear_screen();// clears drawing buffers
@@ -119,7 +120,7 @@ int main(int argc, char * argv[])
 			//	NULL,
 			//	&player->color,
 			//	(int)player->frame);
-				
+
 			entity_draw_all();
 			//Show the wall
 			//SDL_FillRect(gf2d_graphics_get_screen_surface(), &wall->body, SDL_MapRGB(gf2d_graphics_get_screen_surface(), 0x77, 0x77, 0x77));

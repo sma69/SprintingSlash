@@ -1,14 +1,8 @@
-﻿  game.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(70): warning C4013: 'player_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(70): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(74): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(97): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(98): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(44): warning C4101: 'frameheight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(45): warning C4101: 'textureWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(44): warning C4101: 'frameWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(45): warning C4101: 'textureHeight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(25): warning C4101: 'playerSprite': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(43): warning C4101: 'playerRect': unreferenced local variable
+﻿  gf2d_collision.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(71): warning C4101: 'positionB': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(71): warning C4101: 'positionA': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(81): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(82): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(74): warning C4716: 'checkCircleCollision': must return a value
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

@@ -35,31 +35,7 @@ void playerMove(Entity * self)
 	if (keys[SDL_SCANCODE_S] || keys[SDL_SCANCODE_DOWN]) {
 		self->position.y += (self->moveSpeed * sprint);
 	}
-	/*
-	if (self->position.x < 0) {
-		self->position.x = 0;
-	}
-	else if (self->position.x > 1200 - self->width) {
-		self->position.x = 1200 - self->width;
-	}
-	if (self->position.y < 0) {
-		self->position.y = 0;
-	}
-	else if (self->position.y > 720 - self->height) {
-		self->position.y = 720 - self->height;
-		self->isFalling = 0;
-		self->isGrounded = 1;
-	}
-	if (self->isGrounded == 1)
-	{
 
-
-	}
-	else {
-		self->isGrounded = 0;
-		self->isFalling = 0;
-	}
-	*/
 }
 
 void playerUpdate(Entity * self)
@@ -68,6 +44,10 @@ void playerUpdate(Entity * self)
 	//move entity to left or right
 	self->position.x += self->velocity.x;
 	self->position.y += self->velocity.y;
+	self->body.x = self->position.x;
+	self->body.y = self->position.y;
+	self->body.w = self->width;
+	self->body.h = self->height;
 	self->velocity.y += self->gravity;
 
 

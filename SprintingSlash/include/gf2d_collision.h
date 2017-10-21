@@ -24,6 +24,6 @@ int checkCircleCollision(Entity * self, Entity * other);
 @brief creates a wall entity at a given position
 */
 
-int wall_new(Vector2D position);
+Entity* wall_new(Vector2D position);
 
 #endif
