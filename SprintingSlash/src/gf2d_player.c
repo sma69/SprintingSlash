@@ -41,7 +41,7 @@ void playerMove(Entity * self)
 void playerTouch(Entity* self, Entity* other)
 {
 	
-	(*self->touch)(self, other);
+
 	if (other->type == "wall")
 	{
 		if (checkBoxCollision(self, other) == 1)
@@ -124,8 +124,6 @@ Entity *player_new(Vector2D Position)
 	(*self->think)(self);
 	self->update = playerUpdate;
 	(*self->update)(self);
-	self->touch = playerTouch;
-	(*self->touch)(self, NULL);
 	slog("player spawned");
 	return self;
 }

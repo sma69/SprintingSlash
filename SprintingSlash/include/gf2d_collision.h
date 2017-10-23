@@ -5,6 +5,7 @@
 #include "gf2d_text.h"
 #include "gf2d_entity.h"
 #include "gf2d_text.h"
+#include "gf2d_shape.h"
 
 
 typedef struct Collision_S Collision;
@@ -12,7 +13,7 @@ typedef struct Collision_S Collision;
 
 typedef struct Body_S
 {
-	char * name;
+	TextLine * name;
 	int isActive;
 	Uint32 team;
 	Uint32 layer;
@@ -22,6 +23,7 @@ typedef struct Body_S
 	float gravity;
 	float mass;
 	float elasticity;
+	Shape* shape;
 	int(*bodyTouch)(struct Body_S *self, struct Body_S *other, Collision *collision);/**< function to call when two bodies collide*/
 	int(*worldTouch)(struct Body_S *self, Collision *collision);/**<function to call when a body collides with a static shape*/
 }Body;
@@ -31,17 +33,18 @@ struct Collision_S
 	Uint8 collided;
 	Vector2D point;
 	Vector2D normal;
-	int* shape;
+	Shape* shape;
+	Body* body;
 	float timeStep;
 
 };
 
 typedef struct
 {
-	SDL_Rect*   bodyList;       /**<list of bodies in the space*/
+	Rect*   bodyList;       /**<list of bodies in the space*/
 	int*      *staticShapes;   /**<list of shapes that will collide that do not move*/
 	int         precision;      /**<number of backoff attempts before giving up*/
-	SDL_Rect    bounds;         /**<absolute bounds of the space*/
+	Rect    bounds;         /**<absolute bounds of the space*/
 	float       timeStep;       /**<how much each iteration of the simulation progresses time by*/
 	Vector2D    gravity;        /**<global gravity pull direction*/
 	float       dampening;      /**<rate of movement degrade  ambient frictions*/
@@ -74,7 +77,7 @@ Entity* wall_new(Vector2D position);
 * @brief create a new space
 * @return NULL on error or a new empty space
 */
-Space *gf2d_space_new();
+Space *space_new();
 
 /**
 * @brief create a new space and set some defaults
@@ -85,7 +88,7 @@ Space *gf2d_space_new();
 * @param dampening the rate of all movemement decay
 * @param slop how much to correct for body overlap
 */
-Space *gf2d_space_new_full(
+Space *space_new_full(
 	int         precision,
 	SDL_Rect        bounds,
 	float       timeStep,
@@ -96,12 +99,12 @@ Space *gf2d_space_new_full(
 /**
 * @brief cleans up a space
 */
-void gf2d_space_free(Space *space);
+void space_free(Space *space);
 
 /**
 * @brief visualize the space and its contents
 */
-void gf2d_space_draw(Space *space);
+void space_draw(Space *space);
 
 /**
 * @brief add a body to the space simulation
@@ -109,7 +112,7 @@ void gf2d_space_draw(Space *space);
 * @param body the body to add to the space
 * @note the space will not free the body, but do not until it has been removed from the space
 */
-void gf2d_space_add_body(Space *space, Body *body);
+void space_add_body(Space *space, Body *body);
 
 /**
 * @brief removes a body from the space
@@ -117,7 +120,7 @@ void gf2d_space_add_body(Space *space, Body *body);
 * @param space the space to remove the body from
 * @param body the body to remove
 */
-void gf2d_space_remove_body(Space *space, Body *body);
+void space_remove_body(Space *space, Body *body);
 
 /**
 * @brief apply a force to a body taking into account momentum
@@ -125,7 +128,7 @@ void gf2d_space_remove_body(Space *space, Body *body);
 * @param direction a unit vector for direction (Does not have to be)
 * @param force the amount of force to apply
 */
-void gf2d_body_push(Body *body, Vector2D direction, float force);
+void body_push(Body *body, Vector2D direction, float force);
 
 /**
 * @brief add a statuc shape to the space
@@ -133,13 +136,13 @@ void gf2d_body_push(Body *body, Vector2D direction, float force);
 * @param space the space to add to
 * @param shape the shape to add.
 */
-void gf2d_space_add_static_shape(Space *space);
+void space_add_static_shape(Space *space, Shape* shape);
 
 /**
 * @brief update the bodies in the physics space for one time slice
 * @param space the space to be updated
 */
-void gf2d_space_update(Space *space);
+void space_update(Space *space);
 
 /**
 * @brief check if a shape intersects with any body or shape within the space
@@ -147,6 +150,6 @@ void gf2d_space_update(Space *space);
 * @param shape the shape to test with
 * @return the collision information
 */
-Collision gf2d_space_shape_test(Space *space);
+Collision space_shape_test(Space *space, Shape * shape);
 
 #endif
