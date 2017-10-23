@@ -50,6 +50,8 @@ typedef struct Entity_S
 	Vector2D velocity;
 	Vector2D acceleration;
 	float gravity;
+	float mass;
+	float elasticity;
 
 	int width;
 	int height;
@@ -65,6 +67,7 @@ typedef struct Entity_S
 
 	//state values
 	int inuse;
+	char * type;
 	int isJumping;
 	int isFalling;
 	int isGrounded;

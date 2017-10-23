@@ -1,15 +1,11 @@
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include "gf2d_graphics.h"
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
 #include "gf2d_entity.h"
 #include "gf2d_collision.h"
 
-
-
-
-
-	
 
 
 
@@ -57,6 +53,8 @@ int main(int argc, char * argv[])
         vector4d(0,0,0,255),
         0);
     gf2d_graphics_set_frame_delay(16);
+	TTF_Init();
+
     gf2d_sprite_init(1024);
 	entity_manager_init(1024);
     SDL_ShowCursor(SDL_DISABLE);
@@ -73,6 +71,24 @@ int main(int argc, char * argv[])
 	Vector2D wallPosition = { 600, 300 };
 	wall = wall_new(wallPosition);
 
+	//font init
+
+	//Textbox * health = textbox_new();
+	
+	
+	TTF_Font* Sans = TTF_OpenFont("fonts/verdana.ttf", 24); //this opens a font style and sets a size
+
+	SDL_Color White = { 255, 255, 255 };  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+
+	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, "Health", White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+
+	SDL_Texture* Message = SDL_CreateTextureFromSurface(gf2d_graphics_get_renderer(), surfaceMessage); //now you can convert it into a texture
+
+	SDL_Rect Message_rect; //create a rect
+	Message_rect.x = 0;  //controls the rect's x coordinate 
+	Message_rect.y = 0; // controls the rect's y coordinte
+	Message_rect.w = 200; // controls the width of the rect
+	Message_rect.h = 100; // controls the height of the rect
 
 	
 	//playerSprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
@@ -101,6 +117,7 @@ int main(int argc, char * argv[])
 
 
 		entity_think_all();
+		entity_touch_all();
 		entity_update_all();
 
 		checkBoxCollision(player, wall);
@@ -121,9 +138,8 @@ int main(int argc, char * argv[])
 			//	&player->color,
 			//	(int)player->frame);
 
+			SDL_RenderCopy(gf2d_graphics_get_renderer(), Message, NULL, &Message_rect);
 			entity_draw_all();
-			//Show the wall
-			//SDL_FillRect(gf2d_graphics_get_screen_surface(), &wall->body, SDL_MapRGB(gf2d_graphics_get_screen_surface(), 0x77, 0x77, 0x77));
 
             //UI elements last
             gf2d_sprite_draw(
@@ -142,7 +158,7 @@ int main(int argc, char * argv[])
         gf2d_grahics_next_frame();// render current draw frame and skip to the next frame
         
         if (keys[SDL_SCANCODE_ESCAPE])done = 1; // exit condition
-        slog("Rendering at %f FPS",gf2d_graphics_get_frames_per_second());
+       // slog("Rendering at %f FPS",gf2d_graphics_get_frames_per_second());
     }
 	slog("---Deinitializing entities");
 

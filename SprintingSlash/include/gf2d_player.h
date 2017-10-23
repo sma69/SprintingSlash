@@ -27,6 +27,11 @@ Entity *player_new(Vector2D Position);
 void playerThink(Entity* self);
 
 /**
+@brief  Makes the player react to other entities
+*/
+void playerTouch(Entity* self, Entity* other);
+
+/**
 @brief updates the player entity
 */
 void playerUpdate(Entity* self);

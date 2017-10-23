@@ -38,6 +38,24 @@ void playerMove(Entity * self)
 
 }
 
+void playerTouch(Entity* self, Entity* other)
+{
+	
+	(*self->touch)(self, other);
+	if (other->type == "wall")
+	{
+		if (checkBoxCollision(self, other) == 1)
+		{
+			self->moveSpeed *= -1;
+			vector4d_set(self->color, 255, 255, 255, 255);
+		}
+		else {
+			self->moveSpeed *= -1;
+			vector4d_set(self->color, 255, 255, 255, 255);
+		}
+	}
+}
+
 void playerUpdate(Entity * self)
 {
 	float timeStep = 60;
@@ -106,6 +124,8 @@ Entity *player_new(Vector2D Position)
 	(*self->think)(self);
 	self->update = playerUpdate;
 	(*self->update)(self);
+	self->touch = playerTouch;
+	(*self->touch)(self, NULL);
 	slog("player spawned");
 	return self;
 }

@@ -25,6 +25,7 @@
     <ClInclude Include="include\gf2d_draw.h" />
     <ClInclude Include="include\gf2d_function.h" />
     <ClInclude Include="include\gf2d_graphics.h" />
+    <ClInclude Include="include\gf2d_level.h" />
     <ClInclude Include="include\gf2d_player.h" />
     <ClInclude Include="include\gf2d_sprite.h" />
     <ClInclude Include="include\gf2d_text.h" />
@@ -40,6 +41,7 @@
     <ClCompile Include="src\gf2d_graphics.c" />
     <ClCompile Include="src\gf2d_player.c" />
     <ClCompile Include="src\gf2d_sprite.c" />
+    <ClCompile Include="src\gf2d_text.c" />
     <ClCompile Include="src\gf2d_vector.c" />
     <ClCompile Include="src\simple_logger.c" />
   </ItemGroup>
@@ -119,7 +121,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\src;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\include;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\images;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\src;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\include;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\images;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\fonts;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

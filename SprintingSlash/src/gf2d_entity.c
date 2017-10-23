@@ -164,6 +164,28 @@ void entity_think_all()
 	}
 }
 
+void entity_touch_all()
+{
+	int i;
+	for (int i = 0; i < entityManager.maxEntities; i++)
+	{
+		if (entityManager.entityList[i].inuse = 0)
+			continue;
+		if (entityManager.entityList[i].touch != NULL)
+		{
+			for (int j = 0; j < entityManager.maxEntities; j++)
+			{ 
+				if (entityManager.entityList[j].inuse = 0)
+					continue;
+				if (entityManager.entityList[i].touch != NULL)
+				{
+					entityManager.entityList->touch(&entityManager.entityList[i], &entityManager.entityList[j]);
+				}
+			}
+		}
+	}
+}
+
 
 
 

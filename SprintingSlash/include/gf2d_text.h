@@ -26,7 +26,10 @@
  *  strings.  For use with unlimited strings mgl will use glib's GString type
  */
 #include <string.h>
+#include <SDL.h>
+#include <SDL_ttf.h>
 #include "gf2d_types.h"
+#include "gf2d_vector.h"
 
 /**
  * constant lenth character buffers.
@@ -57,5 +60,18 @@ typedef char TextBlock[512];
 #define gf2d_block_cmp(a,b) (strncmp(a,b,GF2DTEXTLEN))
 #define gf2d_block_cpy(dst,src) (strncpy(dst,src,GF2DTEXTLEN))
 #define gf2d_block_clear(a)  (memset(a,0,sizeof(char)*GF2DTEXTLEN))
+
+
+typedef struct Textbox_S{
+
+	TTF_Font* font; //this opens a font style and sets a size
+	SDL_Color color;  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+	SDL_Surface* surface; // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+	SDL_Texture* message; //now you can convert it into a texture
+	SDL_Rect box; //create a rect
+	char *text;
+	int size; // font size
+
+}Textbox;
 
 #endif
