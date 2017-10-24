@@ -44,7 +44,10 @@ typedef struct Entity_S
 	Vector4D color;
 	float frame;
 	float frameEnd;
-	SDL_Rect body;
+	SDL_Rect body, hitbox;
+	Vector2D hitOffset;
+
+
 	
 
 	//transformation values

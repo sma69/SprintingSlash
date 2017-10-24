@@ -1,54 +1,12 @@
 ﻿  gf2d_player.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(49): warning C4013: 'checkBoxCollision' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(69): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(70): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  gf2d_entity.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(25): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(53): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(65): warning C4133: 'function': incompatible types - from 'Vector2D *' to 'Vector3D *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(103): warning C4101: 'i': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(113): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(118): warning C4244: '=': conversion from 'Uint64' to 'Uint32', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(134): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(133): warning C4101: 'i': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(146): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(145): warning C4101: 'i': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(158): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(157): warning C4101: 'i': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(170): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(176): warning C4018: '<': signed/unsigned mismatch
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(169): warning C4101: 'i': unreferenced local variable
-  gf2d_collision.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(86): warning C4047: 'function': 'char *' differs in levels of indirection from 'TextLine (*)'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(86): warning C4024: 'strncpy': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(86): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\string.h(343): note: see declaration of 'strncpy'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(99): warning C4013: 'list_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(99): warning C4047: '=': 'Rect *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(100): warning C4047: '=': 'int **' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(119): warning C4013: 'list_append' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(119): warning C4047: '=': 'int **' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(147): warning C4013: 'list_delete_data' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(166): warning C4047: '=': 'Rect *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(176): warning C4013: 'gf2d_draw_pixel' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(195): warning C4013: 'list_delete' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(198): warning C4013: 'list_foreach' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(211): warning C4013: 'gf2d_draw_rect' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(212): warning C4013: 'list_get_count' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(215): warning C4013: 'list_get_nth' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(240): warning C4305: 'function': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(245): warning C4305: 'function': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(250): warning C4305: 'function': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(255): warning C4305: 'function': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(312): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(324): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(325): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(675): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(704): warning C4101: 'positionB': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(704): warning C4101: 'positionA': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(714): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(715): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  gf2d_camera.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(46): warning C4013: 'checkHitboxCollision' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(55): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(62): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(66): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(67): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(127): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(128): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   game.c
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(24): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
@@ -56,8 +14,8 @@ d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(30): warning
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(113): warning C4013: 'player_new' undefined; assuming extern returning int
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(113): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(158): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(159): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(165): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(160): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(166): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(85): warning C4101: 'frameheight': unreferenced local variable
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(86): warning C4101: 'textureWidth': unreferenced local variable
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(85): warning C4101: 'frameWidth': unreferenced local variable
@@ -65,8 +23,5 @@ d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(86): warning
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(66): warning C4101: 'playerSprite': unreferenced local variable
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(84): warning C4101: 'playerRect': unreferenced local variable
   Generating Code...
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(312): warning C4700: uninitialized local variable 'r' used
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(324): warning C4700: uninitialized local variable 'r' used
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(707): warning C4716: 'checkCircleCollision': must return a value
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

@@ -35,7 +35,7 @@ void playerMove(Entity * self)
 
 	}
 	if (keys[SDL_SCANCODE_S] || keys[SDL_SCANCODE_DOWN]) {
-		self->position.y += (self->moveSpeed * sprint);
+		self->velocity.y += (1 * sprint);
 	}
 
 }
@@ -43,25 +43,17 @@ void playerMove(Entity * self)
 void playerTouch(Entity* self, Entity* other)
 {
 	
+	checkHitboxCollision(self, other);
 
-	if (other->type == "wall")
-	{
-		if (checkBoxCollision(self, other) == 1)
-		{
-			self->moveSpeed *= -1;
-			vector4d_set(self->color, 255, 255, 255, 255);
-		}
-		else {
-			self->moveSpeed *= -1;
-			vector4d_set(self->color, 255, 255, 255, 255);
-		}
-	}
 }
 
 
 
 void playerUpdate(Entity * self)
 {
+	
+	self->frame += 0.03;
+	if (self->frame >= 6.0)self->frame = 0;
 	float timeStep = 60;
 	//move entity to left or right
 	self->position.x += self->velocity.x;
@@ -71,6 +63,10 @@ void playerUpdate(Entity * self)
 	self->body.w = self->width;
 	self->body.h = self->height;
 	self->velocity.y += self->gravity;
+	self->hitbox.x = self->position.x + self->width;
+	self->hitbox.y = self->position.y;
+	self->hitbox.w = self->width;
+	self->hitbox.h = self->height;
 
 
 		//if entity went too far to the left
@@ -103,6 +99,7 @@ void playerUpdate(Entity * self)
 		}
 }
 
+
 Entity *player_new(Vector2D Position)
 {
 	Entity * self;
@@ -114,21 +111,29 @@ Entity *player_new(Vector2D Position)
 		system("PAUSE");
 		return NULL;
 	}
+
 	self->width = 43;
 	self->height = 46;
+	vector2d_set(self->hitOffset, 10, 0);
 	vector2d_set(self->body, self->width, self->height);
 	self->moveSpeed = 4;
 	self->jumpTime = 0;
 	self->gravity = 0.5f;
+	self->type = "player";
 	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);
 	vector2d_set(self->flip, 0, 0);
 	vector4d_set(self->color, 255, 255, 255, 255);
+	self->hitbox.x = self->position.x + self->width;
+	self->hitbox.y = self->position.y;
+	self->hitbox.w = self->width;
+	self->hitbox.h = self->height;
 	self->frame = 0;
 	self->think = playerThink;
-	(*self->think)(self);
+	//(*self->think)(self);
 	self->update = playerUpdate;
-	(*self->update)(self);
+	//(*self->update)(self);
+	self->touch = playerTouch;
 	slog("player spawned");
 	return self;
 }

@@ -156,16 +156,19 @@ int main(int argc, char * argv[])
         /*update things here*/
         SDL_GetMouseState(&mx,&my);
         mf += 0.1;
-		player->frame += 0.03;
+		//player->frame += 0.03;
+		wall->frame += 0.1;
         if (mf >= 16.0)mf = 0;
-		if (player->frame >= 6.0)player->frame = 0;
-
+		//if (player->frame >= 6.0)player->frame = 0;
+		if (wall->frame >= 1.0)wall->frame = 0;
 
 		entity_think_all();
 		entity_touch_all();
 		entity_update_all();
 		set_camera(player);
-		checkBoxCollision(player, wall);
+		if(checkBoxCollision(player, wall))
+			player->isGrounded = 1;
+		//checkHitboxCollision(player, wall);
 
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
