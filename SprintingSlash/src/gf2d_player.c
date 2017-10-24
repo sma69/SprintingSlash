@@ -17,9 +17,11 @@ void playerMove(Entity * self)
 		sprint = 1;
 
 	if (keys[SDL_SCANCODE_A]  || keys[SDL_SCANCODE_LEFT]) {
+		self->flip.x = 1;
 		self->position.x -= (self->moveSpeed * sprint);
 	}
 	if (keys[SDL_SCANCODE_D] || keys[SDL_SCANCODE_RIGHT]) {
+		self->flip.x = 0;
 		self->position.x += (self->moveSpeed * sprint);
 	}
 	if (keys[SDL_SCANCODE_W] || keys[SDL_SCANCODE_UP]) {
@@ -55,6 +57,8 @@ void playerTouch(Entity* self, Entity* other)
 		}
 	}
 }
+
+
 
 void playerUpdate(Entity * self)
 {
@@ -118,6 +122,7 @@ Entity *player_new(Vector2D Position)
 	self->gravity = 0.5f;
 	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);
+	vector2d_set(self->flip, 0, 0);
 	vector4d_set(self->color, 255, 255, 255, 255);
 	self->frame = 0;
 	self->think = playerThink;

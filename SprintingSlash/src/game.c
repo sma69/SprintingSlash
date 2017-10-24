@@ -5,10 +5,55 @@
 #include "simple_logger.h"
 #include "gf2d_entity.h"
 #include "gf2d_collision.h"
+#include "gf2d_camera.h"
 
 
 
+//Screen attributes
+const int SCREEN_WIDTH = 1200;
+const int SCREEN_HEIGHT = 720;
+const int SCREEN_BPP = 32;
 
+//The dimensions of the level
+const int LEVEL_WIDTH = 1280;
+const int LEVEL_HEIGHT = 960;
+
+//The frame rate
+const int FRAMES_PER_SECOND = 20;
+
+SDL_Rect camera = { 0, 0, &SCREEN_WIDTH, &SCREEN_HEIGHT };
+
+void set_camera(Entity * self)
+{
+	//Center the camera over the dot
+	camera.x = (self->position.x + self->width / 2) - SCREEN_WIDTH / 2;
+	camera.y = (self->position.y + self->height / 2) - SCREEN_HEIGHT / 2;
+
+	//Keep the camera in bounds.
+	if (camera.x < 0)
+	{
+		camera.x = 0;
+	}
+	if (camera.y < 0)
+	{
+		camera.y = 0;
+	}
+	if (camera.x > LEVEL_WIDTH - camera.w)
+	{
+		camera.x = LEVEL_WIDTH - camera.w;
+	}
+	if (camera.y > LEVEL_HEIGHT - camera.h)
+	{
+		camera.y = LEVEL_HEIGHT - camera.h;
+	}
+	
+}
+
+void camera_show(Entity* self)
+{
+	//show the entity relative to the camera
+	
+}
 
 
 int main(int argc, char * argv[])
@@ -46,10 +91,10 @@ int main(int argc, char * argv[])
     slog("---==== BEGIN ====---");
     gf2d_graphics_initialize(
         "gf2d",
-        1200,
-        720,
-        1200,
-        720,
+        SCREEN_WIDTH,
+        SCREEN_HEIGHT,
+        SCREEN_WIDTH,
+        SCREEN_HEIGHT,
         vector4d(0,0,0,255),
         0);
     gf2d_graphics_set_frame_delay(16);
@@ -119,13 +164,16 @@ int main(int argc, char * argv[])
 		entity_think_all();
 		entity_touch_all();
 		entity_update_all();
-
+		set_camera(player);
 		checkBoxCollision(player, wall);
 
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
             //backgrounds drawn first
             gf2d_sprite_draw_image(sprite,vector2d(0,0));
+
+			//set cam
+			
 
 			//player entity drawn
 			//gf2d_sprite_draw(

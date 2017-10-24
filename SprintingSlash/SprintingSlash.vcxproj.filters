@@ -63,6 +63,9 @@
     <ClInclude Include="include\gf2d_color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gf2d_camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game.c">
@@ -102,6 +105,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\gf2d_shape.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gf2d_camera.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -6,9 +6,6 @@
 #include "gf2d_graphics.h"
 
 //the attributes of the dot
-const int DOT_WIDTH = 20;
-const int DOT_HEIGHT = 20;
-const int DOT_VEL = 200;
 
 int sprint;
 

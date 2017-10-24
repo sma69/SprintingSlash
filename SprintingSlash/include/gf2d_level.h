@@ -33,7 +33,7 @@ const int TILE_TOPLEFT = 11;
 
 
 
-typedef struct Space_S{
+typedef struct Tile_S{
 
 
 	//The attributes of the tile
@@ -43,10 +43,12 @@ typedef struct Space_S{
 	int type;
 
 
-}Space;
+}Tile;
 
 
 
 Tile* tile_new(Vector2D position, int tileType);
+
+
 
 #endif // !__GF2D_TILE_H__

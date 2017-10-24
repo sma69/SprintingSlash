@@ -43,6 +43,7 @@ typedef struct Entity_S
 	Vector2D flip;
 	Vector4D color;
 	float frame;
+	float frameEnd;
 	SDL_Rect body;
 	
 
