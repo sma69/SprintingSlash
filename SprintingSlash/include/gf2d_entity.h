@@ -4,6 +4,7 @@
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
 #include "gf2d_vector.h"
+#include "gf2d_audio.h"
 
 
 
@@ -45,7 +46,9 @@ typedef struct Entity_S
 	float frame;
 	float frameEnd;
 	SDL_Rect body, hitbox;
+	char* state;
 	Vector2D hitOffset;
+	
 
 
 	
@@ -63,7 +66,7 @@ typedef struct Entity_S
 	int moveSpeed;
 	int jumpTime;
 	int sprint;
-	int state;
+
 	int isKinematic;
 	int maxHealth;
 	int health;
@@ -76,6 +79,7 @@ typedef struct Entity_S
 	int isFalling;
 	int isGrounded;
 	int dead;
+	int hitActive;
 
 	void (*think)(struct Entity_S *self); /**< makes the entity do an action in the worldspace */
 	void (*update)(struct Entity_S *self); /**< updates the entity in every frame of the game loop */

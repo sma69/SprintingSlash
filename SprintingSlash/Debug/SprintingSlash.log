@@ -1,27 +1,20 @@
-﻿  gf2d_player.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(46): warning C4013: 'checkHitboxCollision' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(55): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(62): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(66): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(67): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(127): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(128): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  game.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(24): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+﻿  game.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(25): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
 d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(113): warning C4013: 'player_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(113): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(158): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(160): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(166): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(85): warning C4101: 'frameheight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(86): warning C4101: 'textureWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(85): warning C4101: 'frameWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(86): warning C4101: 'textureHeight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(66): warning C4101: 'playerSprite': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(84): warning C4101: 'playerRect': unreferenced local variable
-  Generating Code...
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(117): warning C4013: 'player_new' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(117): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(125): warning C4013: 'enemy_new' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(125): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(178): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(180): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(187): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(88): warning C4101: 'frameheight': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(89): warning C4101: 'textureWidth': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(71): warning C4101: 'enemy2': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(88): warning C4101: 'frameWidth': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(89): warning C4101: 'textureHeight': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(67): warning C4101: 'playerSprite': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(87): warning C4101: 'playerRect': unreferenced local variable
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

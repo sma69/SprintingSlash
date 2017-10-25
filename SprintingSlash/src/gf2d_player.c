@@ -1,5 +1,5 @@
 #include "gf2d_player.h"
-
+Mix_Chunk* gSword1;
 void playerThink(Entity* self)
 {
 	playerMove(self);
@@ -38,12 +38,46 @@ void playerMove(Entity * self)
 		self->velocity.y += (1 * sprint);
 	}
 
+
 }
 
 void playerTouch(Entity* self, Entity* other)
 {
+
+	//if (checkBoxCollision(self, other))
 	
-	checkHitboxCollision(self, other);
+		//self->isGrounded = 1;
+	
+	self->hitActive = 0;
+	if(keys[SDL_SCANCODE_E]) {
+		self->hitActive = 1;
+		//Load sound effects
+		
+
+		Mix_PlayChannel(-1,gSword1, 0,-1);
+		if (gSword1 == NULL)
+		{
+			printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		}
+
+		if (self->hitActive == 1) {
+			if (checkHitboxCollision(self, other)== 0) {
+				self->moveSpeed = 4;
+				vector4d_set(self->color, 255, 255, 255, 255);
+				self->hitActive = 0;
+			}
+			if (checkHitboxCollision(self, other) == 1)
+			{
+				self->moveSpeed = -4;
+				vector4d_set(self->color, 255, 0, 100, 255);
+					self->hitActive = 0;
+			}
+			
+				
+		}
+		
+
+	}
 
 }
 
@@ -51,7 +85,7 @@ void playerTouch(Entity* self, Entity* other)
 
 void playerUpdate(Entity * self)
 {
-	
+	self->hitActive = 0;
 	self->frame += 0.03;
 	if (self->frame >= 6.0)self->frame = 0;
 	float timeStep = 60;
@@ -63,10 +97,17 @@ void playerUpdate(Entity * self)
 	self->body.w = self->width;
 	self->body.h = self->height;
 	self->velocity.y += self->gravity;
-	self->hitbox.x = self->position.x + self->width;
+	if (self->flip.x = 0) {
+		self->hitbox.x = self->position.x - 10 + self->width;
+	}
+	if (self->flip.x = 1)
+	{ 
+		self->hitbox.x = self->position.x - 10 + self->width;
+	}
 	self->hitbox.y = self->position.y;
 	self->hitbox.w = self->width;
 	self->hitbox.h = self->height;
+
 
 
 		//if entity went too far to the left
@@ -111,7 +152,8 @@ Entity *player_new(Vector2D Position)
 		system("PAUSE");
 		return NULL;
 	}
-
+	
+	gSword1 = Mix_LoadWAV("music/swordSwing1.wav");
 	self->width = 43;
 	self->height = 46;
 	vector2d_set(self->hitOffset, 10, 0);
@@ -128,12 +170,15 @@ Entity *player_new(Vector2D Position)
 	self->hitbox.y = self->position.y;
 	self->hitbox.w = self->width;
 	self->hitbox.h = self->height;
+	self->hitActive = 0;
 	self->frame = 0;
+	self->dead = 0;
 	self->think = playerThink;
 	//(*self->think)(self);
 	self->update = playerUpdate;
 	//(*self->update)(self);
 	self->touch = playerTouch;
+	
 	slog("player spawned");
 	return self;
 }

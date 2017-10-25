@@ -69,7 +69,7 @@ int checkBoxCollision(Entity * self, Entity * other)
 	}
 
 	self->velocity.y = 0;
-	vector4d_set(self->color, 255, 0, 0, 255);
+	vector4d_set(self->color, 0, 0, 0, 255);
 	return 1;
 }
 

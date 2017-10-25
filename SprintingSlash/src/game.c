@@ -6,6 +6,7 @@
 #include "gf2d_entity.h"
 #include "gf2d_collision.h"
 #include "gf2d_camera.h"
+#include "gf2d_audio.h"
 
 
 
@@ -66,6 +67,8 @@ int main(int argc, char * argv[])
 	Sprite * playerSprite;
 	Entity * player;
 	Entity * wall;
+	Entity * enemy1;
+	Entity * enemy2;
 	
 
 	
@@ -99,6 +102,7 @@ int main(int argc, char * argv[])
         0);
     gf2d_graphics_set_frame_delay(16);
 	TTF_Init();
+	audio_init();
 
     gf2d_sprite_init(1024);
 	entity_manager_init(1024);
@@ -116,16 +120,32 @@ int main(int argc, char * argv[])
 	Vector2D wallPosition = { 600, 300 };
 	wall = wall_new(wallPosition);
 
+	//enemy init
+	Vector2D enemy1Position = { 200,300 };
+	enemy1 = enemy_new(enemy1Position);
 	//font init
 
 	//Textbox * health = textbox_new();
+
+	//music init
+	//The music that will be played
+
+	Mix_Music *gMusic = NULL;
+	gMusic= Mix_LoadMUS("music/bridge-zone.wav");
+	Mix_PlayMusic(gMusic, 100);
+
+	if (gMusic == NULL)
+	{
+		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
+	}
+
 	
 	
 	TTF_Font* Sans = TTF_OpenFont("fonts/verdana.ttf", 24); //this opens a font style and sets a size
 
 	SDL_Color White = { 255, 255, 255 };  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
 
-	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, "Health", White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, "Slash!", White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
 
 	SDL_Texture* Message = SDL_CreateTextureFromSurface(gf2d_graphics_get_renderer(), surfaceMessage); //now you can convert it into a texture
 
@@ -163,11 +183,13 @@ int main(int argc, char * argv[])
 		if (wall->frame >= 1.0)wall->frame = 0;
 
 		entity_think_all();
-		entity_touch_all();
 		entity_update_all();
+		entity_touch_all();
 		set_camera(player);
 		if(checkBoxCollision(player, wall))
 			player->isGrounded = 1;
+		//if (checkBoxCollision(player, enemy1))
+			//enemy1->dead = 0;
 		//checkHitboxCollision(player, wall);
 
         gf2d_graphics_clear_screen();// clears drawing buffers

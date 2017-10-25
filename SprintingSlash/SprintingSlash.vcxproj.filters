@@ -69,6 +69,9 @@
     <ClInclude Include="include\gf2d_audio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gf2d_enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game.c">
@@ -114,6 +117,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\gf2d_audio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gf2d_enemy.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
