@@ -29,6 +29,7 @@
     <ClInclude Include="include\gf2d_draw.h" />
     <ClInclude Include="include\gf2d_function.h" />
     <ClInclude Include="include\gf2d_graphics.h" />
+    <ClInclude Include="include\gf2d_gui.h" />
     <ClInclude Include="include\gf2d_level.h" />
     <ClInclude Include="include\gf2d_list.h" />
     <ClInclude Include="include\gf2d_player.h" />
@@ -49,6 +50,7 @@
     <ClCompile Include="src\gf2d_enemy.c" />
     <ClCompile Include="src\gf2d_entity.c" />
     <ClCompile Include="src\gf2d_graphics.c" />
+    <ClCompile Include="src\gf2d_gui.c" />
     <ClCompile Include="src\gf2d_list.c" />
     <ClCompile Include="src\gf2d_player.c" />
     <ClCompile Include="src\gf2d_shape.c" />

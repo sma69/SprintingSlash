@@ -63,13 +63,8 @@ int checkBoxCollision(Entity * self, Entity * other)
 		return 0;
 		
 	}
-	if (self->position.y  > other->position.y) {
-		self->moveSpeed = -4;
-
-	}
-
-	self->velocity.y = 0;
-	vector4d_set(self->color, 0, 0, 0, 255);
+	self->moveSpeed = -4;
+	vector4d_set(self->color, 255, 0, 0, 255);
 	return 1;
 }
 

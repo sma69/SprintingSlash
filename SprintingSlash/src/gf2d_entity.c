@@ -177,6 +177,8 @@ void entity_touch_all()
 			{ 
 				if (entityManager.entityList[j].inuse = 0)
 					continue;
+				if (j == i)
+					continue;
 				if (entityManager.entityList[i].touch != NULL)
 				{
 					entityManager.entityList->touch(&entityManager.entityList[i], &entityManager.entityList[j]);

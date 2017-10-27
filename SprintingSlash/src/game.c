@@ -141,11 +141,11 @@ int main(int argc, char * argv[])
 
 	
 	
-	TTF_Font* Sans = TTF_OpenFont("fonts/verdana.ttf", 24); //this opens a font style and sets a size
+	TTF_Font* Verdana = TTF_OpenFont("fonts/verdana.ttf", 24); //this opens a font style and sets a size
 
 	SDL_Color White = { 255, 255, 255 };  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
 
-	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, "Slash!", White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Verdana, "Slash!", White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
 
 	SDL_Texture* Message = SDL_CreateTextureFromSurface(gf2d_graphics_get_renderer(), surfaceMessage); //now you can convert it into a texture
 
@@ -166,8 +166,12 @@ int main(int argc, char * argv[])
 	int sprint = 1;
 	int gravity = 0;
 	int grounded = 0;
-	
 
+	//Pause Menu
+	int paused = 0;
+	//int pauseMenu = showmenu(gf2d_get_screen_surface(), Verdana);
+	/*if (pauseMenu == 1)
+		paused = 1;*/
     /*main game loop*/
     while(!done)
     {
@@ -182,12 +186,12 @@ int main(int argc, char * argv[])
 		//if (player->frame >= 6.0)player->frame = 0;
 		if (wall->frame >= 1.0)wall->frame = 0;
 
-		entity_think_all();
-		entity_update_all();
 		entity_touch_all();
+		entity_update_all();
+		entity_think_all();
 		set_camera(player);
-		if(checkBoxCollision(player, wall))
-			player->isGrounded = 1;
+		//if(checkBoxCollision(player, wall))
+		//	player->isGrounded = 1;
 		//if (checkBoxCollision(player, enemy1))
 			//enemy1->dead = 0;
 		//checkHitboxCollision(player, wall);
