@@ -54,18 +54,33 @@ int checkWallCollision(Entity * self, Entity * other)
 
 int checkBoxCollision(Entity * self, Entity * other)
 {
-	if (self->body.x + self->body.w < other->body.x || self->body.x > other->body.x + other->body.w ||
-		self->body.y + self->body.h < other->body.y || self->body.y > other->body.y + other->body.h)
-	{
 
-		self->moveSpeed = 4;
-		vector4d_set(self->color, 255, 255, 255, 255);
-		return 0;
+	if (other->type == "wall") {
+		if (self->body.x + self->body.w < other->body.x || self->body.x > other->body.x + other->body.w ||
+			self->body.y + self->body.h < other->body.y || self->body.y > other->body.y + other->body.h)
+		{
+
+			self->moveSpeed = 4;
+			vector4d_set(self->color, 255, 255, 255, 255);
+			return 0;
 		
+		}
+		
+			self->isGrounded = 1;
+			if (self->body.y + self->body.h > other->body.y && self->body.y < other->body.y)
+			{
+				self->isGrounded = 1;
+				self->moveSpeed = 4;
+				self->velocity.y = 0;
+				self->position.y = other->body.y - self->body.h + 1;
+				return 1;
+			}
+			self->isGrounded = 1;
+			self->moveSpeed = -4;
+			vector4d_set(self->color, 255, 0, 0, 255);
+
+			return 1;
 	}
-	self->moveSpeed = -4;
-	vector4d_set(self->color, 255, 0, 0, 255);
-	return 1;
 }
 
 int checkHitboxCollision(Entity * self, Entity * other)
@@ -92,8 +107,15 @@ int checkCircleCollision(Entity *self, Entity * other)
 
 Entity* wall_new(Vector2D position)
 {
-	Entity * self = entity_new();
-	
+	Entity * self;
+	self = entity_new();
+
+	if (!self)
+	{
+		slog("player does not exist\n");
+		system("PAUSE");
+		return NULL;
+	}
 	vector2d_set(self->position, position.x, position.y);
 	self->body.x = position.x;
 	self->body.y = position.y;

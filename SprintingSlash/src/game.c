@@ -191,9 +191,9 @@ int main(int argc, char * argv[])
 		entity_think_all();
 		set_camera(player);
 		//if(checkBoxCollision(player, wall))
-		//	player->isGrounded = 1;
+			//player->isGrounded = 1;
 		//if (checkBoxCollision(player, enemy1))
-			//enemy1->dead = 0;
+			
 		//checkHitboxCollision(player, wall);
 
         gf2d_graphics_clear_screen();// clears drawing buffers

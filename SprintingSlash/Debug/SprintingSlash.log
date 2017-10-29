@@ -1,4 +1,9 @@
-﻿  gf2d_gui.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_gui.c(26): warning C4552: '-': operator has no effect; expected operator with side-effect
+﻿  gf2d_collision.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(103): warning C4101: 'positionB': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(103): warning C4101: 'positionA': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(120): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(121): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(84): warning C4715: 'checkBoxCollision': not all control paths return a value
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(106): warning C4716: 'checkCircleCollision': must return a value
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

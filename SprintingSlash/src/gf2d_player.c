@@ -44,10 +44,7 @@ void playerMove(Entity * self)
 void playerTouch(Entity* self, Entity* other)
 {
 
-	if (checkBoxCollision(self, other)) {
-		if (other->type == "wall")
-			self->isGrounded = 1;
-	}
+	checkBoxCollision(self, other);
 	
 	self->hitActive = 0;
 	if(keys[SDL_SCANCODE_E]) {
@@ -62,7 +59,7 @@ void playerTouch(Entity* self, Entity* other)
 		}
 
 		if (self->hitActive == 1) {
-			if (checkHitboxCollision(self, other)== 0) {
+			if (checkHitboxCollision(self, other) == 0) {
 				vector4d_set(self->color, 255, 255, 255, 255);
 				self->hitActive = 0;
 			}
@@ -137,6 +134,8 @@ void playerUpdate(Entity * self)
 			self->velocity.y = 0;
 			self->isGrounded = 1;
 		}
+	
+		
 }
 
 

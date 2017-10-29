@@ -45,7 +45,7 @@ void enemyUpdate(Entity * self)
 	{
 
 		//self->position.x = 1200 - self->width;
-		self->velocity.x = -3;
+		self->velocity.x = 0;
 	}
 
 
@@ -91,6 +91,7 @@ Entity *enemy_new(Vector2D Position)
 	self->jumpTime = 0;
 	self->gravity = 0.5f;
 	self->type = "enemy";
+	
 	self->sprite = gf2d_sprite_load_all("images/players/redSquare.png", self->width, self->height, 1);
 	vector2d_set(self->flip, 0, 0);
 	vector4d_set(self->color, 255, 255, 255, 255);
