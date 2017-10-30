@@ -65,8 +65,6 @@ int checkBoxCollision(Entity * self, Entity * other)
 			return 0;
 		
 		}
-		
-			self->isGrounded = 1;
 			if (self->body.y + self->body.h > other->body.y && self->body.y < other->body.y)
 			{
 				self->isGrounded = 1;

@@ -44,7 +44,8 @@ void playerMove(Entity * self)
 void playerTouch(Entity* self, Entity* other)
 {
 
-	checkBoxCollision(self, other);
+	if(checkBoxCollision(self, other) == 1)
+		self->isGrounded = 1;
 	
 	self->hitActive = 0;
 	if(keys[SDL_SCANCODE_E]) {

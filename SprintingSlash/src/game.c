@@ -7,6 +7,7 @@
 #include "gf2d_collision.h"
 #include "gf2d_camera.h"
 #include "gf2d_audio.h"
+#include "gf2d_gui.h"
 
 
 
@@ -168,10 +169,10 @@ int main(int argc, char * argv[])
 	int grounded = 0;
 
 	//Pause Menu
+	/*
 	int paused = 0;
-	//int pauseMenu = showmenu(gf2d_get_screen_surface(), Verdana);
-	/*if (pauseMenu == 1)
-		paused = 1;*/
+	int pauseMenu = showMenu(gf2d_graphics_get_screen_surface(), Verdana);
+	*/
     /*main game loop*/
     while(!done)
     {
@@ -185,6 +186,15 @@ int main(int argc, char * argv[])
         if (mf >= 16.0)mf = 0;
 		//if (player->frame >= 6.0)player->frame = 0;
 		if (wall->frame >= 1.0)wall->frame = 0;
+
+		if (keys[SDL_SCANCODE_P])
+		{
+		
+			//if (pauseMenu == 1)
+				//paused = 1;
+			break;
+
+		}
 
 		entity_touch_all();
 		entity_update_all();

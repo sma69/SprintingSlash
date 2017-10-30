@@ -1,9 +1,14 @@
-﻿  gf2d_collision.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(103): warning C4101: 'positionB': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(103): warning C4101: 'positionA': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(120): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(121): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(84): warning C4715: 'checkBoxCollision': not all control paths return a value
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(106): warning C4716: 'checkCircleCollision': must return a value
+﻿  gf2d_player.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(47): warning C4013: 'checkBoxCollision' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(56): warning C4002: too many actual parameters for macro 'Mix_PlayChannel'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(63): warning C4013: 'checkHitboxCollision' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(86): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(92): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(93): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(98): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(102): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(104): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(168): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(169): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

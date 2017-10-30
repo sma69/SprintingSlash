@@ -63,18 +63,28 @@ int showMenu(SDL_Surface* screen, TTF_Font* font)
 				y = event.button.y;
 				for (int i = 0; i < MAX_MENU_ITEMS; i++)
 					if (x >= pos[i].x && x <= pos[i].w && y >= pos[i].y && y <= pos[i].y &&
-						y <= pos[i].y + pos[i].h) {
+						y <= pos[i].y + pos[i].h)
+					{
 						for (int i = 0; i < MAX_MENU_ITEMS; i++)
 							SDL_FreeSurface(menus[i]);
 						return 1;
 					}
 				break;
 			case SDL_KEYDOWN:
-				if (event.key.keysym.sym == SDLK_ESCAPE)
+				if (event.key.keysym.sym == SDLK_ESCAPE) 
+				{
 					for (int i = 0; i < MAX_MENU_ITEMS; i++)
 						SDL_FreeSurface(menus[i]);
 					return 0;
+				}
 			}
 		}
+		for (int i = 0; i < MAX_MENU_ITEMS; i++)
+		{
+			SDL_BlitSurface(menus[i], NULL, screen, &pos[i]);
+		}
+		//SDL_Flip(screen);
+		if (1000 / 30 > (SDL_GetTicks() - time))
+			SDL_Delay(1000 / 30 - (SDL_GetTicks() - time));
 	}
 }
