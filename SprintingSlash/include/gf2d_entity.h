@@ -7,6 +7,7 @@
 #include "gf2d_audio.h"
 
 
+ 
 
 /**
 @brief Entity manager functions to handle multiple entities in the world space
@@ -67,6 +68,7 @@ typedef struct Entity_S
 	int jumpTime;
 	int sprint;
 
+	float normalGravity;
 	int isKinematic;
 	int maxHealth;
 	int health;
@@ -87,7 +89,7 @@ typedef struct Entity_S
 
 }Entity;
 
-
+	//global variables
 
 	//actor functions in game loop
 	void entity_manager_close();  /**< Closes the entity manager */

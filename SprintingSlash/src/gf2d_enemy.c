@@ -1,4 +1,5 @@
 #include "gf2d_enemy.h"
+#include "gf2d_collision.h"
 
 void enemyThink(Entity* self)
 {
@@ -45,7 +46,7 @@ void enemyUpdate(Entity * self)
 	{
 
 		//self->position.x = 1200 - self->width;
-		self->velocity.x = 0;
+		self->velocity.x = -3;
 	}
 
 
@@ -67,7 +68,7 @@ void enemyUpdate(Entity * self)
 
 void enemyTouch(Entity* self, Entity* other)
 {
-
+	checkBoxCollision(self, other);
 }
 
 Entity *enemy_new(Vector2D Position)
@@ -104,9 +105,9 @@ Entity *enemy_new(Vector2D Position)
 	self->health = self->maxHealth;
 	self->frame = 0;
 	self->dead = 0;
-	//self->think = enemyThink;
+	self->think = enemyThink;
 	self->update = enemyUpdate;
-	//self->touch = enemyTouch;
+	self->touch = enemyTouch;
 	slog("enemy spawned");
 	return self;
 }

@@ -60,7 +60,8 @@ void playerTouch(Entity* self, Entity* other)
 		}
 
 		if (self->hitActive == 1) {
-			if (checkHitboxCollision(self, other) == 0) {
+			if (checkHitboxCollision(self, other) == 0) 
+			{
 				vector4d_set(self->color, 255, 255, 255, 255);
 				self->hitActive = 0;
 			}
@@ -68,6 +69,7 @@ void playerTouch(Entity* self, Entity* other)
 			{
 				vector4d_set(self->color, 255, 0, 100, 255);
 				self->hitActive = 0;
+				//other->dead = 1;
 			}
 			
 				
@@ -159,7 +161,7 @@ Entity *player_new(Vector2D Position)
 	vector2d_set(self->body, self->width, self->height);
 	self->moveSpeed = 4;
 	self->jumpTime = 0;
-	self->gravity = 0.5f;
+	//self->gravity = self->normalGravity;
 	self->type = "player";
 	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);

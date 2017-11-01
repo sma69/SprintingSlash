@@ -51,6 +51,7 @@
     <ClCompile Include="src\gf2d_entity.c" />
     <ClCompile Include="src\gf2d_graphics.c" />
     <ClCompile Include="src\gf2d_gui.c" />
+    <ClCompile Include="src\gf2d_level.c" />
     <ClCompile Include="src\gf2d_list.c" />
     <ClCompile Include="src\gf2d_player.c" />
     <ClCompile Include="src\gf2d_shape.c" />

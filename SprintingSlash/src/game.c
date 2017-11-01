@@ -68,6 +68,8 @@ int main(int argc, char * argv[])
 	Sprite * playerSprite;
 	Entity * player;
 	Entity * wall;
+	Entity * wall2;
+	Entity * wall3;
 	Entity * enemy1;
 	Entity * enemy2;
 	
@@ -121,9 +123,15 @@ int main(int argc, char * argv[])
 	Vector2D wallPosition = { 600, 300 };
 	wall = wall_new(wallPosition);
 
+	Vector2D wall2Position = { 300, 300 };
+	wall2 = wall_new(wall2Position);
 	//enemy init
 	Vector2D enemy1Position = { 200,300 };
 	enemy1 = enemy_new(enemy1Position);
+
+	Vector2D wall3Position = { 50, 600 };
+	wall3 = wall_new(wall3Position);
+
 	//font init
 
 	//Textbox * health = textbox_new();
@@ -131,7 +139,7 @@ int main(int argc, char * argv[])
 	//music init
 	//The music that will be played
 
-	Mix_Music *gMusic = NULL;
+	Mix_Music *gMusic = NULL; 
 	gMusic= Mix_LoadMUS("music/bridge-zone.wav");
 	Mix_PlayMusic(gMusic, 100);
 
@@ -169,10 +177,10 @@ int main(int argc, char * argv[])
 	int grounded = 0;
 
 	//Pause Menu
-	/*
+	
 	int paused = 0;
 	int pauseMenu = showMenu(gf2d_graphics_get_screen_surface(), Verdana);
-	*/
+	
     /*main game loop*/
     while(!done)
     {
@@ -190,8 +198,8 @@ int main(int argc, char * argv[])
 		if (keys[SDL_SCANCODE_P])
 		{
 		
-			//if (pauseMenu == 1)
-				//paused = 1;
+			if (pauseMenu == 1)
+				paused = 1;
 			break;
 
 		}

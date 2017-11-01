@@ -1,8 +1,11 @@
-#include "gf2d_gui.h"
+#include <SDL.h>
 
+#include <SDL_ttf.h>
+#include "gf2d_gui.h"
 
 int showMenu(SDL_Surface* screen, TTF_Font* font)
 {
+/*
 	Uint32 time;
 	int x, y;
 	const char* labels[MAX_MENU_ITEMS] = { "Resume", "Exit" };
@@ -79,12 +82,16 @@ int showMenu(SDL_Surface* screen, TTF_Font* font)
 				}
 			}
 		}
+		
 		for (int i = 0; i < MAX_MENU_ITEMS; i++)
 		{
 			SDL_BlitSurface(menus[i], NULL, screen, &pos[i]);
 		}
-		//SDL_Flip(screen);
+		SDL_Flip(screen);
+		
 		if (1000 / 30 > (SDL_GetTicks() - time))
 			SDL_Delay(1000 / 30 - (SDL_GetTicks() - time));
 	}
+	*/
 }
+	
