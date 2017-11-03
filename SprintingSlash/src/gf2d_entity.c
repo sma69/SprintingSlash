@@ -16,6 +16,7 @@ typedef struct {
 
 static EntityManager entityManager = { 0 };
 
+
 void entity_manager_close()
 {
 	int i;
@@ -118,8 +119,12 @@ Entity *entity_new()
 			entityManager.entityList[i].refID = entityManager.incr++;
 			entityManager.entityList[i].inuse = 1;
 			entityManager.entityList[i].normalGravity  = 0.5f;
+			
+			//itoa(entityManager.entityList[i].refID,snum, 10);
+			//printf("%s\n", snum);
 			vector2d_set(entityManager.entityList[i].scale,1,1);
 			entityManager.entityList[i].color = vector4d(255, 255, 255, 255);
+			//printf("%s\n", entityManager.entityList[i].refID);
 			return &entityManager.entityList[i];
 
 		}
@@ -162,8 +167,10 @@ void entity_think_all()
 	{
 		if (entityManager.entityList[i].inuse == 0)
 			continue;
-		if (entityManager.entityList[i].think!=NULL)
+		if (entityManager.entityList[i].think != NULL)
+		{
 			entityManager.entityList->think(&entityManager.entityList[i]);
+		}
 	}
 }
 

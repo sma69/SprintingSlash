@@ -1,13 +1,14 @@
 #ifndef __GF2D_ENTITY_H__
 #define __GF2D_ENTITY_H__
 
+#include <stdio.h>
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
 #include "gf2d_vector.h"
 #include "gf2d_audio.h"
 
 
- 
+#define atoa(x) #x
 
 /**
 @brief Entity manager functions to handle multiple entities in the world space

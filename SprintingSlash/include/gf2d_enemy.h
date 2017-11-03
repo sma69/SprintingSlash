@@ -3,6 +3,7 @@
 #define __GF2D_ENEMY_H__
 
 #include  "gf2d_entity.h"
+#include  "gf2d_player.h"
 
 
 /**

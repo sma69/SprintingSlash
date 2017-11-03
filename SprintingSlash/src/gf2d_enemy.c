@@ -3,6 +3,7 @@
 
 void enemyThink(Entity* self)
 {
+	slog("entity numbe %i thinking");
 	enemyMove(self);
 }
 
