@@ -1,0 +1,32 @@
+﻿  gf2d_collision.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(103): warning C4101: 'positionB': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(103): warning C4101: 'positionA': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(120): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(121): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  game.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(26): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(120): warning C4013: 'player_new' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(120): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(130): warning C4013: 'enemy_new' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(130): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(182): warning C4013: 'gf2d_graphics_get_screen_surface' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(182): warning C4047: 'function': 'SDL_Surface *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(182): warning C4024: 'showMenu': different types for formal and actual parameter 1
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(191): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(193): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(207): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(91): warning C4101: 'frameheight': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(92): warning C4101: 'textureWidth': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(74): warning C4101: 'enemy2': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(91): warning C4101: 'frameWidth': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(71): warning C4101: 'wall2': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(92): warning C4101: 'textureHeight': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(72): warning C4101: 'wall3': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(68): warning C4101: 'playerSprite': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(90): warning C4101: 'playerRect': unreferenced local variable
+  Generating Code...
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(84): warning C4715: 'checkBoxCollision': not all control paths return a value
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(106): warning C4716: 'checkCircleCollision': must return a value
+  SprintingSlash.vcxproj -> C:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
