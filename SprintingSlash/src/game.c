@@ -21,16 +21,18 @@ const int LEVEL_WIDTH = 1280;
 const int LEVEL_HEIGHT = 960;
 
 //The frame rate
-const int FRAMES_PER_SECOND = 20;
+const int FRAMES_PER_SECOND = 60;
 
 SDL_Rect camera = { 0, 0, &SCREEN_WIDTH, &SCREEN_HEIGHT };
 
-void set_camera(Entity * self)
+void set_camera(SDL_Rect camera, Entity * self)
 {
+
 	//Center the camera over the dot
 	camera.x = (self->position.x + self->width / 2) - SCREEN_WIDTH / 2;
 	camera.y = (self->position.y + self->height / 2) - SCREEN_HEIGHT / 2;
-
+	camera.w = &SCREEN_WIDTH;
+	camera.h = &SCREEN_HEIGHT;
 	//Keep the camera in bounds.
 	if (camera.x < 0)
 	{
@@ -48,15 +50,15 @@ void set_camera(Entity * self)
 	{
 		camera.y = LEVEL_HEIGHT - camera.h;
 	}
-	
+	return camera;
 }
 
-void camera_show(Entity* self)
+void camera_show(SDL_Rect self)
 {
 	//show the entity relative to the camera
-	
-}
+	SDL_RenderSetViewport(gf2d_graphics_get_renderer(), &camera);
 
+}
 
 int main(int argc, char * argv[])
 {
@@ -113,7 +115,7 @@ int main(int argc, char * argv[])
     
     /*demo setup*/
 
-    sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
+    sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png",LEVEL_WIDTH,LEVEL_HEIGHT,1);
 	
 	//player initialization	
 	Vector2D playerPosition = { 10, 10 };
@@ -123,14 +125,14 @@ int main(int argc, char * argv[])
 	Vector2D wallPosition = { 600, 300 };
 	wall = wall_new(wallPosition);
 
-	//Vector2D wall2Position = { 300, 300 };
-	//wall2 = wall_new(wall2Position);
+	Vector2D wall2Position = { 300, 300 };
+	wall2 = wall_new(wall2Position);
 	//enemy init
 	Vector2D enemy1Position = { 200,300 };
 	enemy1 = enemy_new(enemy1Position);
 
-	//Vector2D wall3Position = { 50, 600 };
-	//wall3 = wall_new(wall3Position);
+	Vector2D wall3Position = { 50, 600 };
+	wall3 = wall_new(wall3Position);
 
 	//font init
 
@@ -207,7 +209,8 @@ int main(int argc, char * argv[])
 		entity_touch_all();
 		entity_update_all();
 		entity_think_all();
-		set_camera(player);
+		set_camera(camera, player);
+		//camera_show(camera);
 		//if(checkBoxCollision(player, wall))
 			//player->isGrounded = 1;
 		//if (checkBoxCollision(player, enemy1))
@@ -218,6 +221,7 @@ int main(int argc, char * argv[])
         // all drawing should happen betweem clear_screen and next_frame
             //backgrounds drawn first
             gf2d_sprite_draw_image(sprite,vector2d(0,0));
+			//apply_surface(0, 0,  ,gf2d_graphics_get_screen_surface, &camera);
 
 			//set cam
 			

@@ -69,9 +69,9 @@ int checkBoxCollision(Entity * self, Entity * other)
 			if (self->body.y + self->body.h > other->body.y && self->body.y < other->body.y)
 			{
 				self->isGrounded = 1;
-				self->position.y = other->body.y - self->body.h -.01;
+				self->position.y = other->body.y - self->body.h- 10;
 				self->moveSpeed = 4;
-				self->gravity = 0;
+				self->velocity.y -= self->gravity;
 				return 1;
 			}
 			
