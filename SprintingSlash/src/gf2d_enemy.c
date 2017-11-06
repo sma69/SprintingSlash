@@ -3,7 +3,6 @@
 
 void enemyThink(Entity* self)
 {
-	slog("entity numbe %i thinking");
 	enemyMove(self);
 }
 
@@ -69,7 +68,7 @@ void enemyUpdate(Entity * self)
 
 void enemyTouch(Entity* self, Entity* other)
 {
-	checkBoxCollision(self, other);
+	//checkBoxCollision(self, other);
 }
 
 Entity *enemy_new(Vector2D Position)

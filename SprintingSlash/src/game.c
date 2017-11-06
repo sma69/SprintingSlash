@@ -206,9 +206,9 @@ int main(int argc, char * argv[])
 
 		}
 
+		entity_think_all();
 		entity_touch_all();
 		entity_update_all();
-		entity_think_all();
 		set_camera(camera, player);
 		//camera_show(camera);
 		//if(checkBoxCollision(player, wall))

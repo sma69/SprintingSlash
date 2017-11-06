@@ -60,7 +60,7 @@ int checkBoxCollision(Entity * self, Entity * other)
 			self->body.y + self->body.h < other->body.y || self->body.y > other->body.y + other->body.h)
 		{
 
-			self->moveSpeed = 4;
+			self->moveSpeed = abs(self->moveSpeed);
 			self->gravity = self->normalGravity;
 			vector4d_set(self->color, 255, 255, 255, 255);
 			return 0;
@@ -70,13 +70,20 @@ int checkBoxCollision(Entity * self, Entity * other)
 			{
 				self->isGrounded = 1;
 				self->position.y = other->body.y - self->body.h- 10;
-				self->moveSpeed = 4;
+				self->moveSpeed = abs(self->moveSpeed);
 				self->velocity.y -= self->gravity;
+				return 1;
+			}
+			if (self->body.x < other->body.x + other->body.w &&
+				self->body.x + self->body.w > other->body.x + other->body.w)
+			{
+				self->isGrounded = 1;
+				self->position.x += self->moveSpeed;
 				return 1;
 			}
 			
 			self->isGrounded = 1;
-			self->moveSpeed = -4;
+			self->position.x -= self->moveSpeed;
 			//vector4d_set(self->color, 255, 0, 0, 255);
 
 			return 1;

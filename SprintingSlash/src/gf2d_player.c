@@ -18,7 +18,7 @@ void playerMove(Entity * self)
 
 	if (keys[SDL_SCANCODE_A]  || keys[SDL_SCANCODE_LEFT]) {
 		self->flip.x = 1;
-		self->position.x -= (self->moveSpeed * sprint);
+		self->position.x += (-self->moveSpeed * sprint);
 	}
 	if (keys[SDL_SCANCODE_D] || keys[SDL_SCANCODE_RIGHT]) {
 		self->flip.x = 0;
@@ -37,6 +37,7 @@ void playerMove(Entity * self)
 	if (keys[SDL_SCANCODE_S] || keys[SDL_SCANCODE_DOWN]) {
 		self->velocity.y += (1 * sprint);
 	}
+
 
 
 }

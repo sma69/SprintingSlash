@@ -129,8 +129,7 @@ void entity_update(Entity *self)
 		return;
 	}
 
-	/*collision handles position and velocity*/
-	//vector2d_add(self->velocity, self->velocity, self->acceleration);
+	
 
 	
 	if (self->update != NULL)
@@ -164,7 +163,7 @@ Entity *entity_new()
 			printf("%s\n", snum);
 			vector2d_set(entityManager.entityList[i].scale,1,1);
 			entityManager.entityList[i].color = vector4d(255, 255, 255, 255);
-			//printf("%s\n", entityManager.entityList[i].refID);
+			
 			return &entityManager.entityList[i];
 
 		}
@@ -194,7 +193,7 @@ void entity_update_all()
 		if (entityManager.entityList[i].inuse == 0)
 			continue;
 		if (entityManager.entityList[i].update != NULL) {
-			//entityManager.entityList->update(&entityManager.entityList[i]);
+			
 			entity_update(&entityManager.entityList[i]);
 		}
 	}
@@ -209,7 +208,7 @@ void entity_think_all()
 			continue;
 		if (entityManager.entityList[i].think != NULL)
 		{
-			//entityManager.entityList->think(&entityManager.entityList[i]);
+			
 			entity_think(&entityManager.entityList[i]);
 		}
 	}
@@ -230,11 +229,8 @@ void entity_touch_all()
 					continue;
 				if (j == i)
 					continue;
-				//if (entityManager.entityList[].touch != NULL)
-				//{
-				//	//entityManager.entityList->touch(&entityManager.entityList[i], &entityManager.entityList[j]);
-				entity_touch(&entityManager.entityList[i], &entityManager.entityList[j]);
-				//}
+							entity_touch(&entityManager.entityList[i], &entityManager.entityList[j]);
+			
 			}
 		}
 	}
