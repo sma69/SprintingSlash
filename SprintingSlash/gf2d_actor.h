@@ -24,6 +24,15 @@ typedef struct ActionList_S {
 
 }ActionList;
 
+typedef struct
+{
+	Sprite     *sprite;       /**<which sprite to draw this entity with*/
+	Vector4D    color;        /**<color to shift sprite too*/
+	float       frame;        /**<current frame for the sprite*/
+	ActionList *al;           /**<action list for managing sprite animations*/
+	char*    action;       /**<the current action*/
+}Actor;
+
 /**
 * @brief initialize the action list system
 */

@@ -16,12 +16,14 @@ void playerMove(Entity * self)
 	else
 		sprint = 1;
 
-	if (keys[SDL_SCANCODE_A]  || keys[SDL_SCANCODE_LEFT]) {
+	if (keys[SDL_SCANCODE_A] || keys[SDL_SCANCODE_LEFT]) {
 		self->flip.x = 1;
+		self->sprite = gf2d_sprite_load_all("images/players/zero_run.png", 43, 42, 11);
 		self->position.x += (-self->moveSpeed * sprint);
 	}
 	if (keys[SDL_SCANCODE_D] || keys[SDL_SCANCODE_RIGHT]) {
 		self->flip.x = 0;
+		self->sprite = gf2d_sprite_load_all("images/players/zero_run.png", 43, 42, 11);
 		self->position.x += (self->moveSpeed * sprint);
 	}
 	if (keys[SDL_SCANCODE_W] || keys[SDL_SCANCODE_UP]) {
@@ -112,6 +114,10 @@ void playerUpdate(Entity * self)
 	self->hitbox.w = self->width;
 	self->hitbox.h = self->height;
 
+	if (self->velocity.x == 0 && self->velocity.y == 0)
+	{
+		self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
+	}
 
 
 		//if entity went too far to the left
