@@ -47,7 +47,7 @@ void playerMove(Entity * self)
 void playerTouch(Entity* self, Entity* other)
 {
 
-	if(checkBoxCollision(self, other) == 1) {
+	if(checkWallCollision(self, other) == 1) {
 		self->isGrounded = 1;
 	}
 	

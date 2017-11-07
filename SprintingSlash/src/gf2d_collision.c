@@ -52,7 +52,7 @@ int checkWallCollision(Entity * self, Entity * other)
 }
 */
 
-int checkBoxCollision(Entity * self, Entity * other)
+int checkWallCollision(Entity * self, Entity * other)
 {
 
 	if (other->type == "wall") {
