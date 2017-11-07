@@ -5,15 +5,44 @@
 #include "gf2d_vector.h"
 
 
-typedef struct Actor_S {
+/**
+@brief This structure is the system that manages actions done by entities
+
+*/
+
+typedef struct Action_S {
 	int startFrame;
 	int endFrame;
+	int recovery;
+	int cd;
+	char* anim;
+	float frameRate;
+}Action;
 
+typedef struct ActionList_S {
+	Action* actions;
 
+}ActionList;
 
+/**
+* @brief initialize the action list system
+*/
+void gf2d_action_list_init(Uint32 max);
 
+/**
+* @brief load an action list from file or get a reference to one already in memory
+* @param filename the name of the action list to load
+* @return NULL on error or a pointer to the action list
+*/
+ActionList *gf2d_action_list_load(
+	char *filename
+);
 
-}Actor;
+/**
+* @brief let the system know you are done with the action list
+* @param actionList the list to free
+*/
+void gf2d_action_list_free(ActionList *actionList);
 
 
 

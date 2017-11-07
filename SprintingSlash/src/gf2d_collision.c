@@ -78,12 +78,12 @@ int checkBoxCollision(Entity * self, Entity * other)
 				self->body.x + self->body.w > other->body.x + other->body.w)
 			{
 				self->isGrounded = 1;
-				self->position.x += self->moveSpeed;
+				self->position.x += (self->moveSpeed * 1.2);
 				return 1;
 			}
 			
 			self->isGrounded = 1;
-			self->position.x -= self->moveSpeed;
+			self->position.x -= (self->moveSpeed * 1.2 );
 			//vector4d_set(self->color, 255, 0, 0, 255);
 
 			return 1;

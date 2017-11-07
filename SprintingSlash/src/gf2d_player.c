@@ -99,12 +99,14 @@ void playerUpdate(Entity * self)
 	self->body.w = self->width;
 	self->body.h = self->height;
 	self->velocity.y += self->gravity;
+
+	/** <flip hitbox to position where the player is facing> */
 	if (self->flip.x == 0) {
 		self->hitbox.x = self->position.x - 10 + self->width;
 	}
 	if (self->flip.x == 1)
 	{ 
-		self->hitbox.x = self->position.x - 10 + self->width;
+		self->hitbox.x = self->position.x - self->hitbox.w - 10 + self->width;
 	}
 	self->hitbox.y = self->position.y;
 	self->hitbox.w = self->width;
