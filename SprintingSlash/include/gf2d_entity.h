@@ -97,13 +97,12 @@ typedef struct Entity_S
 	void entity_manager_init(Uint32 maxEntities);   /**< Initializes the entity manager */
 	
 
-	void entity_draw(Entity *self);  /**< draws the entity into the world */
+	void entity_draw(Entity *self, SDL_Rect camera);  /**< draws the entity into the world */
 	void entity_free(Entity *self);			  /**< Undraws the sprite of the entity in the world */
 	Entity *entity_new();					  /**< instantiates a new entity on function call */
 
 	//global entity functions
-	void entity_draw_all();					  /**< draws all of the listed entities into the world */
-	void entity_update_all();
+	void entity_draw_all(SDL_Rect camera);
 	void entity_think_all();
 
 	

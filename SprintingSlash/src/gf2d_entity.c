@@ -56,11 +56,12 @@ void entity_manager_init(Uint32 maxEntities)
 
 }
 
-void entity_draw(Entity *self)
+void entity_draw(Entity *self, SDL_Rect camera)
 {
+
 	gf2d_sprite_draw(
 		self->sprite,
-		self->position,
+		vector2d( self->position.x - camera.x,self->position.y - camera.y ),
 		&self->scale,
 		&self->scaleCenter,
 		&self->rotation,
@@ -146,6 +147,7 @@ void entity_free(Entity *self)
 	gf2d_sprite_free(self->sprite);
 	memset(self, 0, sizeof(Entity));
 }
+
 char snum[5];
 Entity *entity_new()
 {
@@ -173,7 +175,7 @@ Entity *entity_new()
 
 
 
-void entity_draw_all()
+void entity_draw_all(SDL_Rect camera)
 {
 	int i;
 	for (int i = 0; i < entityManager.maxEntities; i++)
@@ -181,7 +183,7 @@ void entity_draw_all()
 		if (entityManager.entityList[i].inuse == 0)
 			continue;
 		else
-			entity_draw(&entityManager.entityList[i]);
+			entity_draw(&entityManager.entityList[i], camera);
 	}
 }
 

@@ -25,12 +25,12 @@ const int FRAMES_PER_SECOND = 60;
 
 SDL_Rect camera = { 0, 0, &SCREEN_WIDTH, &SCREEN_HEIGHT };
 
-void set_camera(SDL_Rect camera, Entity * self)
+void set_camera(SDL_Rect camera, Entity * target)
 {
 
 	//Center the camera over the dot
-	camera.x = (self->position.x + self->width / 2) - SCREEN_WIDTH / 2;
-	camera.y = (self->position.y + self->height / 2) - SCREEN_HEIGHT / 2;
+	camera.x = (target->position.x + target->width / 2) - SCREEN_WIDTH / 2;
+	camera.y = (target->position.y + target->height / 2) - SCREEN_HEIGHT / 2;
 	camera.w = &SCREEN_WIDTH;
 	camera.h = &SCREEN_HEIGHT;
 	//Keep the camera in bounds.
@@ -151,12 +151,12 @@ int main(int argc, char * argv[])
 	}
 
 	
-	
+	char* screenStateMessage = "Slash!";
 	TTF_Font* Verdana = TTF_OpenFont("fonts/verdana.ttf", 24); //this opens a font style and sets a size
 
 	SDL_Color White = { 255, 255, 255 };  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
 
-	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Verdana, "Slash!", White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Verdana, screenStateMessage, White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
 
 	SDL_Texture* Message = SDL_CreateTextureFromSurface(gf2d_graphics_get_renderer(), surfaceMessage); //now you can convert it into a texture
 
@@ -199,16 +199,22 @@ int main(int argc, char * argv[])
 
 		if (keys[SDL_SCANCODE_P])
 		{
-		
-			if (pauseMenu == 1)
+			if (paused == 0) {
 				paused = 1;
-			break;
-
+				continue;
+			}
+			if (paused == 1){
+				paused = 0;
+				continue;
+			}
 		}
 
-		entity_think_all();
-		entity_touch_all();
-		entity_update_all();
+		if ( paused != 1)
+		{
+			entity_think_all();
+			entity_touch_all();
+			entity_update_all();
+		}
 		set_camera(camera, player);
 		//camera_show(camera);
 		//if(checkBoxCollision(player, wall))
@@ -221,7 +227,7 @@ int main(int argc, char * argv[])
         // all drawing should happen betweem clear_screen and next_frame
             //backgrounds drawn first
             gf2d_sprite_draw_image(sprite,vector2d(0,0));
-			//apply_surface(0, 0,  ,gf2d_graphics_get_screen_surface, &camera);
+	
 
 			//set cam
 			
@@ -238,7 +244,7 @@ int main(int argc, char * argv[])
 			//	(int)player->frame);
 
 			SDL_RenderCopy(gf2d_graphics_get_renderer(), Message, NULL, &Message_rect);
-			entity_draw_all();
+			entity_draw_all(camera);
 
             //UI elements last
             gf2d_sprite_draw(

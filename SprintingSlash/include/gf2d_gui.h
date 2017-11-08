@@ -16,7 +16,7 @@
 */
 int showMenu(SDL_Surface* screen, TTF_Font* font);
 
-
+int pauseGame();
 
 
 #endif

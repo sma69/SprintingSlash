@@ -1,4 +1,3 @@
-
 #include "gf2d_text.h"
 
 typedef struct {
@@ -9,7 +8,7 @@ typedef struct {
 
 
 static TextboxManager tbManager = { 0 };
-/*
+
 void textbox_manager_close()
 {
 	int i;
@@ -50,8 +49,16 @@ Textbox * textbox_new()
 	return self;
 }
 
+textbox_free(Textbox * self)
+{
+	int i;
+	if (!self)
+		return;
+
+	memset(self, 0, sizeof(Textbox));
+}
+
 void textbox_draw(Textbox * self)
 {
 	SDL_RenderCopy(gf2d_graphics_get_renderer(), self->message, NULL, &self->box);
 }
-*/

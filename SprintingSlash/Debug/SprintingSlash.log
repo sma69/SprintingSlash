@@ -1,31 +1,14 @@
-﻿  gf2d_level.c
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(37): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
-  game.c
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(26): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(34): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(35): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(53): warning C4098: 'set_camera': 'void' function returning a value
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(122): warning C4013: 'player_new' undefined; assuming extern returning int
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(122): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(132): warning C4013: 'enemy_new' undefined; assuming extern returning int
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(132): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(184): warning C4013: 'gf2d_graphics_get_screen_surface' undefined; assuming extern returning int
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(184): warning C4047: 'function': 'SDL_Surface *' differs in levels of indirection from 'int'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(184): warning C4024: 'showMenu': different types for formal and actual parameter 1
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(193): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(195): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(210): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(93): warning C4101: 'frameheight': unreferenced local variable
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(94): warning C4101: 'textureWidth': unreferenced local variable
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(76): warning C4101: 'enemy2': unreferenced local variable
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(93): warning C4101: 'frameWidth': unreferenced local variable
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(94): warning C4101: 'textureHeight': unreferenced local variable
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(70): warning C4101: 'playerSprite': unreferenced local variable
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(92): warning C4101: 'playerRect': unreferenced local variable
-  Generating Code...
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(27): warning C4700: uninitialized local variable 'self' used
+﻿  gf2d_text.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(20): warning C4013: 'textbox_free' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(42): warning C4013: 'gf2d_graphics_get_renderer' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(42): warning C4047: 'function': 'SDL_Renderer *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(42): warning C4024: 'SDL_CreateTextureFromSurface': different types for formal and actual parameter 1
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(56): warning C4033: 'textbox_free' must return a value
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(54): warning C4101: 'i': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(63): warning C4047: 'function': 'SDL_Renderer *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(63): warning C4024: 'SDL_RenderCopy': different types for formal and actual parameter 1
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(59): warning C4716: 'textbox_free': must return a value
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(32): warning C4700: uninitialized local variable 'self' used
+     Creating library C:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.lib and object C:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exp
   SprintingSlash.vcxproj -> C:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe

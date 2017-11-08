@@ -30,6 +30,7 @@
 #include <SDL_ttf.h>
 #include "gf2d_types.h"
 #include "gf2d_vector.h"
+#include "simple_logger.h"
 
 /**
  * constant lenth character buffers.
@@ -62,15 +63,19 @@ typedef char TextBlock[512];
 #define gf2d_block_clear(a)  (memset(a,0,sizeof(char)*GF2DTEXTLEN))
 
 
+/**
+@brief Creates a Textbox for rendering text to the screen
+*/
+
 typedef struct Textbox_S{
 
-	TTF_Font* font; //this opens a font style and sets a size
-	SDL_Color color;  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
-	SDL_Surface* surface; // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
-	SDL_Texture* message; //now you can convert it into a texture
-	SDL_Rect box; //create a rect
-	char *text;
-	int size; // font size
+	TTF_Font* font;			//this opens a font style and sets a size
+	SDL_Color color;		//this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+	SDL_Surface* surface;	//as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+	SDL_Texture* message;	//now you can convert it into a texture
+	SDL_Rect box;			//create a rect
+	char *text;				//the the 
+	int size;				//font size
 
 }Textbox;
 
