@@ -8,7 +8,102 @@ c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(56): wa
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(54): warning C4101: 'i': unreferenced local variable
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(63): warning C4047: 'function': 'SDL_Renderer *' differs in levels of indirection from 'int'
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(63): warning C4024: 'SDL_RenderCopy': different types for formal and actual parameter 1
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(74): warning C4020: 'textbox_draw': too many actual parameters
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(68): warning C4101: 'i': unreferenced local variable
+  gf2d_sprite.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(46): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(87): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(103): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(182): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(343): note: see declaration of 'strncpy'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(232): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(233): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(234): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(245): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(246): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(247): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(250): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_sprite.c(265): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  gf2d_player.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(50): warning C4013: 'checkWallCollision' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(60): warning C4002: too many actual parameters for macro 'Mix_PlayChannel'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(67): warning C4013: 'checkHitboxCollision' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(93): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(99): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(100): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(107): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(111): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(113): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(181): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(182): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  gf2d_level.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(37): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+  gf2d_entity.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(26): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(54): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(67): warning C4133: 'function': incompatible types - from 'Vector2D *' to 'Vector3D *'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(144): warning C4101: 'i': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(155): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(160): warning C4244: '=': conversion from 'Uint64' to 'Uint32', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(164): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdlib.h(1334): note: see declaration of 'itoa'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(181): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(180): warning C4101: 'i': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(193): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(192): warning C4101: 'i': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(207): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(206): warning C4101: 'i': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(222): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(228): warning C4018: '<': signed/unsigned mismatch
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_entity.c(221): warning C4101: 'i': unreferenced local variable
+  gf2d_enemy.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_enemy.c(19): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_enemy.c(25): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_enemy.c(26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_enemy.c(30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_enemy.c(31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_enemy.c(99): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_enemy.c(100): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  gf2d_collision.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(110): warning C4101: 'positionB': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(110): warning C4101: 'positionA': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(127): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(128): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  gf2d_camera.c
+  game.c
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(26): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(34): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(35): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(53): warning C4098: 'set_camera': 'void' function returning a value
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(122): warning C4013: 'player_new' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(122): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(132): warning C4013: 'enemy_new' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(132): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(184): warning C4013: 'gf2d_graphics_get_screen_surface' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(184): warning C4047: 'function': 'SDL_Surface *' differs in levels of indirection from 'int'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(184): warning C4024: 'showMenu': different types for formal and actual parameter 1
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(193): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(195): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(215): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(216): warning C4013: 'entity_update_all' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(93): warning C4101: 'frameheight': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(94): warning C4101: 'textureWidth': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(76): warning C4101: 'enemy2': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(93): warning C4101: 'frameWidth': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(94): warning C4101: 'textureHeight': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(70): warning C4101: 'playerSprite': unreferenced local variable
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(92): warning C4101: 'playerRect': unreferenced local variable
+  Generating Code...
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(113): warning C4716: 'checkCircleCollision': must return a value
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_collision.c(91): warning C4715: 'checkWallCollision': not all control paths return a value
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(27): warning C4700: uninitialized local variable 'self' used
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(59): warning C4716: 'textbox_free': must return a value
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_text.c(32): warning C4700: uninitialized local variable 'self' used
-     Creating library C:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.lib and object C:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exp
   SprintingSlash.vcxproj -> C:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe

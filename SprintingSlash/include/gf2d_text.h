@@ -72,10 +72,11 @@ typedef struct Textbox_S{
 	TTF_Font* font;			//this opens a font style and sets a size
 	SDL_Color color;		//this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
 	SDL_Surface* surface;	//as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
-	SDL_Texture* message;	//now you can convert it into a texture
+	SDL_Texture* texture;	//now you can convert it into a texture
 	SDL_Rect box;			//create a rect
 	char *text;				//the the 
 	int size;				//font size
+	int inuse;				//check if textbox is enabled or not
 
 }Textbox;
 
