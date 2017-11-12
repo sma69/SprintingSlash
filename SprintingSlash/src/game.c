@@ -74,6 +74,7 @@ int main(int argc, char * argv[])
 	Entity * wall3;
 	Entity * enemy1;
 	Entity * enemy2;
+	Sprite * pauseBG;
 	
 
 	
@@ -106,16 +107,21 @@ int main(int argc, char * argv[])
         vector4d(0,0,0,255),
         0);
     gf2d_graphics_set_frame_delay(16);
+	
+	//Font and Audio Initialization
 	TTF_Init();
 	audio_init();
 
+	//Object Manager Initialization
     gf2d_sprite_init(1024);
 	entity_manager_init(1024);
+	tb_manager_init(1024);
     SDL_ShowCursor(SDL_DISABLE);
     
     /*demo setup*/
 
     sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png",LEVEL_WIDTH,LEVEL_HEIGHT,1);
+	pauseBG = gf2d_sprite_load_all("images/backgrounds/BlackSquare.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
 	
 	//player initialization	
 	Vector2D playerPosition = { 10, 10 };
@@ -136,7 +142,8 @@ int main(int argc, char * argv[])
 
 	//font init
 
-	//Textbox * health = textbox_new();
+	Textbox * health = guiTextbox_new(vector2d(200,200));
+	health->text = "Health";
 
 	//music init
 	//The music that will be played
@@ -201,10 +208,12 @@ int main(int argc, char * argv[])
 		{
 			if (paused == 0) {
 				paused = 1;
+				gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
 				continue;
 			}
 			if (paused == 1){
 				paused = 0;
+
 				continue;
 			}
 		}
@@ -214,6 +223,7 @@ int main(int argc, char * argv[])
 			entity_think_all();
 			entity_touch_all();
 			entity_update_all();
+			
 		}
 		set_camera(camera, player);
 		//camera_show(camera);
@@ -245,6 +255,7 @@ int main(int argc, char * argv[])
 
 			SDL_RenderCopy(gf2d_graphics_get_renderer(), Message, NULL, &Message_rect);
 			entity_draw_all(camera);
+			textbox_draw_all(camera);
 
             //UI elements last
             gf2d_sprite_draw(

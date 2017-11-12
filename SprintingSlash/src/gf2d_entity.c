@@ -149,6 +149,7 @@ void entity_free(Entity *self)
 }
 
 char snum[5];
+
 Entity *entity_new()
 {
 	int i;

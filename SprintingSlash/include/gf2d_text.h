@@ -68,7 +68,8 @@ typedef char TextBlock[512];
 */
 
 typedef struct Textbox_S{
-
+	
+	Uint32 refID;			//this is the Unique ID for each textbox
 	TTF_Font* font;			//this opens a font style and sets a size
 	SDL_Color color;		//this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
 	SDL_Surface* surface;	//as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
@@ -79,5 +80,23 @@ typedef struct Textbox_S{
 	int inuse;				//check if textbox is enabled or not
 
 }Textbox;
+
+
+void textbox_manager_close();				/**< Closes the Textbox System>*/
+
+void tb_manager_init(Uint32 maxTextboxes);  /**< Initializes the Textbox System for use inside the game loop>*/
+
+Textbox * textbox_new();	/**< Creates of new instance of a textbox inside the Textbox Manager>*/
+
+void textbox_free(Textbox * self);			/**< Frees the textbox  Memory>*/
+
+void textbox_draw(Textbox * self);			/**< Draws a single textbox with its given Rect Parameters>*/
+
+void textbox_draw_all(SDL_Rect camera);		/**< Draws all textboxes in the Textbox Manager's textbox list>*/
+
+
+
+
+
 
 #endif

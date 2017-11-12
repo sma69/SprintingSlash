@@ -5,9 +5,16 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include "gf2d_vector.h"
+#include "gf2d_text.h"
 
 #define MAX_MENU_ITEMS  2
 
+/**
+@brief guiTextbox_new Creates a Textbox at a given position
+@param position is the position on the screen the textbox is drawn
+@returns Textbox at a given location on screen
+*/
+Textbox * guiTextbox_new(Vector2D position);
 
 /**
 @brief Creates pause menu
@@ -16,6 +23,9 @@
 */
 int showMenu(SDL_Surface* screen, TTF_Font* font);
 
+/**
+@brief pauseGame shows pause game menu
+*/
 int pauseGame();
 
 

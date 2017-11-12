@@ -3,6 +3,33 @@
 #include <SDL_ttf.h>
 #include "gf2d_gui.h"
 
+Textbox * guiTextbox_new(Vector2D position)
+{
+	Textbox* self;
+	self = textbox_new();
+
+
+	//font init
+	self->text = "empty textbox";
+	self->size = 24;
+	self->font = TTF_OpenFont("fonts/verdana.ttf", self->size); //this opens a font style and sets a size
+
+	self->color.r = 255;  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+	self->color.g = 255;
+	self->color.b = 255;
+
+	self->surface = TTF_RenderText_Solid(self->font, self->text, self->color); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+
+	self->texture = SDL_CreateTextureFromSurface(gf2d_graphics_get_renderer(), self->surface); //now you can convert it into a texture
+
+	self->box.x = position.x; // controls the rect's x coordinate 
+	self->box.y = position.y; // controls the rect's y coordinte
+	self->box.w = 200; // controls the width of the rect
+	self->box.h = 100; // controls the height of the rect
+
+	return self;
+}
+
 int showMenu(SDL_Surface* screen, TTF_Font* font)
 {
 /*
@@ -94,4 +121,6 @@ int showMenu(SDL_Surface* screen, TTF_Font* font)
 	}
 	*/
 }
+
+
 	
