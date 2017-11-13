@@ -77,6 +77,7 @@ typedef struct Textbox_S{
 	SDL_Rect box;			//create a rect
 	char *text;				//the the 
 	int size;				//font size
+	int selected;			//if element is selected
 	int inuse;				//check if textbox is enabled or not
 
 }Textbox;

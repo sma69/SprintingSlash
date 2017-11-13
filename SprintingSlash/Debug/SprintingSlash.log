@@ -10,11 +10,10 @@ c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(128): warnin
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(138): warning C4013: 'enemy_new' undefined; assuming extern returning int
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(138): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(155): warning C4090: '=': different 'const' qualifiers
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(200): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(202): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(217): warning C4133: 'function': incompatible types - from 'Textbox *' to 'SDL_Texture *'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(226): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(227): warning C4013: 'entity_update_all' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(205): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(207): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(301): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(302): warning C4013: 'entity_update_all' undefined; assuming extern returning int
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(94): warning C4101: 'frameheight': unreferenced local variable
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(95): warning C4101: 'textureWidth': unreferenced local variable
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(76): warning C4101: 'enemy2': unreferenced local variable

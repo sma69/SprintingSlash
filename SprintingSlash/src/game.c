@@ -155,6 +155,11 @@ int main(int argc, char * argv[])
 		menus[i]->text = labels[i];
 		menus[i]->color = color[0];
 	}
+	//second loop because first element had issues in the first loop
+	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+		menus[i]->inuse = 0;
+	}
+	menus[0]->selected = 1;
 
 	
 	menus[0]->box.x = SCREEN_WIDTH / 2 - menus[0]->box.w / 2;
@@ -209,17 +214,87 @@ int main(int argc, char * argv[])
 			if (paused == 0) {
 				paused = 1;
 				//gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
+				for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+					menus[i]->inuse = 1;
+					if (menus[i]->selected == 1)
+					{
+						menus[i]->color.r = 255;
+						menus[i]->color.g = 0;
+						menus[i]->color.b = 100;
+					}
+					if (menus[i]->selected == 0)
+					{
+						menus[i]->color.r = 255;
+						menus[i]->color.g = 255;
+						menus[i]->color.b = 255;
+					}
+
+				}
 				continue;
+
 			}
 			if (paused == 1){
 				paused = 0;
-				for (int i = 0; i < MAX_MENU_ITEMS; i++) {
-					SDL_DestroyTexture(menus[i]);
+				for (int i = 0; i < MAX_MENU_ITEMS; i++) 
+				{
+					menus[i]->inuse = 0;
 				}
 				continue;
 			}
 		}
+		
+		if (paused == 1)
+		{
+			if (keys[SDL_SCANCODE_W])
+			{
+				for (int i = 0; i < MAX_MENU_ITEMS; i++)
+				{
+					if (menus[i]->selected == 1)
+					{
+						menus[i]->selected = 0;
+						if (i - 1 < 0)
+							menus[i]->selected = 1;
+						if (i - 1 == 0)
+							menus[i - 1]->selected = 1;
+						break;
+					}
+				}
+			}
+			if (keys[SDL_SCANCODE_S])
+			{
+				for (int i = 0; i < MAX_MENU_ITEMS; i++)
+				{
+					if (menus[i]->selected == 1)
+					{
+						menus[i]->selected = 0;
+						if (i + 1 == MAX_MENU_ITEMS)
+							menus[i]->selected = 1;
+						if (i + 1 < MAX_MENU_ITEMS)
+							menus[i+1]->selected = 1;
 
+						break;
+					}
+				}
+			}
+			//Change color of selected menu item
+			for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+				menus[i]->inuse = 1;
+				if (menus[i]->selected == 1)
+				{
+					menus[i]->color.r = 255;
+					menus[i]->color.g = 0;
+					menus[i]->color.b = 100;
+				}
+				if (menus[i]->selected == 0)
+				{
+					menus[i]->color.r = 255;
+					menus[i]->color.g = 255;
+					menus[i]->color.b = 255;
+				}
+
+			}
+		}
+		
 		if ( paused != 1)
 		{
 			entity_think_all();
@@ -277,7 +352,9 @@ int main(int argc, char * argv[])
        // slog("Rendering at %f FPS",gf2d_graphics_get_frames_per_second());
     }
 	slog("---Deinitializing entities");
-
+	gf2d_sprite_clear_all();
+	entity_manager_close();
+	textbox_manager_close();
     slog("---==== END ====---");
     return 0;
 }
