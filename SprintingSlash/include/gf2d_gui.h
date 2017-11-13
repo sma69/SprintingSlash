@@ -7,6 +7,7 @@
 #include "gf2d_vector.h"
 #include "gf2d_text.h"
 
+
 #define MAX_MENU_ITEMS  2
 
 /**
@@ -21,7 +22,7 @@ Textbox * guiTextbox_new(Vector2D position);
 @param takes in screen surface
 @param takes in font style
 */
-int showMenu(SDL_Surface* screen, TTF_Font* font);
+Textbox* pauseMenu_init(SDL_Surface* screen,TTF_Font* font);
 
 /**
 @brief pauseGame shows pause game menu

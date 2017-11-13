@@ -88,6 +88,9 @@ void textbox_free(Textbox * self)
 
 void textbox_draw(Textbox * self)
 {
+	self->surface = TTF_RenderText_Solid(self->font, self->text, self->color); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+
+	self->texture = SDL_CreateTextureFromSurface(gf2d_graphics_get_renderer(), self->surface); //now you can convert it into a texture
 	SDL_RenderCopy(gf2d_graphics_get_renderer(), self->texture, NULL, &self->box);
 }
 

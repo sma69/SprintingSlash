@@ -5,6 +5,7 @@
 
 Textbox * guiTextbox_new(Vector2D position)
 {
+	
 	Textbox* self;
 	self = textbox_new();
 
@@ -30,26 +31,29 @@ Textbox * guiTextbox_new(Vector2D position)
 	return self;
 }
 
-int showMenu(SDL_Surface* screen, TTF_Font* font)
+Textbox* pauseMenu_init(SDL_Surface* screen, TTF_Font* font)
 {
-/*
+	/**
 	Uint32 time;
 	int x, y;
+	Textbox* menus[MAX_MENU_ITEMS];
 	const char* labels[MAX_MENU_ITEMS] = { "Resume", "Exit" };
-	SDL_Surface* menus[MAX_MENU_ITEMS];
 	int selected[MAX_MENU_ITEMS] = { 0, 0 };
 	SDL_Color color[2] = { { 255,255,255 },{ 255,0,0 } };
-
-	menus[0] = TTF_RenderText_Solid(font, labels[0], color[0]);
-	menus[0] = TTF_RenderText_Solid(font, labels[1], color[0]);
+	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+		menus[i] = guiTextbox_new(vector2d(0, 0));
+		menus[i]->text = labels[i];
+		menus[i]->color = color[0];
+	}
+	menus[0]->font = TTF_RenderText_Solid(font, menus[0]->text, color[0]);
+	menus[1]->font = TTF_RenderText_Solid(font, menus[1]->text, color[0]);
 	SDL_Rect pos[MAX_MENU_ITEMS];
-	pos[0].x = screen->clip_rect.w / 2 - menus[0]->clip_rect.w / 2;
-	pos[0].x = screen->clip_rect.h / 2 - menus[0]->clip_rect.h;
-	pos[1].x = screen->clip_rect.w / 2 - menus[0]->clip_rect.w / 2;
-	pos[1].x = screen->clip_rect.h / 2 - menus[0]->clip_rect.h;
+	pos[0].x = screen->clip_rect.w / 2 - menus[0]->box.w / 2;
+	pos[0].y = screen->clip_rect.h / 2 - menus[0]->box.h;
+	pos[1].x = screen->clip_rect.w / 2 - menus[1]->box.w / 2;
+	pos[1].y = screen->clip_rect.h / 2 - menus[1]->box.h;
 
-	SDL_FillRect(screen, &screen->clip_rect, SDL_MapRGB(screen->format, 0x00, 0x00, 0x00));
-
+	/**
 	SDL_Event event;
 	while (1)
 	{
@@ -120,6 +124,8 @@ int showMenu(SDL_Surface* screen, TTF_Font* font)
 			SDL_Delay(1000 / 30 - (SDL_GetTicks() - time));
 	}
 	*/
+	//return menus;
+
 }
 
 

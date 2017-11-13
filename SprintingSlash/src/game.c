@@ -142,8 +142,27 @@ int main(int argc, char * argv[])
 
 	//font init
 
-	Textbox * health = guiTextbox_new(vector2d(200,200));
+	Textbox * health = guiTextbox_new(vector2d(0,0));
 	health->text = "Health";
+
+	//pause menu init
+	Textbox* menus[MAX_MENU_ITEMS];
+	const char* labels[MAX_MENU_ITEMS] = { "Resume", "Exit" };
+	int selected[MAX_MENU_ITEMS] = { 0, 0 };
+	SDL_Color color[2] = { { 255,255,255 },{ 255,0,0 } };
+	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+		menus[i] = guiTextbox_new(vector2d(0, 0));
+		menus[i]->text = labels[i];
+		menus[i]->color = color[0];
+	}
+
+	
+	menus[0]->box.x = SCREEN_WIDTH / 2 - menus[0]->box.w / 2;
+	menus[0]->box.y = SCREEN_HEIGHT / 2 - menus[0]->box.h;
+	menus[1]->box.x = SCREEN_WIDTH / 2 - menus[1]->box.w / 2;
+	menus[1]->box.y = SCREEN_HEIGHT / 2 - menus[1]->box.h + menus[0]->box.h;
+
+	//Textbox* pause = pauseMenu_init(gf2d_graphics_get_screen_surface(), TTF_OpenFont("fonts/verdana.ttf", 24));
 
 	//music init
 	//The music that will be played
@@ -156,23 +175,6 @@ int main(int argc, char * argv[])
 	{
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
 	}
-
-	
-	char* screenStateMessage = "Slash!";
-	TTF_Font* Verdana = TTF_OpenFont("fonts/verdana.ttf", 24); //this opens a font style and sets a size
-
-	SDL_Color White = { 255, 255, 255 };  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
-
-	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Verdana, screenStateMessage, White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
-
-	SDL_Texture* Message = SDL_CreateTextureFromSurface(gf2d_graphics_get_renderer(), surfaceMessage); //now you can convert it into a texture
-
-	SDL_Rect Message_rect; //create a rect
-	Message_rect.x = 0;  //controls the rect's x coordinate 
-	Message_rect.y = 0; // controls the rect's y coordinte
-	Message_rect.w = 200; // controls the width of the rect
-	Message_rect.h = 100; // controls the height of the rect
-
 	
 	//playerSprite = gf2d_sprite_load_all("images/players/redSquare.png", 32, 32, 1);
 	
@@ -188,8 +190,6 @@ int main(int argc, char * argv[])
 	//Pause Menu
 	
 	int paused = 0;
-	int pauseMenu = showMenu(gf2d_graphics_get_screen_surface(), Verdana);
-	
     /*main game loop*/
     while(!done)
     {
@@ -198,22 +198,24 @@ int main(int argc, char * argv[])
         /*update things here*/
         SDL_GetMouseState(&mx,&my);
         mf += 0.1;
-		//player->frame += 0.03;
+		
 		wall->frame += 0.1;
         if (mf >= 16.0)mf = 0;
-		//if (player->frame >= 6.0)player->frame = 0;
+		
 		if (wall->frame >= 1.0)wall->frame = 0;
 
 		if (keys[SDL_SCANCODE_P])
 		{
 			if (paused == 0) {
 				paused = 1;
-				gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
+				//gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
 				continue;
 			}
 			if (paused == 1){
 				paused = 0;
-
+				for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+					SDL_DestroyTexture(menus[i]);
+				}
 				continue;
 			}
 		}
@@ -252,8 +254,6 @@ int main(int argc, char * argv[])
 			//	NULL,
 			//	&player->color,
 			//	(int)player->frame);
-
-			SDL_RenderCopy(gf2d_graphics_get_renderer(), Message, NULL, &Message_rect);
 			entity_draw_all(camera);
 			textbox_draw_all(camera);
 
