@@ -293,6 +293,26 @@ int main(int argc, char * argv[])
 				}
 
 			}
+			// Do the action of the selected option in menu
+			if (keys[SDL_SCANCODE_RETURN])
+			{
+				if (menus[0]->selected == 1)
+				{
+					paused = 0;
+					for (int i = 0; i < MAX_MENU_ITEMS; i++)
+					{
+						menus[i]->inuse = 0;
+					}
+				}
+				if (menus[1]->selected == 1)
+				{
+					done = 1;
+					for (int i = 0; i < MAX_MENU_ITEMS; i++)
+					{
+						menus[i]->inuse = 0;
+					}
+				}
+			}
 		}
 		
 		if ( paused != 1)
