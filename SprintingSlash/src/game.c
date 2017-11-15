@@ -64,6 +64,7 @@ int main(int argc, char * argv[])
 {
     /*variable declarations*/
     int done = 0;
+	int start = 1;
    
 	
     Sprite * sprite;
@@ -123,6 +124,8 @@ int main(int argc, char * argv[])
     sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png",LEVEL_WIDTH,LEVEL_HEIGHT,1);
 	pauseBG = gf2d_sprite_load_all("images/backgrounds/BlackSquare.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
 	
+	
+
 	//player initialization	
 	Vector2D playerPosition = { 10, 10 };
 	player = player_new(playerPosition);
@@ -145,28 +148,15 @@ int main(int argc, char * argv[])
 	Textbox * health = guiTextbox_new(vector2d(0,0));
 	health->text = "Health";
 
+	//Main Menu Init
+	Textbox* mainMenu[MAX_MAIN_MENU_ITEMS]; 
+	mainMenu_init(mainMenu, SCREEN_WIDTH, SCREEN_HEIGHT);
+
 	//pause menu init
-	Textbox* menus[MAX_MENU_ITEMS];
-	const char* labels[MAX_MENU_ITEMS] = { "Resume", "Exit" };
-	SDL_Color color[2] = { { 255,255,255 },{ 255,0,0 } };
-	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
-		menus[i] = guiTextbox_new(vector2d(0, 0));
-		menus[i]->text = labels[i];
-		menus[i]->color = color[0];
-	}
-	//second loop because first element had issues in the first loop
-	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
-		menus[i]->inuse = 0;
-	}
-	menus[0]->selected = 1;
-
-	
-	menus[0]->box.x = SCREEN_WIDTH / 2 - menus[0]->box.w / 2;
-	menus[0]->box.y = SCREEN_HEIGHT / 2 - menus[0]->box.h;
-	menus[1]->box.x = SCREEN_WIDTH / 2 - menus[1]->box.w / 2;
-	menus[1]->box.y = SCREEN_HEIGHT / 2 - menus[1]->box.h + menus[0]->box.h;
-
-	//Textbox* pause = pauseMenu_init(gf2d_graphics_get_screen_surface(), TTF_OpenFont("fonts/verdana.ttf", 24));
+	//Pause Menu
+	Textbox * pauseMenu[MAX_PAUSE_MENU_ITEMS];
+	pauseMenu_init(pauseMenu, SCREEN_WIDTH, SCREEN_HEIGHT);
+	int paused = 0;
 
 	//music init
 	//The music that will be played
@@ -184,17 +174,7 @@ int main(int argc, char * argv[])
 	
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16);
 
-	/*Player Properties*/
-	int moveSpeed = 4;
-	int jumpSpeed = 20;
-	int sprint = 1;
-	int gravity = 0;
-	int grounded = 0;
 
-	//Pause Menu
-	Textbox * pauseMenu[MAX_MENU_ITEMS];
-	pauseMenu_init(pauseMenu,SCREEN_WIDTH, SCREEN_HEIGHT);
-	int paused = 0;
     /*main game loop*/
     while(!done)
     {
@@ -209,136 +189,61 @@ int main(int argc, char * argv[])
 		
 		if (wall->frame >= 1.0)wall->frame = 0;
 
-		
-
-		
-		if (keys[SDL_SCANCODE_P])
+		if (start == 1)
 		{
 			
-			if (paused == 0) {
-				paused = 1;
-				//gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
-				/*for (int i = 0; i < MAX_MENU_ITEMS; i++) {
-					menus[i]->inuse = 1;
-					if (menus[i]->selected == 1)
-					{
-						menus[i]->color.r = 255;
-						menus[i]->color.g = 0;
-						menus[i]->color.b = 100;
-					}
-					if (menus[i]->selected == 0)
-					{
-						menus[i]->color.r = 255;
-						menus[i]->color.g = 255;
-						menus[i]->color.b = 255;
-
-					}
-				}*/
-				continue;
-
-			}
+			sprite = pauseBG;
 			
-			if (paused == 1){
-				paused = 0;
-				/*for (int i = 0; i < MAX_MENU_ITEMS; i++) 
-				{
-					menus[i]->inuse = 0;
-				}*/
-				continue;
-			}
-		}
-		pauseMenu_update(pauseMenu, paused, done);
-		if (pauseMenu_update(pauseMenu, paused, done) == 2)
-		{
-			paused = 0;
-		}
-		if (pauseMenu_update(pauseMenu, paused, done) == 3)
-		{
-			done = 1;
-		}
-		/**
-		if (paused == 1)
-		{
-			if (keys[SDL_SCANCODE_W])
+			mainMenu_update(mainMenu, start, done);
+			if (mainMenu_update(mainMenu, start, done) == 1)
 			{
-				for (int i = 0; i < MAX_MENU_ITEMS; i++)
-				{
-					if (menus[i]->selected == 1)
-					{
-						menus[i]->selected = 0;
-						if (i - 1 < 0)
-							menus[i]->selected = 1;
-						if (i - 1 == 0)
-							menus[i - 1]->selected = 1;
-						break;
-					}
-				}
+				start = 0;
 			}
-			if (keys[SDL_SCANCODE_S])
+			if (mainMenu_update(mainMenu, start, done) == 3)
 			{
-				for (int i = 0; i < MAX_MENU_ITEMS; i++)
-				{
-					if (menus[i]->selected == 1)
-					{
-						menus[i]->selected = 0;
-						if (i + 1 == MAX_MENU_ITEMS)
-							menus[i]->selected = 1;
-						if (i + 1 < MAX_MENU_ITEMS)
-							menus[i+1]->selected = 1;
-
-						break;
-					}
-				}
+				done = 1;
 			}
 			
-			//Change color of selected menu item
-		
-			for (int i = 0; i < MAX_MENU_ITEMS; i++) {
-				menus[i]->inuse = 1;
-				if (menus[i]->selected == 1)
-				{
-					menus[i]->color.r = 255;
-					menus[i]->color.g = 0;
-					menus[i]->color.b = 100;
-				}
-				if (menus[i]->selected == 0)
-				{
-					menus[i]->color.r = 255;
-					menus[i]->color.g = 255;
-					menus[i]->color.b = 255;
+			/*if (keys[SDL_SCANCODE_RETURN])
+				start = 0;*/
+		}
+
+		if (start == 0) {
+
+				sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
+			if (keys[SDL_SCANCODE_P])
+			{
+				if (paused == 0) {
+					paused = 1;
+
+					continue;
+
 				}
 
-			}
-			// Do the action of the selected option in menu
-			
-			if (keys[SDL_SCANCODE_RETURN])
-			{
-				if (menus[0]->selected == 1)
-				{
+				if (paused == 1) {
 					paused = 0;
-					for (int i = 0; i < MAX_MENU_ITEMS; i++)
-					{
-						menus[i]->inuse = 0;
-					}
-				}
-				if (menus[1]->selected == 1)
-				{
-					done = 1;
-					for (int i = 0; i < MAX_MENU_ITEMS; i++)
-					{
-						menus[i]->inuse = 0;
-					}
+
+					continue;
 				}
 			}
-		}
-		*/
-		
-		if ( paused != 1)
-		{
-			entity_think_all();
-			entity_touch_all();
-			entity_update_all();
-			
+			pauseMenu_update(pauseMenu, paused, done);
+			if (pauseMenu_update(pauseMenu, paused, done) == 2)
+			{
+				paused = 0;
+			}
+			if (pauseMenu_update(pauseMenu, paused, done) == 3)
+			{
+				done = 1;
+			}
+
+
+			if (paused != 1)
+			{
+				entity_think_all();
+				entity_touch_all();
+				entity_update_all();
+
+			}
 		}
 		set_camera(camera, player);
 		//camera_show(camera);k
@@ -363,8 +268,11 @@ int main(int argc, char * argv[])
 			//	NULL,
 			//	&player->color,
 			//	(int)player->frame);
-			entity_draw_all(camera);
-			textbox_draw_all(camera);
+			if (start == 0) {
+				entity_draw_all(camera);
+			}
+				textbox_draw_all(camera);
+			
 
             //UI elements last
             gf2d_sprite_draw(
