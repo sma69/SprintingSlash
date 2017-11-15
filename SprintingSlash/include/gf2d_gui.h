@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include "gf2d_vector.h"
+#include "gf2d_graphics.h"
 #include "gf2d_text.h"
 
 
@@ -22,12 +23,12 @@ Textbox * guiTextbox_new(Vector2D position);
 @param takes in screen surface
 @param takes in font style
 */
-Textbox* pauseMenu_init(SDL_Surface* screen,TTF_Font* font);
+Textbox* pauseMenu_init(Textbox* menus[], const int SCREEN_WIDTH, const int SCREEN_HEIGHT);
 
 /**
 @brief pauseGame shows pause game menu
 */
-int pauseGame();
+int pauseMenu_update(Textbox* menus[], int paused, int done);
 
 
 #endif

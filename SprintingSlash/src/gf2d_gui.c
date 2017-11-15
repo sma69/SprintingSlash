@@ -31,101 +31,144 @@ Textbox * guiTextbox_new(Vector2D position)
 	return self;
 }
 
-Textbox* pauseMenu_init(SDL_Surface* screen, TTF_Font* font)
+Textbox* pauseMenu_init(Textbox* menus[],const int SCREEN_WIDTH, const int SCREEN_HEIGHT)
 {
-	/**
-	Uint32 time;
-	int x, y;
-	Textbox* menus[MAX_MENU_ITEMS];
+	//pause menu init
+	//Textbox* menus[MAX_MENU_ITEMS];
 	const char* labels[MAX_MENU_ITEMS] = { "Resume", "Exit" };
-	int selected[MAX_MENU_ITEMS] = { 0, 0 };
 	SDL_Color color[2] = { { 255,255,255 },{ 255,0,0 } };
 	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
 		menus[i] = guiTextbox_new(vector2d(0, 0));
 		menus[i]->text = labels[i];
 		menus[i]->color = color[0];
 	}
-	menus[0]->font = TTF_RenderText_Solid(font, menus[0]->text, color[0]);
-	menus[1]->font = TTF_RenderText_Solid(font, menus[1]->text, color[0]);
-	SDL_Rect pos[MAX_MENU_ITEMS];
-	pos[0].x = screen->clip_rect.w / 2 - menus[0]->box.w / 2;
-	pos[0].y = screen->clip_rect.h / 2 - menus[0]->box.h;
-	pos[1].x = screen->clip_rect.w / 2 - menus[1]->box.w / 2;
-	pos[1].y = screen->clip_rect.h / 2 - menus[1]->box.h;
+	//second loop because first element had issues in the first loop
+	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+		menus[i]->inuse = 0;
+	}
+	menus[0]->selected = 1;
 
-	/**
-	SDL_Event event;
-	while (1)
-	{
-		time - SDL_GetTicks();
-		while (SDL_PollEvent(&event))
-		{
-			switch (event.type)
-			{
-			case SDL_QUIT:
-				for (int i = 0; i < MAX_MENU_ITEMS; i++)
-					SDL_FreeSurface(menus[i]);
-				return 1;
-			case SDL_MOUSEMOTION:
-				x = event.motion.x;
-				y = event.motion.y;
-				for (int i = 0; i < MAX_MENU_ITEMS; i++)
-				{
-					if (x >= pos[i].x && x <= pos[i].w && y >= pos[i].y && y <= pos[i].y &&
-						y <= pos[i].y + pos[i].h) {
 
-						//if menu item is not selected
-						if (!selected[i])
-						{
-							selected[i] = 1;
-							SDL_FreeSurface(menus[i]);
-							menus[i] = TTF_RenderText_Solid(font, labels[i], color[1]);
-						}
-					}
-						else {
-							//if menu item is selected
-							if (selected[i])
-							{
-								selected[i] = 0;
-								SDL_FreeSurface(menus[i]);
-								menus[i] = TTF_RenderText_Solid(font, labels[i], color[0]);
-							}
-						}
-				}
-			case SDL_MOUSEBUTTONDOWN:
-				x = event.button.x;
-				y = event.button.y;
-				for (int i = 0; i < MAX_MENU_ITEMS; i++)
-					if (x >= pos[i].x && x <= pos[i].w && y >= pos[i].y && y <= pos[i].y &&
-						y <= pos[i].y + pos[i].h)
-					{
-						for (int i = 0; i < MAX_MENU_ITEMS; i++)
-							SDL_FreeSurface(menus[i]);
-						return 1;
-					}
-				break;
-			case SDL_KEYDOWN:
-				if (event.key.keysym.sym == SDLK_ESCAPE) 
-				{
-					for (int i = 0; i < MAX_MENU_ITEMS; i++)
-						SDL_FreeSurface(menus[i]);
-					return 0;
-				}
-			}
-		}
+	menus[0]->box.x = SCREEN_WIDTH / 2 - menus[0]->box.w / 2;
+	menus[0]->box.y = SCREEN_HEIGHT / 2 - menus[0]->box.h;
+	menus[1]->box.x = SCREEN_WIDTH / 2 - menus[1]->box.w / 2;
+	menus[1]->box.y = SCREEN_HEIGHT / 2 - menus[1]->box.h + menus[0]->box.h;
+
+	return menus;
+	
+}
+
+int pauseMenu_update(Textbox* menus[],int *paused,int *done) 
+{
+	keys = SDL_GetKeyboardState(NULL);
+	if (paused == 0) {
 		
 		for (int i = 0; i < MAX_MENU_ITEMS; i++)
 		{
-			SDL_BlitSurface(menus[i], NULL, screen, &pos[i]);
+			menus[i]->inuse = 0;
 		}
-		SDL_Flip(screen);
-		
-		if (1000 / 30 > (SDL_GetTicks() - time))
-			SDL_Delay(1000 / 30 - (SDL_GetTicks() - time));
-	}
-	*/
-	//return menus;
 
+	}
+	else if (paused == 1) {
+	
+		//gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
+		for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+			menus[i]->inuse = 1;
+			if (menus[i]->selected == 1)
+			{
+				menus[i]->color.r = 255;
+				menus[i]->color.g = 0;
+				menus[i]->color.b = 100;
+			}
+			if (menus[i]->selected == 0)
+			{
+				menus[i]->color.r = 255;
+				menus[i]->color.g = 255;
+				menus[i]->color.b = 255;
+			}
+
+		}
+
+
+	}
+
+	
+
+	if (paused == 1)
+	{
+		if (keys[SDL_SCANCODE_W])
+		{
+			for (int i = 0; i < MAX_MENU_ITEMS; i++)
+			{
+				if (menus[i]->selected == 1)
+				{
+					menus[i]->selected = 0;
+					if (i - 1 < 0)
+						menus[i]->selected = 1;
+					if (i - 1 == 0)
+						menus[i - 1]->selected = 1;
+					break;
+				}
+			}
+		}
+		if (keys[SDL_SCANCODE_S])
+		{
+			for (int i = 0; i < MAX_MENU_ITEMS; i++)
+			{
+				if (menus[i]->selected == 1)
+				{
+					menus[i]->selected = 0;
+					if (i + 1 == MAX_MENU_ITEMS)
+						menus[i]->selected = 1;
+					if (i + 1 < MAX_MENU_ITEMS)
+						menus[i + 1]->selected = 1;
+
+					break;
+				}
+			}
+		}
+		//Change color of selected menu item
+		for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+			menus[i]->inuse = 1;
+			if (menus[i]->selected == 1)
+			{
+				menus[i]->color.r = 255;
+				menus[i]->color.g = 0;
+				menus[i]->color.b = 100;
+			}
+			if (menus[i]->selected == 0)
+			{
+				menus[i]->color.r = 255;
+				menus[i]->color.g = 255;
+				menus[i]->color.b = 255;
+			}
+
+		}
+		// Do the action of the selected option in menu
+		if (keys[SDL_SCANCODE_RETURN])
+		{
+			if (menus[0]->selected == 1)
+			{
+				paused = 0;
+				for (int i = 0; i < MAX_MENU_ITEMS; i++)
+				{
+					menus[i]->inuse = 0;
+				}
+				return 2;
+
+			}
+			if (menus[1]->selected == 1)
+			{
+				done = 1;
+				for (int i = 0; i < MAX_MENU_ITEMS; i++)
+				{
+					menus[i]->inuse = 0;
+				}
+				return 3;
+
+			}
+		}
+	}
 }
 
 

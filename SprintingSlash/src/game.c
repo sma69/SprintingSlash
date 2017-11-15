@@ -148,7 +148,6 @@ int main(int argc, char * argv[])
 	//pause menu init
 	Textbox* menus[MAX_MENU_ITEMS];
 	const char* labels[MAX_MENU_ITEMS] = { "Resume", "Exit" };
-	int selected[MAX_MENU_ITEMS] = { 0, 0 };
 	SDL_Color color[2] = { { 255,255,255 },{ 255,0,0 } };
 	for (int i = 0; i < MAX_MENU_ITEMS; i++) {
 		menus[i] = guiTextbox_new(vector2d(0, 0));
@@ -193,7 +192,8 @@ int main(int argc, char * argv[])
 	int grounded = 0;
 
 	//Pause Menu
-	
+	Textbox * pauseMenu[MAX_MENU_ITEMS];
+	pauseMenu_init(pauseMenu,SCREEN_WIDTH, SCREEN_HEIGHT);
 	int paused = 0;
     /*main game loop*/
     while(!done)
@@ -209,12 +209,16 @@ int main(int argc, char * argv[])
 		
 		if (wall->frame >= 1.0)wall->frame = 0;
 
+		
+
+		
 		if (keys[SDL_SCANCODE_P])
 		{
+			
 			if (paused == 0) {
 				paused = 1;
 				//gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
-				for (int i = 0; i < MAX_MENU_ITEMS; i++) {
+				/*for (int i = 0; i < MAX_MENU_ITEMS; i++) {
 					menus[i]->inuse = 1;
 					if (menus[i]->selected == 1)
 					{
@@ -227,22 +231,32 @@ int main(int argc, char * argv[])
 						menus[i]->color.r = 255;
 						menus[i]->color.g = 255;
 						menus[i]->color.b = 255;
-					}
 
-				}
+					}
+				}*/
 				continue;
 
 			}
+			
 			if (paused == 1){
 				paused = 0;
-				for (int i = 0; i < MAX_MENU_ITEMS; i++) 
+				/*for (int i = 0; i < MAX_MENU_ITEMS; i++) 
 				{
 					menus[i]->inuse = 0;
-				}
+				}*/
 				continue;
 			}
 		}
-		
+		pauseMenu_update(pauseMenu, paused, done);
+		if (pauseMenu_update(pauseMenu, paused, done) == 2)
+		{
+			paused = 0;
+		}
+		if (pauseMenu_update(pauseMenu, paused, done) == 3)
+		{
+			done = 1;
+		}
+		/**
 		if (paused == 1)
 		{
 			if (keys[SDL_SCANCODE_W])
@@ -276,7 +290,9 @@ int main(int argc, char * argv[])
 					}
 				}
 			}
+			
 			//Change color of selected menu item
+		
 			for (int i = 0; i < MAX_MENU_ITEMS; i++) {
 				menus[i]->inuse = 1;
 				if (menus[i]->selected == 1)
@@ -294,6 +310,7 @@ int main(int argc, char * argv[])
 
 			}
 			// Do the action of the selected option in menu
+			
 			if (keys[SDL_SCANCODE_RETURN])
 			{
 				if (menus[0]->selected == 1)
@@ -314,6 +331,7 @@ int main(int argc, char * argv[])
 				}
 			}
 		}
+		*/
 		
 		if ( paused != 1)
 		{
@@ -323,12 +341,8 @@ int main(int argc, char * argv[])
 			
 		}
 		set_camera(camera, player);
-		//camera_show(camera);
-		//if(checkBoxCollision(player, wall))
-			//player->isGrounded = 1;
-		//if (checkBoxCollision(player, enemy1))
-			
-		//checkHitboxCollision(player, wall);
+		//camera_show(camera);k
+
 
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
