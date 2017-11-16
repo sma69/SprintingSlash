@@ -31,33 +31,33 @@ Textbox * guiTextbox_new(Vector2D position)
 	return self;
 }
 
-Textbox* mainMenu_init(Textbox* menus[], const int SCREEN_WIDTH, const int SCREEN_HEIGHT)
+Textbox* mainMenu_init(Textbox* menu[], const int SCREEN_WIDTH, const int SCREEN_HEIGHT)
 {
 	const char* labels[MAX_MAIN_MENU_ITEMS] = { "Start Game","Options" ,"Exit" };
 	SDL_Color color[2] = { { 255,255,255 },{ 0,255,255 } };
 	for (int i = 0; i < MAX_MAIN_MENU_ITEMS; i++) {
-		menus[i] = guiTextbox_new(vector2d(0, 0));
-		menus[i]->text = labels[i];
-		menus[i]->color = color[0];
+		menu[i] = guiTextbox_new(vector2d(0, 0));
+		menu[i]->text = labels[i];
+		menu[i]->color = color[0];
 	}
 	for (int i = 0; i < MAX_MAIN_MENU_ITEMS; i++) {
-		menus[i]->inuse = 0;
+		menu[i]->inuse = 0;
 	}
-	menus[0]->selected = 1;
+	menu[0]->selected = 1;
 
-	menus[0]->box.x = SCREEN_WIDTH / 2 - menus[0]->box.w / 2;
-	menus[0]->box.y = SCREEN_HEIGHT / 2 - menus[0]->box.h;
+	menu[0]->box.x = SCREEN_WIDTH / 2 - menu[0]->box.w / 2;
+	menu[0]->box.y = SCREEN_HEIGHT / 2 - menu[0]->box.h;
 	
 	for (int i = 1; i < MAX_MAIN_MENU_ITEMS; i++)
 	{
-		menus[i]->box.x = menus[i - 1]->box.x;
-		menus[i]->box.y = menus[i - 1]->box.y + menus[i - 1]->box.h;
+		menu[i]->box.x = menu[i - 1]->box.x;
+		menu[i]->box.y = menu[i - 1]->box.y + menu[i - 1]->box.h;
 	}
 	
-	menus[1]->box.x = SCREEN_WIDTH / 2 - menus[1]->box.w / 2;
-	menus[1]->box.y = SCREEN_HEIGHT / 2 - menus[1]->box.h + menus[0]->box.h;
+	menu[1]->box.x = SCREEN_WIDTH / 2 - menu[1]->box.w / 2;
+	menu[1]->box.y = SCREEN_HEIGHT / 2 - menu[1]->box.h + menu[0]->box.h;
 
-	return menus;
+	return menu;
 
 
 }
@@ -88,6 +88,7 @@ Textbox* pauseMenu_init(Textbox* menus[],const int SCREEN_WIDTH, const int SCREE
 	
 }
 
+
 int mainMenu_update(Textbox* menus[], int *start, int *done)
 {
 	keys = SDL_GetKeyboardState(NULL);
@@ -102,6 +103,8 @@ int mainMenu_update(Textbox* menus[], int *start, int *done)
 
 		//gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
 		for (int i = 0; i < MAX_MAIN_MENU_ITEMS; i++) {
+			
+			//printf("%s\n", menus[i]->text);
 			menus[i]->inuse = 1;
 			if (menus[i]->selected == 1)
 			{

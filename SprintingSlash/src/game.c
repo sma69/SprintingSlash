@@ -193,8 +193,8 @@ int main(int argc, char * argv[])
 		{
 			
 			sprite = pauseBG;
-			
-			mainMenu_update(mainMenu, start, done);
+			health->text = "Press Enter to Begin";
+			/*mainMenu_update(mainMenu, start, done);
 			if (mainMenu_update(mainMenu, start, done) == 1)
 			{
 				start = 0;
@@ -202,15 +202,15 @@ int main(int argc, char * argv[])
 			if (mainMenu_update(mainMenu, start, done) == 3)
 			{
 				done = 1;
-			}
+			}*/
 			
-			/*if (keys[SDL_SCANCODE_RETURN])
-				start = 0;*/
+			if (keys[SDL_SCANCODE_RETURN])
+				start = 0;
 		}
 
 		if (start == 0) {
-
-				sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
+			health->text = "Health";
+			sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
 			if (keys[SDL_SCANCODE_P])
 			{
 				if (paused == 0) {

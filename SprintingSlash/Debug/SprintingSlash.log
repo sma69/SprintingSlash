@@ -11,17 +11,8 @@ c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(141): warnin
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(141): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(185): warning C4305: '+=': truncation from 'double' to 'float'
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(187): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(197): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(197): warning C4024: 'mainMenu_update': different types for formal and actual parameter 2
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(197): warning C4024: 'mainMenu_update': different types for formal and actual parameter 3
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(198): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(198): warning C4024: 'mainMenu_update': different types for formal and actual parameter 2
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(198): warning C4024: 'mainMenu_update': different types for formal and actual parameter 3
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(202): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(202): warning C4024: 'mainMenu_update': different types for formal and actual parameter 2
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(202): warning C4024: 'mainMenu_update': different types for formal and actual parameter 3
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(244): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
-c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(245): warning C4013: 'entity_update_all' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(243): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
+c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(244): warning C4013: 'entity_update_all' undefined; assuming extern returning int
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(95): warning C4101: 'frameheight': unreferenced local variable
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(96): warning C4101: 'textureWidth': unreferenced local variable
 c:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(77): warning C4101: 'enemy2': unreferenced local variable
