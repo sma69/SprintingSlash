@@ -103,7 +103,7 @@ int mainMenu_update(Textbox* menus[], int *start, int *done)
 
 		//gf2d_sprite_draw_image(pauseBG, vector2d(0, 0));
 		for (int i = 0; i < MAX_MAIN_MENU_ITEMS; i++) {
-			
+
 			//printf("%s\n", menus[i]->text);
 			menus[i]->inuse = 1;
 			if (menus[i]->selected == 1)

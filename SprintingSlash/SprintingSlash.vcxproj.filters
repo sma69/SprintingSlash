@@ -42,9 +42,6 @@
     <ClInclude Include="include\gf2d_player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gf2d_actor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\gf2d_function.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -73,6 +70,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gf2d_gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gf2d_actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gf2d_file.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -129,6 +132,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\gf2d_level.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gf2d_actor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gf2d_file.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
