@@ -112,25 +112,3 @@ int checkCircleCollision(Entity *self, Entity * other)
 	
 }
 
-Entity* wall_new(Vector2D position)
-{
-	Entity * self;
-	self = entity_new();
-
-	if (!self)
-	{
-		slog("player does not exist\n");
-		system("PAUSE");
-		return NULL;
-	}
-	vector2d_set(self->position, position.x, position.y);
-	self->body.x = position.x;
-	self->body.y = position.y;
-
-	self->body.w = 200;
-	self->body.h = 400;
-	self->type = "wall";
-	self->sprite = gf2d_sprite_load_all("images/walls/greyStoneWall.jpg", self->body.w, self->body.h, 1);
-	vector4d_set(self->color, 255, 255, 255, 255);
-	return self;
-}

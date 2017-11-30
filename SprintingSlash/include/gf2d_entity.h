@@ -1,4 +1,4 @@
-#ifndef __GF2D_ENTITY_H__
+ #ifndef __GF2D_ENTITY_H__
 #define __GF2D_ENTITY_H__
 
 #include <stdio.h>

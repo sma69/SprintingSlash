@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include "gf2d_entity.h"
 #include "gf2d_graphics.h"
+#include "gf2d_file.h"
 
 //the attributes of the dot
 

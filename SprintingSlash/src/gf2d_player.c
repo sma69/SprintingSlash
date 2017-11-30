@@ -152,6 +152,36 @@ void playerUpdate(Entity * self)
 		
 }
 
+void loadPlayerFromFile(char* filePath, Entity* self) {
+	char* letter[1024];
+	char* line[100];
+	FILE *file;
+
+
+	//open the file
+	file = fopen(filePath, "r");
+	rewind(file);
+
+	//check if the user can open the file otehrwise it does not exist
+	if (file == NULL) {
+		slog("File does not Exist");
+	}
+	else {
+		printf("File Loaded");
+	}
+	while (fscanf(file, "%s", letter) != EOF)
+	{
+		if (strcmp(letter, "entity=") == 0)
+			fscanf(file, "%s", self->type);
+		if (strcmp(letter, "moveSpeed=") == 0)
+			fscanf(file, "%", self->moveSpeed);
+
+	}
+	fclose(file);
+	return self;
+
+}
+
 
 Entity *player_new(Vector2D Position)
 {
@@ -185,10 +215,11 @@ Entity *player_new(Vector2D Position)
 	self->hitActive = 0;
 	self->frame = 0;
 	self->dead = 0;
+
 	self->think = playerThink;
-	//(*self->think)(self);
+
 	self->update = playerUpdate;
-	//(*self->update)(self);
+
 	self->touch = playerTouch;
 	
 	slog("player spawned");

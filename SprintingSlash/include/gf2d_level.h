@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "gf2d_vector.h"
 #include "gf2d_entity.h"
+#include "gf2d_collision.h"
 
 
 
@@ -14,19 +15,19 @@
 */
 
 
-
+/**
 typedef struct Tile_S{
 
 
 	//The attributes of the tile
-	SDL_Rect box;
-
+	SDL_Rect body;
+	Sprite* sprite;
 	//The tile type
 	int type;
 
 
 }Tile;
-
+*/
 
 
 /**

@@ -1,0 +1,2 @@
+entity= player
+moveSpeed= 10

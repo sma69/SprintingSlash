@@ -1,10 +1,32 @@
-﻿  gf2d_level.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(37): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
-  gf2d_file.c
-  gf2d_actor.c
-  Generating Code...
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(27): warning C4700: uninitialized local variable 'self' used
+﻿  gf2d_player.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(50): warning C4013: 'checkWallCollision' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(60): warning C4002: too many actual parameters for macro 'Mix_PlayChannel'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(67): warning C4013: 'checkHitboxCollision' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(93): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(99): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(100): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(107): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(111): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(113): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(174): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(174): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(176): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(176): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(181): warning C4098: 'loadPlayerFromFile': 'void' function returning a value
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(162): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(172): warning C4477: 'fscanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'char **'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(172): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(175): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(177): warning C4778: 'fscanf' : unterminated format string '%'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(177): warning C4474: 'fscanf' : too many arguments passed for format string
+  d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(177): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(177): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(157): warning C4101: 'line': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(211): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(212): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

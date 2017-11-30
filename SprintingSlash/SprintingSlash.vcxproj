@@ -139,7 +139,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\src;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\include;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\images;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\fonts;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\music;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\src;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\include;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\images;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\fonts;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\music;D:\Users\Sayyid\2DProjects\SprintingSlash\SprintingSlash\objects;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
