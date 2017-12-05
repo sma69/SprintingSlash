@@ -248,7 +248,7 @@ int main(int argc, char * argv[])
 			}
 		}
 		set_camera(camera, player);
-		//camera_show(camera);k
+		//camera_show(camera);
 
 
         gf2d_graphics_clear_screen();// clears drawing buffers

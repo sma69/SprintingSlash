@@ -37,7 +37,10 @@ void playerMove(Entity * self)
 
 	}
 	if (keys[SDL_SCANCODE_S] || keys[SDL_SCANCODE_DOWN]) {
-		self->velocity.y += (1 * sprint);
+		if (self->isGrounded != 1)
+		{
+			self->velocity.y += (1 * sprint);
+		}
 	}
 
 
@@ -171,10 +174,34 @@ void loadPlayerFromFile(char* filePath, Entity* self) {
 	}
 	while (fscanf(file, "%s", letter) != EOF)
 	{
-		if (strcmp(letter, "entity=") == 0)
-			fscanf(file, "%s", self->type);
-		if (strcmp(letter, "moveSpeed=") == 0)
-			fscanf(file, "%", self->moveSpeed);
+		if (strcmp(letter, "entity=") == 0) {
+			fscanf(file, "%s", (char*)&self->type);
+			continue;
+		}
+		if (strcmp(letter, "moveSpeed=") == 0) {
+			fscanf(file, "%i", &self->moveSpeed);
+			continue;
+		}
+		if (strcmp(letter, "width=") == 0) {
+			fscanf(file, "%i", &self->width);
+			continue;
+		}
+		if (strcmp(letter, "height=") == 0) {
+			fscanf(file, "%i", &self->height);
+			continue;
+		}
+		if (strcmp(letter, "hitOffset=") == 0) {
+			fscanf(file, "%i %i", &self->hitOffset.x, &self->hitOffset.y);
+			continue;
+		}
+		if (strcmp(letter, "color=") == 0) {
+			fscanf(file, "%i %i %i %i", &self->color.x, &self->color.y, &self->color.z, &self->color.w);
+			continue;
+		}
+		if (strcmp(letter, "hitActive=") == 0) {
+			fscanf(file, "%i", &self->hitActive);
+			continue;
+		}
 
 	}
 	fclose(file);
@@ -195,15 +222,16 @@ Entity *player_new(Vector2D Position)
 		return NULL;
 	}
 	
+	loadPlayerFromFile("objects/player/player.txt", self);
 	gSword1 = Mix_LoadWAV("music/swordSwing1.wav");
-	self->width = 43;
-	self->height = 46;
-	vector2d_set(self->hitOffset, 10, 0);
+	//self->width = 43;
+	//self->height = 46;
+	//vector2d_set(self->hitOffset, 10, 0);
 	vector2d_set(self->body, self->width, self->height);
-	self->moveSpeed = 4;
+	//self->moveSpeed = 4;
 	self->jumpTime = 0;
 	//self->gravity = self->normalGravity;
-	self->type = "player";
+	//self->type = "player";
 	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);
 	vector2d_set(self->flip, 0, 0);

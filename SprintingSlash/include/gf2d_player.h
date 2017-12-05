@@ -20,6 +20,12 @@ int sprint;
 Entity *player_new(Vector2D Position);
 
 /**
+@brief loads player initialization variables from file
+@param filepath path to file
+@param self is the entity being loaded
+*/
+
+/**
 @brief  Makes the player think/takes in input
 */
 void playerThink(Entity* self);

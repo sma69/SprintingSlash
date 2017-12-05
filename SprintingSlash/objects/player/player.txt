@@ -1,2 +1,6 @@
-entity= player
-moveSpeed= 10
+entity= "player"
+moveSpeed= 4
+width= 43
+height= 46
+hitOffset= 10 0
+color= 255 255 255 255
