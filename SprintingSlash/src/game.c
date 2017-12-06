@@ -50,6 +50,7 @@ void set_camera(SDL_Rect camera, Entity * target)
 	{
 		camera.y = LEVEL_HEIGHT - camera.h;
 	}
+	
 	return camera;
 }
 
@@ -241,14 +242,14 @@ int main(int argc, char * argv[])
 
 			if (paused != 1)
 			{
+				
 				entity_think_all();
 				entity_touch_all();
 				entity_update_all();
 
 			}
 		}
-		set_camera(camera, player);
-		//camera_show(camera);
+		
 
 
         gf2d_graphics_clear_screen();// clears drawing buffers
@@ -270,6 +271,14 @@ int main(int argc, char * argv[])
 			//	NULL,
 			//	&player->color,
 			//	(int)player->frame);
+			//set_camera(camera, player);
+			//Center the camera over the dot
+			camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
+			camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
+			camera.w = &SCREEN_WIDTH;
+			camera.h = &SCREEN_HEIGHT;
+			//Keep the camera in bounds.
+
 			if (start == 0) {
 				entity_draw_all(camera);
 			}
