@@ -19,10 +19,28 @@ typedef struct Animation_S {
 	float frameRate;
 }Animation;
 
+/**
+@brief This structure is the list of animations for an actor to hold
+*/
 typedef struct AnimationList_S {
-	Animation* animation;
+	Animation* anim;
+	Uint32 *refID;
+	Uint32 *refCount;
+	Sprite * sprite;
+	int numAnimations;
+	int height;
+	int width;
+	int frames;
+	Vector2D scale;
+	Vector4D color;
+	Vector4D colorShift;
+
 
 }AnimationList;
+
+/**
+@brief the actor component for objects to hold sprites and animations
+*/
 
 typedef struct
 {
@@ -30,21 +48,22 @@ typedef struct
 	Vector4D    color;        /**<color to shift sprite too*/
 	float       frame;        /**<current frame for the sprite*/
 	AnimationList *al;           /**<action list for managing sprite animations*/
-	char*    animation;       /**<the current action*/
+	char*    animName;       /**<the current action*/
 }Actor;
 
 /**
 * @brief initialize the action list system
 */
-void gf2d_anim_init(Uint32 max);
 
-void anim_manager_close();		
+void anim_manager_close();
 
-void anim_manager_init(Uint32 maxTextboxes); 
+void anim_manager_delete(AnimationList * animList);
 
-Textbox * anim_new();	
+void anim_manager_init(); 
 
-void anim_free(Textbox * self);
+AnimationList * anim_new();	
+
+void anim_manager_free(AnimationList* animList);
 
 void anim_draw(Textbox * self);
 

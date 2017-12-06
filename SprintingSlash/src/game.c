@@ -212,7 +212,7 @@ int main(int argc, char * argv[])
 
 		if (start == 0) {
 			health->text = "Health";
-			sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
+			sprite = gf2d_sprite_load_all("images/backgrounds/battleback1.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
 			if (keys[SDL_SCANCODE_P])
 			{
 				if (paused == 0) {
