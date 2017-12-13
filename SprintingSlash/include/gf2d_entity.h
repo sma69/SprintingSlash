@@ -6,6 +6,7 @@
 #include "simple_logger.h"
 #include "gf2d_vector.h"
 #include "gf2d_audio.h"
+#include "gf2d_actor.h"
 
 
 #define atoa(x) #x
@@ -39,6 +40,7 @@ typedef struct Entity_S
 	//Object/Sprite properties
 	Uint32 refID;
 	Sprite * sprite;
+	AnimationList *al;
 	Vector2D position;
 	Vector2D scale;
 	Vector2D scaleCenter;

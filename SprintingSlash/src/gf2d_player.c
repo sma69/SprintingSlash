@@ -107,11 +107,11 @@ void playerUpdate(Entity * self)
 
 	/** <flip hitbox to position where the player is facing> */
 	if (self->flip.x == 0) {
-		self->hitbox.x = self->position.x - 10 + self->width;
+		self->hitbox.x = self->position.x + self->width - 10;
 	}
 	if (self->flip.x == 1)
 	{ 
-		self->hitbox.x = self->position.x - self->hitbox.w - 10 + self->width;
+		self->hitbox.x = self->position.x - self->width + 10;
 	}
 	self->hitbox.y = self->position.y;
 	self->hitbox.w = self->width;
@@ -165,7 +165,7 @@ void loadPlayerFromFile(char* filePath, Entity* self) {
 	file = fopen(filePath, "r");
 	rewind(file);
 
-	//check if the user can open the file otehrwise it does not exist
+	//check if the user can open the file othe+rwise it does not exist
 	if (file == NULL) {
 		slog("File does not Exist");
 	}
@@ -232,7 +232,8 @@ Entity *player_new(Vector2D Position)
 	self->jumpTime = 0;
 	//self->gravity = self->normalGravity;
 	//self->type = "player";
-	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
+	self->al = anim_new();
+	self->al->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);
 	vector2d_set(self->flip, 0, 0);
 	vector4d_set(self->color, 255, 255, 255, 255);

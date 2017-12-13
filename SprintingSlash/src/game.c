@@ -118,6 +118,7 @@ int main(int argc, char * argv[])
     gf2d_sprite_init(1024);
 	entity_manager_init(1024);
 	tb_manager_init(1024);
+	anim_manager_init(1024);
     SDL_ShowCursor(SDL_DISABLE);
     
     /*demo setup*/
@@ -188,7 +189,7 @@ int main(int argc, char * argv[])
 		wall->frame += 0.1;
         if (mf >= 16.0)mf = 0;
 		
-		if (wall->frame >= 1.0)wall->frame = 0;
+		//if (wall->frame >= 1.0)wall->frame = 0;
 
 		if (start == 1)
 		{
@@ -273,14 +274,18 @@ int main(int argc, char * argv[])
 			//	(int)player->frame);
 			//set_camera(camera, player);
 			//Center the camera over the dot
-			camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
-			camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
+			
+			//camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
+			//camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
 			camera.w = &SCREEN_WIDTH;
 			camera.h = &SCREEN_HEIGHT;
+			
 			//Keep the camera in bounds.
 
 			if (start == 0) {
 				entity_draw_all(camera);
+				SDL_SetRenderDrawColor(gf2d_graphics_get_renderer(), 255, 0, 0, 150);
+				SDL_RenderDrawRect(gf2d_graphics_get_renderer(), &player->hitbox);
 			}
 				textbox_draw_all(camera);
 			
@@ -306,8 +311,9 @@ int main(int argc, char * argv[])
     }
 	slog("---Deinitializing entities");
 	gf2d_sprite_clear_all();
-	entity_manager_close();
+	anim_manager_close();
 	textbox_manager_close();
+	entity_manager_close();
     slog("---==== END ====---");
     return 0;
 }
