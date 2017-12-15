@@ -233,7 +233,7 @@ Entity *player_new(Vector2D Position)
 	//self->gravity = self->normalGravity;
 	//self->type = "player";
 	self->al = anim_new();
-	self->al->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
+	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);
 	vector2d_set(self->flip, 0, 0);
 	vector4d_set(self->color, 255, 255, 255, 255);

@@ -17,8 +17,8 @@ const int SCREEN_HEIGHT = 720;
 const int SCREEN_BPP = 32;
 
 //The dimensions of the level
-const int LEVEL_WIDTH = 1280;
-const int LEVEL_HEIGHT = 960;
+const int levelWidth = 1280;
+const int levelHeight = 960;
 
 //The frame rate
 const int FRAMES_PER_SECOND = 60;
@@ -42,13 +42,13 @@ void set_camera(SDL_Rect camera, Entity * target)
 	{
 		camera.y = 0;
 	}
-	if (camera.x > LEVEL_WIDTH - camera.w)
+	if (camera.x > levelWidth - camera.w)
 	{
-		camera.x = LEVEL_WIDTH - camera.w;
+		camera.x = levelWidth - camera.w;
 	}
-	if (camera.y > LEVEL_HEIGHT - camera.h)
+	if (camera.y > levelHeight - camera.h)
 	{
-		camera.y = LEVEL_HEIGHT - camera.h;
+		camera.y = levelHeight - camera.h;
 	}
 	
 	return camera;
@@ -123,16 +123,17 @@ int main(int argc, char * argv[])
     
     /*demo setup*/
 
-    sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png",LEVEL_WIDTH,LEVEL_HEIGHT,1);
-	pauseBG = gf2d_sprite_load_all("images/backgrounds/BlackSquare.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
+    sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png",levelWidth,levelHeight,1);
+	pauseBG = gf2d_sprite_load_all("images/backgrounds/BlackSquare.png", levelWidth, levelHeight, 1);
 	
 	
 
 	//player initialization	
 	Vector2D playerPosition = { 10, 10 };
 	player = player_new(playerPosition);
-
+	
 	//wall init
+	/**
 	Vector2D wallPosition = { 600, 300 };
 	wall = wall_new(wallPosition);
 
@@ -144,6 +145,8 @@ int main(int argc, char * argv[])
 
 	Vector2D wall3Position = { 50, 600 };
 	wall3 = wall_new(wall3Position);
+	*/
+	set_level("objects/level/level1.map");
 
 	//font init
 
@@ -186,7 +189,7 @@ int main(int argc, char * argv[])
         SDL_GetMouseState(&mx,&my);
         mf += 0.1;
 		
-		wall->frame += 0.1;
+		//wall->frame += 0.1;
         if (mf >= 16.0)mf = 0;
 		
 		//if (wall->frame >= 1.0)wall->frame = 0;
@@ -213,7 +216,7 @@ int main(int argc, char * argv[])
 
 		if (start == 0) {
 			health->text = "Health";
-			sprite = gf2d_sprite_load_all("images/backgrounds/battleback1.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
+			sprite = gf2d_sprite_load_all("images/backgrounds/battleback1.png", levelWidth, levelHeight, 1);
 			if (keys[SDL_SCANCODE_P])
 			{
 				if (paused == 0) {
@@ -275,8 +278,8 @@ int main(int argc, char * argv[])
 			//set_camera(camera, player);
 			//Center the camera over the dot
 			
-			//camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
-			//camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
+			camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
+			camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
 			camera.w = &SCREEN_WIDTH;
 			camera.h = &SCREEN_HEIGHT;
 			
@@ -284,8 +287,8 @@ int main(int argc, char * argv[])
 
 			if (start == 0) {
 				entity_draw_all(camera);
-				SDL_SetRenderDrawColor(gf2d_graphics_get_renderer(), 255, 0, 0, 150);
-				SDL_RenderDrawRect(gf2d_graphics_get_renderer(), &player->hitbox);
+				//SDL_SetRenderDrawColor(gf2d_graphics_get_renderer(), 255, 0, 0, 150);
+				//SDL_RenderDrawRect(gf2d_graphics_get_renderer(), &player->hitbox);
 			}
 				textbox_draw_all(camera);
 			

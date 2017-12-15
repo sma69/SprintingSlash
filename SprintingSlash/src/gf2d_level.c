@@ -20,6 +20,9 @@ const int TILE_BOTTOM = 8;
 const int TILE_BOTTOMLEFT = 9;
 const int TILE_LEFT = 10;
 
+const int LEVEL_WIDTH = 1280;
+const int LEVEL_HEIGHT = 960;
+
 
 void tileUpdate(Entity *self)
 {
@@ -63,11 +66,65 @@ Entity* wall_new(Vector2D position)
 	vector2d_set(self->position, position.x, position.y);
 	self->body.x = position.x;
 	self->body.y = position.y;
-
-	self->body.w = 200;
-	self->body.h = 400;
+	self->frame = 1;
+	self->body.w = TILE_WIDTH;
+	self->body.h = TILE_HEIGHT;
 	self->type = "wall";
 	self->sprite = gf2d_sprite_load_all("images/walls/greyStoneWall.jpg", self->body.w, self->body.h, 1);
 	vector4d_set(self->color, 255, 255, 255, 255);
 	return self;
+}
+
+void set_level(char* filePath)
+{
+	//The tile offsets
+	int x = 0, y = 0;
+
+	char* letter[1024];
+	char* line[100];
+	FILE *file;
+
+	Entity * level[192];
+
+
+	//open the file
+	file = fopen(filePath, "r");
+	rewind(file);
+
+	//check if the user can open the file othe+rwise it does not exist
+	if (file == NULL) {
+		slog("File does not Exist");
+		return;
+	}
+	else {
+		printf("File Loaded");
+	}
+	int t = 0;
+	while (fscanf(file, "%s", letter) != EOF)
+	{
+
+		if (strcmp(letter, "00") == 0) {
+			//do nothinggo to next space
+		}
+		if (strcmp(letter, "01") == 0) {
+			Vector2D pos = { x, y };
+			level[t] = wall_new(pos);
+			t++;
+		}
+
+		//Move to next tile spot
+		x += TILE_WIDTH;
+
+		//If we've gone too far
+		if (x >= LEVEL_WIDTH)
+		{
+			//Move back
+			x = 0;
+
+			//Move to the next row
+			y += TILE_HEIGHT;
+		}
+	}
+		fclose(file);
+		return level;
 }
