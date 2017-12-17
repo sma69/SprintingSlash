@@ -111,6 +111,11 @@ void set_level(char* filePath)
 			level[t] = wall_new(pos);
 			t++;
 		}
+		if (strcmp(letter, "02") == 0) {
+			Vector2D pos = { x, y };
+			level[t] = player_new(pos);
+			t++;
+		}
 
 		//Move to next tile spot
 		x += TILE_WIDTH;

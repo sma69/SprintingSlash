@@ -129,8 +129,8 @@ int main(int argc, char * argv[])
 	
 
 	//player initialization	
-	Vector2D playerPosition = { 10, 10 };
-	player = player_new(playerPosition);
+	//Vector2D playerPosition = { 10, 10 };
+	//player = player_new(playerPosition);
 	
 	//wall init
 	/**
@@ -278,8 +278,8 @@ int main(int argc, char * argv[])
 			//set_camera(camera, player);
 			//Center the camera over the dot
 			
-			camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
-			camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
+			//camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
+			//camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
 			camera.w = &SCREEN_WIDTH;
 			camera.h = &SCREEN_HEIGHT;
 			

@@ -1,28 +1,42 @@
-﻿  game.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(26): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(34): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(35): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(54): warning C4098: 'set_camera': 'void' function returning a value
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(133): warning C4013: 'player_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(133): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(149): warning C4013: 'set_level' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(190): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(251): warning C4013: 'entity_touch_all' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(252): warning C4013: 'entity_update_all' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(283): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(284): warning C4047: '=': 'int' differs in levels of indirection from 'const int *'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(96): warning C4101: 'frameheight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(74): warning C4101: 'wall': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(97): warning C4101: 'textureWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(78): warning C4101: 'enemy2': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(96): warning C4101: 'frameWidth': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(75): warning C4101: 'wall2': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(97): warning C4101: 'textureHeight': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(76): warning C4101: 'wall3': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(72): warning C4101: 'playerSprite': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(77): warning C4101: 'enemy1': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\game.c(95): warning C4101: 'playerRect': unreferenced local variable
+﻿  gf2d_actor.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(33): warning C4018: '<': signed/unsigned mismatch
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(66): warning C4133: '=': incompatible types - from 'Animation *' to 'AnimationList *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(70): warning C4013: 'entity_manager_close' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(75): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(83): warning C4018: '<': signed/unsigned mismatch
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(87): warning C4047: '=': 'Uint32 *' differs in levels of indirection from 'int'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(95): warning C4018: '<': signed/unsigned mismatch
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(100): warning C4047: '=': 'Uint32 *' differs in levels of indirection from 'int'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(116): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(120): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(125): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(130): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(135): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(140): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(145): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(150): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(156): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(166): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(171): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(176): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(186): warning C4018: '<': signed/unsigned mismatch
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(202): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(275): warning C4133: 'function': incompatible types - from 'FILE *' to 'AnimationList *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(275): warning C4133: 'function': incompatible types - from 'AnimationList *' to 'char *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_actor.c(256): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

@@ -3,6 +3,8 @@
 
 #include "gf2d_sprite.h"
 #include "gf2d_vector.h"
+#include "gf2d_file.h"
+#include "simple_logger.h"
 
 
 /**
@@ -15,7 +17,7 @@ typedef struct Animation_S {
 	int endFrame;
 	int recovery;
 	int cd;
-	char* anim;
+	char* name;
 	float frameRate;
 }Animation;
 
@@ -34,6 +36,7 @@ typedef struct AnimationList_S {
 	Vector2D scale;
 	Vector4D color;
 	Vector4D colorShift;
+	char* fileName;
 
 
 }AnimationList;
@@ -44,7 +47,6 @@ typedef struct AnimationList_S {
 
 typedef struct
 {
-	Sprite     *sprite;       /**<which sprite to draw this entity with*/
 	Vector4D    color;        /**<color to shift sprite too*/
 	float       frame;        /**<current frame for the sprite*/
 	AnimationList *al;           /**<action list for managing sprite animations*/
@@ -59,17 +61,17 @@ void anim_manager_close();
 
 void anim_manager_delete(AnimationList * animList);
 
-void anim_manager_init(); 
+void anim_manager_init(Uint32 maxAnimLists);
 
 AnimationList * anim_new();	
 
 void anim_manager_free(AnimationList* animList);
 
-void anim_draw(Textbox * self);
+int animCountFromFile(FILE *file);
 
-void anim_draw_all(SDL_Rect camera);	
+AnimationList *animListFromFile(char * filename);
 
-
+AnimationList *animListLoad(char* filePath);
 
 
 
