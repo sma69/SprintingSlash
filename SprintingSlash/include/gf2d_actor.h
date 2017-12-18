@@ -18,6 +18,7 @@ typedef struct Animation_S {
 	int recovery;
 	int cd;
 	char* name;
+	char* filePath;
 	float frameRate;
 }Animation;
 

@@ -15,6 +15,7 @@ AnimManager animManager;
 
 
 
+
 void anim_manager_delete(AnimationList * animList)
 {
 	if (!animList)   // if the animation list does not exist
@@ -159,6 +160,11 @@ void animListLoadAnims(FILE *file, AnimationList* animList)
 		if (anims < animList->anim)
 		{
 			slog("file formatting error, expect action: tag before rest of data");
+			continue;
+		}
+		if (strcmp(buf, "sprite=") == 0)
+		{
+			fscanf(file, "%s", (char*)&anims->filePath);
 			continue;
 		}
 		if (strcmp(buf, "startFrame=") == 0)

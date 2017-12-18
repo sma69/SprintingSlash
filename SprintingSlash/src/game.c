@@ -96,7 +96,9 @@ int main(int argc, char * argv[])
 	int frameWidth, frameheight;
 	int textureWidth, textureHeight;
 
-    
+	PHYSFS_init(argv[0]);
+	PHYSFS_addToSearchPath("objects.rar", 1);
+
     /*program initializtion*/
     init_logger("gf2d.log");
     slog("---==== BEGIN ====---");
