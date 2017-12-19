@@ -1,6 +1,10 @@
 #include "gf2d_player.h"
 Mix_Chunk* gSword1;
 float projectileCD;
+float meleeCD;
+float comboTimer;
+int comboCount;
+
 void playerThink(Entity* self)
 {
 	playerMove(self);
@@ -46,8 +50,15 @@ void playerMove(Entity * self)
 	if (keys[SDL_SCANCODE_SPACE])
 	{
 		if (projectileCD <= 0) {
-			projectile_new(vector2d( self->position.x + 50, self->position.y),vector2d(1,0), 10);
+			if (self->flip.x == 1) {
+				projectile_new(vector2d(self->position.x - 50, self->position.y), vector2d(-1, 0), 3);
+			}
+			if (self->flip.x == 0) {
+				projectile_new(vector2d(self->position.x + 50, self->position.y), vector2d(1, 0), 3);
+			}
 			projectileCD = 10;
+			comboTimer = 10;
+			comboCount++;
 		}
 
 	}
@@ -71,28 +82,46 @@ void playerTouch(Entity* self, Entity* other)
 		self->hitActive = 1;
 		//Load sound effects
 		
-
-		Mix_PlayChannel(-1,gSword1, 0,-1);
-		if (gSword1 == NULL)
-		{
-			printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
-		}
-
-		if (self->hitActive == 1) {
-			if (checkHitboxCollision(self, other) == 0) 
-			{
-				vector4d_set(self->color, 255, 255, 255, 255);
-				self->hitActive = 0;
-			}
-			if (checkHitboxCollision(self, other) == 1)
-			{
-				vector4d_set(self->color, 255, 0, 100, 255);
-				self->hitActive = 0;
-				other->dead = 1;
-			}
+		if (meleeCD <= 0) {
 			
-				
+			if (self->sprite = gf2d_sprite_load_all("images/players/zero_slash1.png", 75, self->height, 5))
+			{
+				self->sprite = gf2d_sprite_load_all("images/players/zero_slash2.png", 77, 62, 9);
+			}
+			else
+				self->sprite = gf2d_sprite_load_all("images/players/zero_slash1.png", 75, self->height, 5);
+			
+			Mix_PlayChannel(-1, gSword1, 0, -1);
+			if (gSword1 == NULL)
+			{
+				printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+			}
+
+			if (self->hitActive == 1) {
+				if (checkHitboxCollision(self, other) == 0)
+				{
+					vector4d_set(self->color, 255, 255, 255, 255);
+					self->hitActive = 0;
+				}
+				if (checkHitboxCollision(self, other) == 1)
+				{
+
+					vector4d_set(self->color, 255, 0, 100, 255);
+					comboTimer = 10;
+					comboCount++;
+					self->hitActive = 0;
+					other->dead = 1;
+				}
+
+				meleeCD = 5;
+			}
 		}
+		meleeCD -= 0.3;
+		if (meleeCD <= 0)
+		{
+			meleeCD = 0;
+		}
+
 		
 
 	}
@@ -105,7 +134,7 @@ void playerUpdate(Entity * self)
 {
 	
 	self->hitActive = 0;
-	self->frame += 0.03;
+	self->frame += 0.05;
 	if (self->frame >= 6.0)self->frame = 0;
 	float timeStep = 60;
 	//move entity to left or right
@@ -116,6 +145,7 @@ void playerUpdate(Entity * self)
 	self->body.w = self->width;
 	self->body.h = self->height;
 	self->velocity.y += self->gravity;
+
 
 	/** <flip hitbox to position where the player is facing> */
 	if (self->flip.x == 0) {
@@ -163,8 +193,14 @@ void playerUpdate(Entity * self)
 			self->velocity.y = 0;
 			self->isGrounded = 1;
 		}
-	
-		
+
+		comboTimer -= 0.3;
+		if (comboTimer <= 0)
+		{
+			comboCount = 0;
+			comboTimer = 0;
+		}
+		self->combo = comboCount;
 }
 
 void loadPlayerFromFile(char* filePath, Entity* self) {
@@ -243,7 +279,7 @@ Entity *player_new(Vector2D Position)
 	//self->moveSpeed = 4;
 	self->jumpTime = 0;
 	//self->gravity = self->normalGravity;
-	//self->type = "player";
+	self->type = "player";
 	self->al = anim_new();
 	self->sprite = gf2d_sprite_load_all("images/players/zero_idle.png", self->width, self->height, 6);
 	vector2d_set(self->position, Position.x, Position.y);
@@ -256,6 +292,7 @@ Entity *player_new(Vector2D Position)
 	self->hitActive = 0;
 	self->frame = 0;
 	self->dead = 0;
+	self->combo = 0;
 
 	self->think = playerThink;
 

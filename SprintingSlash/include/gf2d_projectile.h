@@ -15,7 +15,7 @@
 @speed the speed of the projectile on both axis
 @returns a projectile flying at tha given direction with a given speed
 */
-Entity *projectile_new(Vector2D Position, Vector2D direction, Vector2D speed);
+Entity *projectile_new(Vector2D Position, Vector2D direction, int speed);
 
 /**
 @brief updates the projectile entity

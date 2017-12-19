@@ -70,6 +70,7 @@ typedef struct Entity_S
 	int moveSpeed;
 	int jumpTime;
 	int sprint;
+	int combo;
 
 	float normalGravity;
 	int isKinematic;
@@ -106,8 +107,9 @@ typedef struct Entity_S
 	//global entity functions
 	void entity_draw_all(SDL_Rect camera);
 	void entity_think_all();
+	void entity_clear_all();
 
-	
+	Entity * getPlayer();    /**< get the player entity> **/
 	
 
 #endif

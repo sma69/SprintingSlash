@@ -239,6 +239,27 @@ void entity_touch_all()
 	}
 }
 
+void entity_clear_all()
+{
+	int i;
+	for (i = 0; i < entityManager.maxEntities; i++)
+	{
+		entity_free(&entityManager.entityList[i]);// clean up the data
+	}
+}
+
+Entity * getPlayer()
+{
+	for (int i = 0; i < entityManager.maxEntities; i++)
+	{
+		if (entityManager.entityList[i].type == "player")
+		{
+			return &entityManager.entityList[i];
+		}
+	}
+	return NULL;
+}
+
 
 
 

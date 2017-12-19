@@ -4,8 +4,11 @@
 
 #include <SDL.h>
 #include "gf2d_entity.h"
+#include "gf2d_level.h"
 
-
+extern int SCREEN_WIDTH;
+extern int SCREEN_HEIGHT;
+extern int SCREEN_BPP;
 
 void camera_show(SDL_Rect camera);
 
@@ -13,10 +16,10 @@ void camera_show(SDL_Rect camera);
 
 /**
 @brief set the camera and set it on an entity
-@param The camera rect that the viewport will use
-@param The entity target to keep the camera looking at
+@param camera The camera rect that the viewport will use
+@param target The entity target to keep the camera looking at
 */
-void set_camera(SDL_Rect camera, Entity * self);
+void set_camera(SDL_Rect camera, Entity * target);
 
 /**
 @brief apply the background to follow the camer's position

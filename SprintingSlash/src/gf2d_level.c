@@ -30,11 +30,11 @@ void teleWallUpdate(Entity *self)
 
 void teleWallTouch(Entity * self, Entity * other)
 {
-	if (checkWallCollision(self, other) == 1)
+	if (checkHitboxCollision(self, other) == 1)
 	{
 		if (other->type == "player")
 		{
-			other->position.y = self->position.y - 300;
+			other->velocity.y -= 50;
 		}
 	}
 }
@@ -104,9 +104,13 @@ Entity* teleWall_new(Vector2D position)
 	self->body.w = TILE_WIDTH;
 	self->body.h = TILE_HEIGHT;
 	self->type = "wall";
-	self->sprite = gf2d_sprite_load_all("images/walls/tile_aqua.png", self->body.w, self->body.h, 1);
+	vector4d_set(self->color, 0, 0, 255, 50);
+	self->sprite = gf2d_sprite_load_all("images/walls/tile_aqua.jpg", self->body.w, self->body.h, 1);
+	self->hitbox.x = self->position.x;
+	self->hitbox.y = self->position.y;
+	self->hitbox.w = self->width;
+	self->hitbox.h = self->height;
 	self->touch = teleWallTouch;
-	vector4d_set(self->color, 255, 255, 255, 255);
 	return self;
 }
 
@@ -148,13 +152,32 @@ Entity * set_level(char* filePath)
 		}
 		if (strcmp(letter, "02") == 0) {
 			Vector2D pos = { x, y };
-			level[t] = player_new(pos);
+			level[t] = enemy_new(pos);
 			t++;
 		}
 
 		if (strcmp(letter, "03") == 0) {
 			Vector2D pos = { x, y };
 			level[t] = teleWall_new(pos);
+			t++;
+		}
+
+		if (strcmp(letter, "04") == 0) {
+			Vector2D pos = { x, y };
+			level[t] = boss2_new(pos);
+			t++;
+		}
+
+
+		if (strcmp(letter, "05") == 0) {
+			Vector2D pos = { x, y };
+			level[t] = enemy2_new(pos);
+			t++;
+		}
+
+		if (strcmp(letter, "06") == 0) {
+			Vector2D pos = { x, y };
+			level[t] = enemy3_new(pos);
 			t++;
 		}
 

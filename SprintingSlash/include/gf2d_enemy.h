@@ -3,7 +3,7 @@
 #define __GF2D_ENEMY_H__
 
 #include  "gf2d_entity.h"
-
+#include "gf2d_player.h"
 
 
 /**
@@ -31,6 +31,12 @@ void enemyUpdate(Entity* self);
 @brief  Players the player move
 */
 void enemyMove(Entity * self);
+
+
+/**
+@brief Spawns the boss at a given location
+*/
+Entity *boss2_new(Vector2D Position);
 
 
 #endif

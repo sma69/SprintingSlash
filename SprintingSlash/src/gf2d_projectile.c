@@ -16,10 +16,11 @@ void projectileUpdate(Entity* self)
 
 	
 
-	/*if (aliveTime >= 1000)
+	if (aliveTime >= 1000)
 	{
 		self->dead = 1;
-	}*/
+		aliveTime = 0;
+	}
 
 }
 
@@ -27,18 +28,22 @@ void projectileUpdate(Entity* self)
 void projectileTouch(Entity* self, Entity* other)
 {
 
-		if (checkWallCollision(self, other) == 1)
+		if (checkHitboxCollision(self, other) == 1)
 		{
-
-			self->dead = 1;
-
+			if (other->type != "player" || "projectile") {
+				self->dead = 1;
+			}
+			if (other->type == "player")
+			{
+				other->dead = 1;
+			}
 		}
 
 
 }
 
 
-Entity *projectile_new(Vector2D Position, Vector2D direction, float speed)
+Entity *projectile_new(Vector2D Position, Vector2D direction, int speed)
 {
 
 	Entity * self;
@@ -52,8 +57,8 @@ Entity *projectile_new(Vector2D Position, Vector2D direction, float speed)
 	}
 
 	//loadPlayerFromFile("objects/player/player.txt", self);
-	direction.x = direction.x * speed;
-	direction.y = direction.y * speed;
+	direction.x *= speed;
+	direction.y *= speed;
 	self->width = 20;
 	self->height = 20;
 	//vector2d_set(self->hitOffset, 10, 0);
@@ -62,7 +67,7 @@ Entity *projectile_new(Vector2D Position, Vector2D direction, float speed)
 	self->jumpTime = 0;
 	//self->gravity = self->normalGravity;
 	self->type = "projectile";
-	self->sprite = gf2d_sprite_load_all("images/projectiles/redSquare.png", self->width, self->height, 1);
+	self->sprite = gf2d_sprite_load_all("images/projectiles/orangeSquare.png", self->width, self->height, 1);
 	/*if (self->sprite == NULL)
 	{
 		slog("no projectile image");
@@ -70,7 +75,8 @@ Entity *projectile_new(Vector2D Position, Vector2D direction, float speed)
 	vector2d_set(self->position, Position.x, Position.y);
 	vector2d_set(self->flip, 0, 0);
 	vector4d_set(self->color, 255, 255, 255, 255);
-	vector2d_set(self->velocity, direction.x, direction.y);
+	self->velocity.x = direction.x;
+	self->velocity.y = direction.y;
 	self->hitbox.x = self->position.x;
 	self->hitbox.y = self->position.y;
 	self->hitbox.w = self->width;

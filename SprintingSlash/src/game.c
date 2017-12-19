@@ -13,47 +13,21 @@
 
 
 //Screen attributes
-const int SCREEN_WIDTH = 1200;
-const int SCREEN_HEIGHT = 720;
-const int SCREEN_BPP = 32;
+
 
 //The dimensions of the level
 LEVEL_WIDTH = 1280;
 LEVEL_HEIGHT = 960;
+SCREEN_WIDTH = 1200;
+SCREEN_HEIGHT = 720;
+SCREEN_BPP = 32;
 
 //The frame rate
 const int FRAMES_PER_SECOND = 60;
 
 SDL_Rect camera = { 0, 0, &SCREEN_WIDTH, &SCREEN_HEIGHT };
 
-void set_camera(SDL_Rect camera, Entity * target)
-{
 
-	//Center the camera over the dot
-	camera.x = (target->position.x + target->width / 2) - SCREEN_WIDTH / 2;
-	camera.y = (target->position.y + target->height / 2) - SCREEN_HEIGHT / 2;
-	camera.w = &SCREEN_WIDTH;
-	camera.h = &SCREEN_HEIGHT;
-	//Keep the camera in bounds.
-	if (camera.x < 0)
-	{
-		camera.x = 0;
-	}
-	if (camera.y < 0)
-	{
-		camera.y = 0;
-	}
-	if (camera.x > LEVEL_WIDTH - camera.w)
-	{
-		camera.x = LEVEL_WIDTH - camera.w;
-	}
-	if (camera.y > LEVEL_HEIGHT - camera.h)
-	{
-		camera.y = LEVEL_HEIGHT - camera.h;
-	}
-	
-	return camera;
-}
 
 void camera_show(SDL_Rect self)
 {
@@ -121,7 +95,7 @@ int main(int argc, char * argv[])
     gf2d_sprite_init(1024);
 	entity_manager_init(1024);
 	tb_manager_init(1024);
-	anim_manager_init(1024);
+	//anim_manager_init(1024);
     SDL_ShowCursor(SDL_DISABLE);
     
     /*demo setup*/
@@ -132,8 +106,8 @@ int main(int argc, char * argv[])
 	
 
 	//player initialization	
-	//Vector2D playerPosition = { 10, 10 };
-	//player = player_new(playerPosition);
+	Vector2D playerPosition = { 100, 100 };
+	player = player_new(playerPosition);
 	
 	//wall init
 	/**
@@ -149,12 +123,19 @@ int main(int argc, char * argv[])
 	Vector2D wall3Position = { 50, 600 };
 	wall3 = wall_new(wall3Position);
 	*/
-	int level  = set_level("objects/level/level2.map");
+	Entity* level  = set_level("objects/level/level1.map");
+	
+	
 
 	//font init
 
 	Textbox * health = guiTextbox_new(vector2d(0,0));
 	health->text = "Health";
+
+	Textbox * combo = guiTextbox_new(vector2d(300, 0));
+	combo->text = "Combo";
+	//itoa(&player->combo, combo->text, 10);
+	
 
 	//Main Menu Init
 	Textbox* mainMenu[MAX_MAIN_MENU_ITEMS]; 
@@ -216,11 +197,44 @@ int main(int argc, char * argv[])
 				start = 0;
 			
 		}
+		if (keys[SDL_SCANCODE_M])
+		{
+			start = 1;
+		}
+		if (keys[SDL_SCANCODE_1])
+		{
+			entity_clear_all();
+			player = player_new(playerPosition);
+			level = set_level("objects/level/level1.map");
+		}
+		if (keys[SDL_SCANCODE_2])
+		{
+			entity_clear_all();
+			player = player_new(playerPosition);
+			level = set_level("objects/level/level2.map");
+		}
 
 		if (start == 0) {
 			health->text = "Health";
-			SDL_SetRenderDrawColor(gf2d_graphics_get_renderer(), 255, 0, 0, 255);
-			SDL_RenderDrawRect(gf2d_graphics_get_renderer(), &health->box);
+			//itoa(player->combo, combo->text, 10);
+			char result;
+			//sprintf(result, "%i", player->combo);
+			//result = player->combo;
+			//combo->text = result;
+			char snum[5];
+			itoa(player->combo, snum, 10);
+			printf("%s\n", snum);
+			combo->text = &snum;
+
+			if (player->dead == 1)
+			{
+				player->dead = 0;
+				entity_clear_all();
+				player = player_new(playerPosition);
+				level = set_level("objects/level/level1.map");
+
+			}
+
 			sprite = gf2d_sprite_load_all("images/backgrounds/battleback1.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
 			if (keys[SDL_SCANCODE_P])
 			{
@@ -283,8 +297,8 @@ int main(int argc, char * argv[])
 			//set_camera(camera, player);
 			//Center the camera over the dot
 			
-			//camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
-			//camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
+			camera.x = (player->position.x + player->width / 2) - SCREEN_WIDTH / 2;
+			camera.y = (player->position.y + player->height / 2) - SCREEN_HEIGHT / 2;
 			camera.w = &SCREEN_WIDTH;
 			camera.h = &SCREEN_HEIGHT;
 			
@@ -319,7 +333,7 @@ int main(int argc, char * argv[])
     }
 	slog("---Deinitializing entities");
 	gf2d_sprite_clear_all();
-	anim_manager_close();
+	//anim_manager_close();
 	textbox_manager_close();
 	entity_manager_close();
     slog("---==== END ====---");

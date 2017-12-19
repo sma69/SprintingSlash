@@ -10,8 +10,8 @@
 
 
 
-extern const int LEVEL_WIDTH;
-extern const int LEVEL_HEIGHT;
+extern int LEVEL_WIDTH;
+extern int LEVEL_HEIGHT;
 
 /**
 @brief The level tiling 
