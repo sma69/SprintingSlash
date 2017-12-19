@@ -46,7 +46,7 @@ void playerMove(Entity * self)
 	if (keys[SDL_SCANCODE_SPACE])
 	{
 		if (projectileCD <= 0) {
-			projectile_new(vector2d( self->position.x + 50, self->position.y),vector2d(1,0), 5);
+			projectile_new(vector2d( self->position.x + 50, self->position.y),vector2d(1,0), 10);
 			projectileCD = 10;
 		}
 
@@ -143,9 +143,9 @@ void playerUpdate(Entity * self)
 		}
 
 		//or the right
-		else if (self->position.x > 1200 - self->width)
+		else if (self->position.x > LEVEL_WIDTH - self->width)
 		{
-			self->position.x = 1200 - self->width;
+			self->position.x = LEVEL_WIDTH - self->width;
 		}
 
 
@@ -156,10 +156,10 @@ void playerUpdate(Entity * self)
 			self->position.y = 0;
 		}
 		//or down
-		else if (self->position.y > 720 - self->height)
+		else if (self->position.y > LEVEL_HEIGHT - self->height)
 		{
 			//Move Back
-			self->position.y = 720 - self->height;
+			self->position.y = LEVEL_HEIGHT - self->height;
 			self->velocity.y = 0;
 			self->isGrounded = 1;
 		}

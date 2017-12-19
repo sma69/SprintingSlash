@@ -66,6 +66,7 @@ int checkWallCollision(Entity * self, Entity * other)
 			return 0;
 		
 		}
+			// if collision is from the top
 			if (self->body.y + self->body.h > other->body.y && self->body.y < other->body.y)
 			{
 				self->isGrounded = 1;
@@ -74,6 +75,7 @@ int checkWallCollision(Entity * self, Entity * other)
 				self->velocity.y -= self->gravity;
 				return 1;
 			}
+			//  if collision is from the side
 			if (self->body.x < other->body.x + other->body.w &&
 				self->body.x + self->body.w > other->body.x + other->body.w)
 			{
@@ -81,7 +83,11 @@ int checkWallCollision(Entity * self, Entity * other)
 				self->position.x += (self->moveSpeed * 1.2);
 				return 1;
 			}
-			
+			if (self->body.y < other->body.y + other->body.h && self->body.y + self->body.h > other->body.y + other->body.h)
+			{
+				self->position.y = other->body.y + other->body.h + 0.1;
+
+			}
 			self->isGrounded = 1;
 			self->position.x -= (self->moveSpeed * 1.2 );
 			//vector4d_set(self->color, 255, 0, 0, 255);

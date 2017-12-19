@@ -10,24 +10,14 @@
 
 
 
+extern const int LEVEL_WIDTH;
+extern const int LEVEL_HEIGHT;
+
 /**
 @brief The level tiling 
 */
 
 
-/**
-typedef struct Tile_S{
-
-
-	//The attributes of the tile
-	SDL_Rect body;
-	Sprite* sprite;
-	//The tile type
-	int type;
-
-
-}Tile;
-*/
 
 
 /**
@@ -41,9 +31,10 @@ Entity* tile_new(Vector2D position, int tileType);
 
 /**
 @brief loads level parameter variables
+@param filePath the file to load the level from
 */
-int init_level_parameters();
+Entity * set_level(char* filePath);
 
-void draw_tile(SDL_Rect camera);
+Entity * getPlayerPosition();			/**< Gets the position of the player entity>*/
 
 #endif // !__GF2D_TILE_H__

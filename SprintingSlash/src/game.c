@@ -18,8 +18,8 @@ const int SCREEN_HEIGHT = 720;
 const int SCREEN_BPP = 32;
 
 //The dimensions of the level
-const int levelWidth = 1280;
-const int levelHeight = 960;
+LEVEL_WIDTH = 1280;
+LEVEL_HEIGHT = 960;
 
 //The frame rate
 const int FRAMES_PER_SECOND = 60;
@@ -43,13 +43,13 @@ void set_camera(SDL_Rect camera, Entity * target)
 	{
 		camera.y = 0;
 	}
-	if (camera.x > levelWidth - camera.w)
+	if (camera.x > LEVEL_WIDTH - camera.w)
 	{
-		camera.x = levelWidth - camera.w;
+		camera.x = LEVEL_WIDTH - camera.w;
 	}
-	if (camera.y > levelHeight - camera.h)
+	if (camera.y > LEVEL_HEIGHT - camera.h)
 	{
-		camera.y = levelHeight - camera.h;
+		camera.y = LEVEL_HEIGHT - camera.h;
 	}
 	
 	return camera;
@@ -126,8 +126,8 @@ int main(int argc, char * argv[])
     
     /*demo setup*/
 
-    sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png",levelWidth,levelHeight,1);
-	pauseBG = gf2d_sprite_load_all("images/backgrounds/BlackSquare.png", levelWidth, levelHeight, 1);
+    sprite = gf2d_sprite_load_all("images/backgrounds/bg_flat.png",LEVEL_WIDTH,LEVEL_HEIGHT,1);
+	pauseBG = gf2d_sprite_load_all("images/backgrounds/BlackSquare.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
 	
 	
 
@@ -149,7 +149,7 @@ int main(int argc, char * argv[])
 	Vector2D wall3Position = { 50, 600 };
 	wall3 = wall_new(wall3Position);
 	*/
-	int level  = set_level("objects/level/level1.map");
+	int level  = set_level("objects/level/level2.map");
 
 	//font init
 
@@ -221,7 +221,7 @@ int main(int argc, char * argv[])
 			health->text = "Health";
 			SDL_SetRenderDrawColor(gf2d_graphics_get_renderer(), 255, 0, 0, 255);
 			SDL_RenderDrawRect(gf2d_graphics_get_renderer(), &health->box);
-			sprite = gf2d_sprite_load_all("images/backgrounds/battleback1.png", levelWidth, levelHeight, 1);
+			sprite = gf2d_sprite_load_all("images/backgrounds/battleback1.png", LEVEL_WIDTH, LEVEL_HEIGHT, 1);
 			if (keys[SDL_SCANCODE_P])
 			{
 				if (paused == 0) {

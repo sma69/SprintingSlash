@@ -5,6 +5,8 @@
 #include "gf2d_entity.h"
 #include "gf2d_graphics.h"
 #include "gf2d_file.h"
+#include "gf2d_level.h"
+
 
 //the attributes of the dot
 

@@ -20,13 +20,23 @@ const int TILE_BOTTOM = 8;
 const int TILE_BOTTOMLEFT = 9;
 const int TILE_LEFT = 10;
 
-const int LEVEL_WIDTH = 1280;
-const int LEVEL_HEIGHT = 960;
 
 
-void tileUpdate(Entity *self)
+
+void teleWallUpdate(Entity *self)
 {
+	
+}
 
+void teleWallTouch(Entity * self, Entity * other)
+{
+	if (checkWallCollision(self, other) == 1)
+	{
+		if (other->type == "player")
+		{
+			other->position.y = self->position.y - 300;
+		}
+	}
 }
 
 
@@ -47,7 +57,7 @@ Entity* tile_new(Vector2D position, int tileType)
 
 	//Get the Tile Type
 	self->type = tileType;
-	self->update = tileUpdate;
+	//self->update = tileUpdate;
 	return self;
 
 }
@@ -59,7 +69,7 @@ Entity* wall_new(Vector2D position)
 
 	if (!self)
 	{
-		slog("player does not exist\n");
+		slog("wall does not exist\n");
 		system("PAUSE");
 		return NULL;
 	}
@@ -71,6 +81,31 @@ Entity* wall_new(Vector2D position)
 	self->body.h = TILE_HEIGHT;
 	self->type = "wall";
 	self->sprite = gf2d_sprite_load_all("images/walls/greyStoneWall.jpg", self->body.w, self->body.h, 1);
+	vector4d_set(self->color, 255, 255, 255, 255);
+	self->touch = teleWallTouch;
+	return self;
+}
+
+Entity* teleWall_new(Vector2D position)
+{
+	Entity * self;
+	self = entity_new();
+
+	if (!self)
+	{
+		slog("wall does not exist\n");
+		system("PAUSE");
+		return NULL;
+	}
+	vector2d_set(self->position, position.x, position.y);
+	self->body.x = position.x;
+	self->body.y = position.y;
+	self->frame = 1;
+	self->body.w = TILE_WIDTH;
+	self->body.h = TILE_HEIGHT;
+	self->type = "wall";
+	self->sprite = gf2d_sprite_load_all("images/walls/tile_aqua.png", self->body.w, self->body.h, 1);
+	self->touch = teleWallTouch;
 	vector4d_set(self->color, 255, 255, 255, 255);
 	return self;
 }
@@ -104,7 +139,7 @@ Entity * set_level(char* filePath)
 	{
 
 		if (strcmp(letter, "00") == 0) {
-			//do nothinggo to next space
+			//do nothing go to next space
 		}
 		if (strcmp(letter, "01") == 0) {
 			Vector2D pos = { x, y };
@@ -114,6 +149,12 @@ Entity * set_level(char* filePath)
 		if (strcmp(letter, "02") == 0) {
 			Vector2D pos = { x, y };
 			level[t] = player_new(pos);
+			t++;
+		}
+
+		if (strcmp(letter, "03") == 0) {
+			Vector2D pos = { x, y };
+			level[t] = teleWall_new(pos);
 			t++;
 		}
 
