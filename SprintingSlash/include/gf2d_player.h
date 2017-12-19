@@ -16,6 +16,8 @@ int sprint;
 
 /**
 @brief  Initializes player entity
+@param Position is the position in the game where the player is to spawn
+@return a player entity at the given position
 */
 Entity *player_new(Vector2D Position);
 

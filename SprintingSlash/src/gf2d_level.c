@@ -75,7 +75,7 @@ Entity* wall_new(Vector2D position)
 	return self;
 }
 
-void set_level(char* filePath)
+Entity * set_level(char* filePath)
 {
 	//The tile offsets
 	int x = 0, y = 0;

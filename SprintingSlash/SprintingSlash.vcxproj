@@ -34,6 +34,7 @@
     <ClInclude Include="include\gf2d_level.h" />
     <ClInclude Include="include\gf2d_list.h" />
     <ClInclude Include="include\gf2d_player.h" />
+    <ClInclude Include="include\gf2d_projectile.h" />
     <ClInclude Include="include\gf2d_shape.h" />
     <ClInclude Include="include\gf2d_sprite.h" />
     <ClInclude Include="include\gf2d_text.h" />
@@ -57,6 +58,7 @@
     <ClCompile Include="src\gf2d_level.c" />
     <ClCompile Include="src\gf2d_list.c" />
     <ClCompile Include="src\gf2d_player.c" />
+    <ClCompile Include="src\gf2d_projectile.c" />
     <ClCompile Include="src\gf2d_shape.c" />
     <ClCompile Include="src\gf2d_sprite.c" />
     <ClCompile Include="src\gf2d_text.c" />

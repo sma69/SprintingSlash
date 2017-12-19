@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <physfs.h>
 #include "gf2d_graphics.h"
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
@@ -148,7 +149,7 @@ int main(int argc, char * argv[])
 	Vector2D wall3Position = { 50, 600 };
 	wall3 = wall_new(wall3Position);
 	*/
-	set_level("objects/level/level1.map");
+	int level  = set_level("objects/level/level1.map");
 
 	//font init
 
@@ -218,6 +219,8 @@ int main(int argc, char * argv[])
 
 		if (start == 0) {
 			health->text = "Health";
+			SDL_SetRenderDrawColor(gf2d_graphics_get_renderer(), 255, 0, 0, 255);
+			SDL_RenderDrawRect(gf2d_graphics_get_renderer(), &health->box);
 			sprite = gf2d_sprite_load_all("images/backgrounds/battleback1.png", levelWidth, levelHeight, 1);
 			if (keys[SDL_SCANCODE_P])
 			{

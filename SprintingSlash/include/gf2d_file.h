@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL.h>
-#include "physfs.h"
+#include <physfs.h>
 
 
 #define FILE_MAX_DATA 64

@@ -1,5 +1,6 @@
 #include "gf2d_player.h"
 Mix_Chunk* gSword1;
+float projectileCD;
 void playerThink(Entity* self)
 {
 	playerMove(self);
@@ -42,8 +43,19 @@ void playerMove(Entity * self)
 			self->velocity.y += (1 * sprint);
 		}
 	}
+	if (keys[SDL_SCANCODE_SPACE])
+	{
+		if (projectileCD <= 0) {
+			projectile_new(vector2d( self->position.x + 50, self->position.y),vector2d(1,0), 5);
+			projectileCD = 10;
+		}
 
-
+	}
+	projectileCD -= 0.3;
+	if(projectileCD <= 0)
+	{
+		projectileCD = 0;
+	}
 
 }
 
