@@ -1,45 +1,59 @@
-﻿  gf2d_level.c
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(33): warning C4013: 'checkHitboxCollision' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(48): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(49): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(59): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(77): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(78): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(101): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(102): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(109): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(110): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(136): warning C4033: 'set_level' must return a value
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(145): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(145): warning C4024: 'strcmp': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(148): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(148): warning C4024: 'strcmp': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(153): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(153): warning C4024: 'strcmp': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(155): warning C4013: 'enemy_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(155): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(159): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(159): warning C4024: 'strcmp': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(165): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(165): warning C4024: 'strcmp': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(167): warning C4013: 'boss2_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(167): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(172): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(172): warning C4024: 'strcmp': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(174): warning C4013: 'enemy2_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(174): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(178): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(178): warning C4024: 'strcmp': different types for formal and actual parameter 1
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(180): warning C4013: 'enemy3_new' undefined; assuming extern returning int
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(180): warning C4047: '=': 'Entity *' differs in levels of indirection from 'int'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(198): warning C4047: 'return': 'Entity *' differs in levels of indirection from 'Entity *[192]'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(130): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+﻿  gf2d_player.c
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(54): warning C4013: 'projectile_new' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(65): warning C4305: '-=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(76): warning C4013: 'checkWallCollision' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(96): warning C4002: too many actual parameters for macro 'Mix_PlayChannel'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(103): warning C4013: 'checkHitboxCollision' undefined; assuming extern returning int
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(121): warning C4305: '-=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(139): warning C4305: '+=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(145): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(146): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(154): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(158): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(160): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(199): warning C4305: '-=': truncation from 'double' to 'float'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(227): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(227): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(231): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(231): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(235): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(235): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(239): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(239): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(243): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(243): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(247): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(247): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(251): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1024]'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(251): warning C4024: 'strcmp': different types for formal and actual parameter 1
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(258): warning C4098: 'loadPlayerFromFile': 'void' function returning a value
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(215): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(142): warning C4477: 'fscanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'char **'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(142): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(225): warning C4477: 'fscanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'char **'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(225): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(123): warning C4101: 'line': unreferenced local variable
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(199): warning C4715: 'set_level': not all control paths return a value
-d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_level.c(198): warning C4172: returning address of local variable or temporary: level
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(228): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(232): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(236): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(240): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(244): warning C4477: 'fscanf' : format string '%i' requires an argument of type 'int *', but variadic argument 1 has type 'double *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(244): warning C4477: 'fscanf' : format string '%i' requires an argument of type 'int *', but variadic argument 2 has type 'double *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(244): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(248): warning C4477: 'fscanf' : format string '%i' requires an argument of type 'int *', but variadic argument 1 has type 'double *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(248): warning C4477: 'fscanf' : format string '%i' requires an argument of type 'int *', but variadic argument 2 has type 'double *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(248): warning C4477: 'fscanf' : format string '%i' requires an argument of type 'int *', but variadic argument 3 has type 'double *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(248): warning C4477: 'fscanf' : format string '%i' requires an argument of type 'int *', but variadic argument 4 has type 'double *'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(248): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(252): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1195): note: see declaration of 'fscanf'
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(210): warning C4101: 'line': unreferenced local variable
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(290): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\users\sayyid\2dprojects\sprintingslash\sprintingslash\src\gf2d_player.c(291): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.exe
   SprintingSlash.vcxproj -> D:\Users\Sayyid\2DProjects\SprintingSlash\Debug\SprintingSlash.pdb (Partial PDB)

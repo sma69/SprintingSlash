@@ -84,12 +84,14 @@ void playerTouch(Entity* self, Entity* other)
 		
 		if (meleeCD <= 0) {
 			
-			if (self->sprite = gf2d_sprite_load_all("images/players/zero_slash1.png", 75, self->height, 5))
+			if (comboCount == 0)
+			{
+				self->sprite = gf2d_sprite_load_all("images/players/zero_slash1.png", 75, self->height, 5);
+			}
+			if (comboCount >= 1)
 			{
 				self->sprite = gf2d_sprite_load_all("images/players/zero_slash2.png", 77, 62, 9);
 			}
-			else
-				self->sprite = gf2d_sprite_load_all("images/players/zero_slash1.png", 75, self->height, 5);
 			
 			Mix_PlayChannel(-1, gSword1, 0, -1);
 			if (gSword1 == NULL)
