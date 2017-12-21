@@ -181,6 +181,12 @@ Entity * set_level(char* filePath)
 			t++;
 		}
 
+		if (strcmp(letter, "07") == 0) {
+			Vector2D pos = { x, y };
+			level[t] = boss_new(pos);
+			t++;
+		}
+
 		//Move to next tile spot
 		x += TILE_WIDTH;
 

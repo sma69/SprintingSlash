@@ -183,16 +183,16 @@ int main(int argc, char * argv[])
 			
 			sprite = pauseBG;
 			health->text = "Press Enter to Begin";
-			/**
-			if (mainMenu_update(mainMenu, start, done) == 1)
+			
+			/*if (mainMenu_update(mainMenu, start, done) == 1)
 			{
 				start = 0;
 			}
 			if (mainMenu_update(mainMenu, start, done) == 3)
 			{
 				done = 1;
-			}
-			*/
+			}*/
+			
 			if (keys[SDL_SCANCODE_RETURN])
 				start = 0;
 			

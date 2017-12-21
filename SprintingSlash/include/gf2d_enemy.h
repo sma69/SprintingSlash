@@ -22,19 +22,35 @@ void enemyThink(Entity* self);
 void enemyTouch(Entity* self, Entity* other);
 
 /**
-@brief updates the player entity
+@brief updates the enemy entity
 */
 void enemyUpdate(Entity* self);
 
+/**
+@brief updates the second enemy entity
+*/
+void enemy2Update(Entity * self);
 
 /**
-@brief  Players the player move
+@brief updates the first boss entity
+*/
+void bossUpdate(Entity * self);
+
+
+/**
+@brief  the Enemy's movement function of its think
 */
 void enemyMove(Entity * self);
 
+/**
+@brief Spawns the first boss at a given location
+*/
+
+Entity *boss_new(Vector2D Position);
+
 
 /**
-@brief Spawns the boss at a given location
+@brief Spawns the second boss at a given location
 */
 Entity *boss2_new(Vector2D Position);
 
